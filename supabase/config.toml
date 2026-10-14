@@ -1,0 +1,3 @@
+[functions.contact]
+# The public website calls this function with the anon key, so JWT checks stay on.
+verify_jwt = true
