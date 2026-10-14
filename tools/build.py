@@ -1,11 +1,16 @@
 import sys, json
 out = sys.argv[1]
 SITE = "https://www.koldaltax.com"
-NAV = [("/", "Home"), ("/about/", "About"), ("/services/", "Services"), ("/irs-notices/", "IRS Notices"), ("/contact/", "Contact")]
+# Add your business phone here (e.g. "(954) 555-0123") to show call buttons across the site.
+PHONE = ""
+CITIES = ["Coral Springs", "Margate", "Parkland", "Coconut Creek", "Tamarac", "Pompano Beach"]
+NAV = [("/", "Home"), ("/services/", "Services"), ("/irs-notices/", "IRS Notices"), ("/quickbooks-help/", "QuickBooks Help"), ("/about/", "About"), ("/contact/", "Contact")]
 SCHEMA = {"@context": "https://schema.org", "@type": "AccountingService", "name": "Koldal Tax & Advisory",
           "url": SITE, "email": "alek@koldaltax.com", "founder": {"@type": "Person", "name": "Alek Koldal, EA"},
           "address": {"@type": "PostalAddress", "addressLocality": "Coral Springs", "addressRegion": "FL", "addressCountry": "US"},
-          "areaServed": "South Florida"}
+          "areaServed": [{"@type": "City", "name": c + ", FL"} for c in CITIES]}
+if PHONE: SCHEMA["telephone"] = PHONE
+TEL = "tel:" + "".join(ch for ch in PHONE if ch.isdigit() or ch == "+")
 
 def page(path, title, desc, body):
     nav = "".join(f'<a href="{h}"{" aria-current=\"page\"" if h == path else ""}>{t}</a>' for h, t in NAV)
@@ -29,12 +34,12 @@ def page(path, title, desc, body):
 <script type="application/ld+json">{json.dumps(SCHEMA)}</script>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="/">Koldal Tax &amp; Advisory</a><nav>{nav}<a class="btn" href="/contact/">Book a consultation</a></nav></div></header>
+<header><div class="wrap"><a class="brand" href="/">Koldal Tax &amp; Advisory</a><nav>{nav}{f'<a class="btn ghost" href="{TEL}">Call {PHONE}</a>' if PHONE else ""}<a class="btn" href="/contact/">Book a consultation</a></nav></div></header>
 <main>
 {body}
 </main>
 <footer><div class="wrap">
-<div><strong>Koldal Tax &amp; Advisory</strong><br>Alek Koldal, EA (Enrolled Agent)<br>Coral Springs, Florida<br><a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a><br>
+<div><strong>Koldal Tax &amp; Advisory</strong><br>Alek Koldal, EA (Enrolled Agent)<br>Coral Springs, Florida<br>{f'<a href="{TEL}">{PHONE}</a><br>' if PHONE else ""}<a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a><br>Serving {", ".join(CITIES[:-1])} and {CITIES[-1]}<br>
 <a href="https://members.csccrchamber.com/list/member/koldal-tax-advisory-margate-7305" rel="noopener">Chamber of Commerce member</a> · <a href="https://www.linkedin.com/in/aleksander-koldal" rel="noopener">LinkedIn</a> · <a href="https://g.page/r/CTKng70qwgj_EBM/review" rel="noopener">Leave a Google review</a>
 <p class="small">&copy; 2026 Koldal Tax &amp; Advisory</p></div>
 <div><strong>Newsletter</strong><p class="small">Tax deadlines and tips, a few times a year.</p>
@@ -42,10 +47,22 @@ def page(path, title, desc, body):
 <input type="email" name="email" required placeholder="Email address" aria-label="Email address"><button class="btn" type="submit">Sign up</button>
 <div class="msg" role="status" style="grid-column:1/-1"></div></form></div>
 </div></footer>
+{f'<a class="callbar" href="{TEL}">Call {PHONE}</a>' if PHONE else ""}
 <script src="/assets/config.js"></script><script src="/assets/forms.js"></script>
 </body>
 </html>
 """
+
+def quick_form(topic, heading, blurb):
+    t = topic.replace('"', "&quot;")
+    return f"""<div class="card quick" style="margin-top:30px"><h3>{heading}</h3><p>{blurb}</p>
+<form data-kind="contact" style="margin-top:14px"><input type="hidden" name="service" value="{t}">
+<div class="row"><label>First name<input name="first_name" required autocomplete="given-name"></label><label>Last name<input name="last_name" required autocomplete="family-name"></label></div>
+<div class="row"><label>Email<input type="email" name="email" required autocomplete="email"></label><label>Phone<input type="tel" name="phone" autocomplete="tel"></label></div>
+<label>Anything I should know? (optional)<textarea name="message" style="min-height:80px"></textarea></label>
+<label class="hp">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
+<button class="btn" type="submit">Request help</button><div class="msg" role="status"></div></form>
+{f'<p class="small" style="margin-top:12px">Or call <a href="{TEL}">{PHONE}</a>.</p>' if PHONE else ""}</div>"""
 
 CTA = """<section><div class="wrap"><div class="cta"><div><h2>Ready to get organized?</h2><p style="margin:6px 0 0;opacity:.85">Book a consultation and we can talk through what you need.</p></div><a class="btn" href="/contact/">Book a consultation</a></div></div></section>"""
 
@@ -75,6 +92,7 @@ pages = {
 <section><div class="wrap"><h2>How I can help</h2><div class="grid">{cards(SERVICES[:3] + SERVICES[4:5] + [(SERVICES[3][0], SERVICES[3][1], [])])}</div>
 <p style="margin-top:20px"><a href="/services/">All services &rarr;</a></p></div></section>
 <section style="padding-top:0"><div class="wrap"><div class="card"><h3>Got a letter from the IRS?</h3><p>Look up your notice number (CP2000, CP14, CP504, 5071C and more) for a plain-English explanation and your deadline.</p><p style="margin-top:14px"><a class="btn ghost" href="/irs-notices/">Look up your IRS notice</a></p></div></div></section>
+<section style="padding-top:0"><div class="wrap"><div class="card"><h3>Stuck in QuickBooks Online?</h3><p>Bank feeds not updating, reconciliations that won&#39;t balance, a pile of uncategorized transactions: step-by-step fixes for common problems.</p><p style="margin-top:14px"><a class="btn ghost" href="/quickbooks-help/">QuickBooks Online help</a></p></div></div></section>
 <section style="background:var(--soft)"><div class="wrap split"><div><h2>Work with an Enrolled Agent</h2>
 <p>I'm Alek Koldal, an IRS Enrolled Agent. Enrolled Agents are federally licensed tax practitioners who can represent taxpayers before the IRS.</p>
 <p>You'll work with me directly, with responsive communication and practical answers year-round, not just at tax time.</p>
@@ -94,6 +112,7 @@ pages = {
 "services/index.html": page("/services/", "Tax, Bookkeeping &amp; QuickBooks Services | Koldal Tax &amp; Advisory",
  "Individual and business tax returns, tax planning, monthly bookkeeping, QuickBooks cleanup and IRS help for clients in Coral Springs and South Florida.",
  f"""<section><div class="wrap"><h1>Services</h1><p style="color:var(--muted);max-width:640px">Every engagement starts with a consultation so I can understand your situation.</p>
+<div class="grid" style="margin-top:24px"><a class="card notice" href="/services/quickbooks-online-bookkeeping/"><h3>QuickBooks Online bookkeeping &rarr;</h3><p>Monthly bookkeeping, cleanup and catch-up.</p></a><a class="card notice" href="/services/tax-preparation/"><h3>Tax preparation &rarr;</h3><p>Individual and small business returns.</p></a><a class="card notice" href="/services/irs-notice-help/"><h3>IRS notice help &rarr;</h3><p>Got a letter from the IRS? I can respond for you.</p></a></div>
 <h2 style="margin-top:34px">Tax services</h2><div class="grid">{cards([SERVICES[0], SERVICES[1], SERVICES[2], SERVICES[5]])}</div>
 <h2 style="margin-top:40px">Accounting services</h2><div class="grid">{cards([SERVICES[3], SERVICES[4]])}</div></div></section>
 {CTA}"""),
@@ -131,7 +150,7 @@ for n in NOTICES:
 <h2>Common reasons you got it</h2>{li(n["common"])}
 <h2>What to do</h2>{li(n["todo"])}
 <h2>Deadline</h2><p><strong>{e(n["deadline"])}</strong></p>
-<div class="card" style="margin-top:30px"><h3>Want help responding?</h3><p>As an IRS Enrolled Agent, I can review your {e(n["name"])}, explain what it means for you, and respond to the IRS on your behalf.</p><p style="margin-top:14px"><a class="btn" href="/contact/">Get help with this notice</a></p></div>
+{quick_form("IRS notice: " + n["name"], "Get help with your " + e(n["name"]), "As an IRS Enrolled Agent, I can review your notice, explain what it means for you, and respond to the IRS on your behalf. Send your details and I&#39;ll get back to you.")}
 {DISCLAIMER}</div></section><script type="application/ld+json">{json.dumps(faq)}</script>"""
     pages[f"irs-notices/{n['id']}/index.html"] = page(f"/irs-notices/{n['id']}/", f"IRS {e(n['name'])} Notice Explained: {e(n['title'])} | Koldal Tax", e(f"Got an IRS {n['name']}? What it means, common reasons, what to do, and your deadline. Plain-English guide from Alek Koldal, EA."), body)
 pages["irs-notices/index.html"] = page("/irs-notices/", "IRS Notice Lookup: What Your IRS Letter Means | Koldal Tax &amp; Advisory",
@@ -140,10 +159,66 @@ pages["irs-notices/index.html"] = page("/irs-notices/", "IRS Notice Lookup: What
 <input id="nq" type="search" placeholder="Search, e.g. CP2000, levy, identity" aria-label="Search IRS notices" style="max-width:520px;margin:10px 0 24px">
 <div class="grid" id="nl">{rows}</div><p id="none" style="display:none">No match. <a href="/contact/">Send me your notice</a> and I'll explain it.</p>{DISCLAIMER}</div></section>
 <script>const q=document.getElementById('nq'),cs=[...document.querySelectorAll('#nl .notice')];q.addEventListener('input',()=>{{const v=q.value.toLowerCase().replace(/ /g,'');let n=0;cs.forEach(c=>{{const m=c.dataset.q.replace(/ /g,'').includes(v);c.style.display=m?'':'none';n+=m}});document.getElementById('none').style.display=n?'none':''}});</script>""")
+QBO = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "quickbooks.json")))
+qrows = ""
+for a in QBO:
+    e = lambda x: H.escape(x)
+    qrows += f'<a class="card notice" href="/quickbooks-help/{a["id"]}/" data-q="{e((a["title"]+" "+a["why"]).lower())}"><h3>{e(a["title"])}</h3><p>{e(a["q"])}</p></a>'
+    steps = "<ol>" + "".join(f"<li>{e(x)}</li>" for x in a["fix"]) + "</ol>"
+    faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": a["q"], "acceptedAnswer": {"@type": "Answer", "text": a["why"] + " " + " ".join(a["fix"])}}]}
+    body = f"""<section><div class="wrap" style="max-width:780px"><p class="small"><a href="/quickbooks-help/">QuickBooks Online help</a> &rsaquo; {e(a["title"])}</p>
+<h1>{e(a["title"])}</h1>
+<h2>Why it happens</h2><p>{e(a["why"])}</p>
+<h2>How to fix it</h2>{steps}
+<h2>When to get help</h2><p>{e(a["pro"])}</p>
+{quick_form("QuickBooks: " + a["title"], "Want me to fix it for you?", "I work in QuickBooks Online every day doing bookkeeping, cleanup and catch-up for small businesses. Send your details and I&#39;ll get back to you.")}
+<p class="small" style="margin-top:28px">Menu names in QuickBooks Online change from time to time. If a step doesn&#39;t match what you see, the same option is usually nearby.</p></div></section><script type="application/ld+json">{json.dumps(faq)}</script>"""
+    pages[f"quickbooks-help/{a['id']}/index.html"] = page(f"/quickbooks-help/{a['id']}/", f"{e(a['title'])} | QuickBooks Online Help | Koldal Tax", e(a["q"] + " Causes and step-by-step fixes from a QuickBooks Online bookkeeper in Coral Springs, FL."), body)
+pages["quickbooks-help/index.html"] = page("/quickbooks-help/", "QuickBooks Online Help: Common Problems and Fixes | Koldal Tax &amp; Advisory",
+ "Fix common QuickBooks Online problems: bank feeds, reconciliations, uncategorized transactions, Undeposited Funds, 1099s and more. From a Coral Springs bookkeeper.",
+ f"""<section><div class="wrap"><h1>QuickBooks Online help</h1><p style="color:var(--muted);max-width:680px">Plain-English fixes for the QuickBooks Online problems I see most often. If you&#39;d rather have it done for you, every page has a quick way to reach me.</p>
+<input id="nq" type="search" placeholder="Search, e.g. bank feed, reconcile, 1099" aria-label="Search QuickBooks help" style="max-width:520px;margin:10px 0 24px">
+<div class="grid" id="nl">{qrows}</div><p id="none" style="display:none">No match. <a href="/contact/">Ask me directly</a>.</p></div></section>
+<script>const q=document.getElementById('nq'),cs=[...document.querySelectorAll('#nl .notice')];q.addEventListener('input',()=>{{const v=q.value.toLowerCase();let n=0;cs.forEach(c=>{{const m=c.dataset.q.includes(v);c.style.display=m?'':'none';n+=m}});document.getElementById('none').style.display=n?'none':''}});</script>""")
+
+def service_page(slug, title, desc, h1, intro, sections, topic, links):
+    secs = "".join(f"<h2>{h}</h2>" + ("<ul>" + "".join(f"<li>{x}</li>" for x in body) + "</ul>" if isinstance(body, list) else f"<p>{body}</p>") for h, body in sections)
+    lk = "".join(f'<li><a href="{u}">{t}</a></li>' for u, t in links)
+    pages[f"services/{slug}/index.html"] = page(f"/services/{slug}/", title, desc,
+     f"""<section><div class="wrap" style="max-width:780px"><p class="small"><a href="/services/">Services</a></p><h1>{h1}</h1><p style="font-size:19px;color:var(--muted)">{intro}</p>{secs}
+<h2>Helpful guides</h2><ul>{lk}</ul>{quick_form(topic, "Get started", "Tell me a bit about your situation and I&#39;ll get back to you.")}</div></section>""")
+
+AREA = f"Based in Coral Springs and working with clients in {', '.join(CITIES[1:-1])} and {CITIES[-1]}, as well as remotely across Florida."
+service_page("quickbooks-online-bookkeeping", "QuickBooks Online Bookkeeping in Coral Springs, FL | Koldal Tax &amp; Advisory",
+ "Monthly QuickBooks Online bookkeeping, cleanup and catch-up for small businesses in Coral Springs, Margate, Parkland and South Florida.",
+ "QuickBooks Online bookkeeping for small businesses",
+ "Monthly bookkeeping, cleanup and catch-up in QuickBooks Online, done by an Enrolled Agent who also prepares your taxes. " + AREA,
+ [("Monthly bookkeeping", SERVICES[3][2]),
+  ("Cleanup &amp; catch-up", "Behind by a few months or a few years? I'll bring your QuickBooks Online file up to date, reconcile every account, and leave you with books you can trust at tax time."),
+  ("Why it helps to have your bookkeeper do your taxes", "Your books and your return are done by the same person, so nothing gets lost between them, and questions get answered once.")],
+ "QuickBooks Online bookkeeping",
+ [(f"/quickbooks-help/{a['id']}/", H.escape(a["title"])) for a in QBO[:6]] + [("/quickbooks-help/", "All QuickBooks Online help")])
+service_page("irs-notice-help", "IRS Notice &amp; Letter Help in Coral Springs, FL | Enrolled Agent | Koldal Tax",
+ "Got a letter from the IRS? An Enrolled Agent in Coral Springs, FL can explain your notice, respond for you, and set up payment plans.",
+ "Help with IRS notices and letters",
+ "An IRS letter doesn't have to be stressful. As an Enrolled Agent, I'm federally licensed to represent taxpayers before the IRS. " + AREA,
+ [("What I can do", ["Explain what your notice means and what it will cost","Respond to proposed changes such as a CP2000","Set up payment plans for balances due","Respond to identity verification and missing information letters","Protect your appeal rights when time limits apply"]),
+  ("What to send me", "A copy of every page of the notice, and the tax return for that year if you have it.")],
+ "IRS notice help",
+ [(f"/irs-notices/{n['id']}/", "IRS " + H.escape(n["name"]) + ": " + H.escape(n["title"])) for n in NOTICES[:6]] + [("/irs-notices/", "Look up any IRS notice")])
+service_page("tax-preparation", "Tax Preparation in Coral Springs, FL | Individual &amp; Small Business | Koldal Tax",
+ "Individual and small business tax preparation by an Enrolled Agent in Coral Springs, FL: 1040s, Schedule C, partnerships and S corporations.",
+ "Tax preparation for individuals and small businesses",
+ "Straightforward tax preparation from an Enrolled Agent, with year-round answers when you need them. " + AREA,
+ [("Individuals", SERVICES[0][1]), ("Small businesses", SERVICES[1][1]), ("Planning", SERVICES[2][1])],
+ "Tax preparation",
+ [("/irs-notices/", "Got a letter from the IRS? Look it up"), ("/quickbooks-help/1099-contractors/", "Preparing 1099s in QuickBooks Online")])
+
 for name, html in pages.items():
     p = os.path.join(out, name); os.makedirs(os.path.dirname(p), exist_ok=True); open(p, "w").write(html)
 open(os.path.join(out, "CNAME"), "w").write("www.koldaltax.com\n")
 open(os.path.join(out, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
-urls = "".join(f"<url><loc>{SITE}{h}</loc></url>" for h in [h for h, _ in NAV] + [f"/irs-notices/{n['id']}/" for n in NOTICES])
+urls = "".join(f"<url><loc>{SITE}/{n[:-len('index.html')]}</loc></url>" for n in pages if n.endswith("index.html"))
 open(os.path.join(out, "sitemap.xml"), "w").write(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n')
 print("built", list(pages))

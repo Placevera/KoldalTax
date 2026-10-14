@@ -40,7 +40,7 @@ Deno.serve(async (req) => {
     page: clean(body.page, 200),
   };
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(row.email)) return new Response("Invalid email", { status: 400, headers });
-  if (kind === "contact" && !row.message) return new Response("Message required", { status: 400, headers });
+  if (kind === "contact" && !row.message && !row.service) return new Response("Message required", { status: 400, headers });
 
   const db = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
   const { data, error } = await db.from("submissions").insert(row).select("id").single();
