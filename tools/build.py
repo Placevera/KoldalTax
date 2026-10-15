@@ -23,7 +23,7 @@ def page(path, title, desc, body):
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{SITE}{path}">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon.png" type="image/png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Koldal Tax &amp; Advisory">
 <meta property="og:title" content="{title}">
@@ -37,12 +37,12 @@ def page(path, title, desc, body):
 <script type="application/ld+json">{json.dumps(SCHEMA)}</script>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="/"><b>Koldal</b><small>Tax &amp; Advisory</small></a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav id="site-nav">{nav}{f'<a class="btn ghost" href="{TEL}">Call {PHONE}</a>' if PHONE else ""}<a class="btn" href="/contact/">Contact</a></nav></div><script>{{const b=document.querySelector(".menu-btn"),h=b.closest("header");b.addEventListener("click",()=>{{const o=h.classList.toggle("open");b.setAttribute("aria-expanded",o);b.textContent=o?"Close":"Menu"}})}}</script></header>
+<header><div class="wrap"><a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="56" height="42"><b>Koldal</b><small>Tax &amp; Advisory</small></a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav id="site-nav">{nav}{f'<a class="btn ghost" href="{TEL}">Call {PHONE}</a>' if PHONE else ""}<a class="btn" href="/contact/">Contact</a></nav></div><script>{{const b=document.querySelector(".menu-btn"),h=b.closest("header");b.addEventListener("click",()=>{{const o=h.classList.toggle("open");b.setAttribute("aria-expanded",o);b.textContent=o?"Close":"Menu"}})}}</script></header>
 <main>
 {body}
 </main>
 <footer><div class="wrap">
-<div><a class="brand" href="/"><b>Koldal</b><small>Tax &amp; Advisory</small></a><p class="small">Alek Koldal, EA<br>Coral Springs, Florida<br>{f'<a href="{TEL}">{PHONE}</a><br>' if PHONE else ""}<a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a></p></div>
+<div><a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="56" height="42"><b>Koldal</b><small>Tax &amp; Advisory</small></a><p class="small">Alek Koldal, EA<br>Coral Springs, Florida<br>{f'<a href="{TEL}">{PHONE}</a><br>' if PHONE else ""}<a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a></p></div>
 <div><strong>Services</strong><a href="/bookkeeping/">Bookkeeping</a><a href="/tax/">Tax preparation</a><a href="/advisory/">Tax planning</a><a href="/services/irs-notice-help/">IRS help</a><a href="/pricing/">Pricing</a></div>
 <div><strong>Resources</strong><a href="/irs-notices/">IRS notice lookup</a><a href="/quickbooks-help/">QuickBooks help</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
 <div><strong>Connect</strong><a href="{PORTAL}" rel="noopener">Send documents securely</a><a href="https://g.page/r/CTKng70qwgj_EBM/review" rel="noopener">Google reviews</a><a href="https://www.linkedin.com/in/aleksander-koldal" rel="noopener">LinkedIn</a><a href="https://members.csccrchamber.com/list/member/koldal-tax-advisory-margate-7305" rel="noopener">Chamber of Commerce</a><a class="badge-link" href="https://members.csccrchamber.com/list/member/koldal-tax-advisory-margate-7305" rel="noopener"><img src="/assets/chamber-member.png" alt="Proud member, Coral Springs Coconut Creek Regional Chamber" width="125" height="83" loading="lazy"></a></div>
