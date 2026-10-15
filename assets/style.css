@@ -253,3 +253,9 @@ form.card{display:grid}
 form.card,.quick form{gap:22px}
 .split h1{margin-bottom:22px}
 footer .brand{display:inline-grid;align-self:start;justify-content:start}
+.reviews{background:var(--mist)}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:32px}
+.quote{margin:0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.quote .stars{color:#e3a72f;letter-spacing:2px;font-size:15px}
+.quote blockquote{margin:0;font-size:17px;line-height:1.6;color:var(--ink);flex:1}
+.quote figcaption{font-size:14px;color:var(--muted);font-weight:600}
