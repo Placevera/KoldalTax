@@ -36,7 +36,7 @@ def page(path, title, desc, body):
 <script type="application/ld+json">{json.dumps(SCHEMA)}</script>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="/">Koldal Tax &amp; Advisory</a><nav>{nav}{f'<a class="btn ghost" href="{TEL}">Call {PHONE}</a>' if PHONE else ""}<a class="btn" href="/contact/">Free QuickBooks review</a></nav></div></header>
+<header><div class="wrap"><a class="brand" href="/">Koldal Tax &amp; Advisory</a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav id="site-nav">{nav}{f'<a class="btn ghost" href="{TEL}">Call {PHONE}</a>' if PHONE else ""}<a class="btn" href="/contact/">Free QuickBooks review</a></nav></div><script>{{const b=document.querySelector(".menu-btn"),h=b.closest("header");b.addEventListener("click",()=>{{const o=h.classList.toggle("open");b.setAttribute("aria-expanded",o);b.textContent=o?"Close":"Menu"}})}}</script></header>
 <main>
 {body}
 </main>
@@ -70,37 +70,33 @@ CTA = """<section><div class="wrap"><div class="cta"><div><h2>Find out where you
 
 EA_BADGE = '<span class="ea">EA</span>'
 
-# Fill in your real prices. PRICE_TBD shows as a highlighted placeholder until you do.
-PRICE_TBD = '<span class="tbd">$___</span>'
+# Monthly bookkeeping starts at $300. Higher tiers are quoted after the free review.
 PLANS = [
- ("Essentials", PRICE_TBD, "For a newer or simpler business.", "Up to 2 bank or card accounts, roughly 100 transactions a month",
+ ("Essentials", "From $300<span>/month</span>", "For a newer or simpler business.", "Up to 2 bank or card accounts, roughly 100 transactions a month",
   ["Monthly bank and credit card reconciliations", "Every transaction categorized", "Monthly profit &amp; loss and balance sheet", "Email support during the year", "Books ready for your tax return"]),
- ("Growth", PRICE_TBD, "For an established business with more moving parts.", "Up to 5 accounts, roughly 300 transactions a month",
+ ("Growth", "Custom quote", "For an established business with more moving parts.", "Up to 5 accounts, roughly 300 transactions a month",
   ["Everything in Essentials", "Loan and merchant account reconciliations", "Customer invoices and unpaid bills tracked", "Quarterly review call", "Quarterly estimated tax payments calculated"]),
- ("Advisory", PRICE_TBD, "For owners who want a numbers partner, not just clean books.", "Larger volume, quoted after your review",
+ ("Advisory", "Custom quote", "For owners who want a numbers partner, not just clean books.", "Larger volume, quoted after your review",
   ["Everything in Growth", "Monthly review call", "Cash-flow forecast", "Year-end tax planning", "Business tax return included"]),
 ]
 ADDONS = [
  ("QuickBooks cleanup &amp; catch-up", "Quoted after your free review", "/services/quickbooks-cleanup/"),
  ("Payroll setup &amp; review with Gusto", "Monthly add-on", "/services/payroll-with-gusto/"),
  ("Business tax return", "Included in Advisory, discounted on other plans", "/tax/"),
- ("Individual tax return", "Flat fee", "/tax/"),
+ ("Individual tax return (1040)", "From $650", "/tax/"),
  ("IRS notices &amp; penalty relief", "Small upfront fee plus a percentage of penalties removed", "/services/irs-notice-help/"),
  ("1099 preparation &amp; filing", "Per form, each January", "/quickbooks-help/1099-contractors/"),
  ("Florida sales tax filing", "Monthly or quarterly", None),
  ("Florida annual report (Sunbiz)", "Once a year, due by May 1", None),
 ]
-INDUSTRIES = [("Contractors &amp; trades", "Job costing, materials, subcontractor 1099s and loan payments on trucks and equipment."),
- ("Real estate agents", "Commission income, marketing and car expenses, and quarterly estimated taxes."),
- ("Service businesses", "Cleaning, landscaping, salons and other local businesses that run on QuickBooks and Gusto.")]
 
 def plan_cards(full=True):
     h = ""
     for i, (name, price, who, size, items) in enumerate(PLANS):
         ul = "".join(f"<li>{x}</li>" for x in (items if full else items[:3]))
-        pop = '<p class="eyebrow">Most popular</p>' if i == 1 else ''
+        pop = ''
         h += f'''<div class="card plan{' featured' if i == 1 else ''}">{pop}<h3>{name}</h3>
-<p class="price">From {price}<span>/month</span></p><p>{who}</p><p class="small">{size}</p><ul class="checks">{ul}</ul>
+<p class="price">{price}</p><p>{who}</p><p class="small">{size}</p><ul class="checks">{ul}</ul>
 <a class="btn{'' if i == 1 else ' ghost'}" href="/contact/">Start with a free review</a></div>'''
     return f'<div class="plans">{h}</div>'
 
@@ -162,10 +158,11 @@ pages = {
 <ul class="proof"><li>{EA_BADGE} IRS Enrolled Agent</li><li>&#9733; 5.0 on Google</li><li>QuickBooks Online specialist</li><li>Chamber of Commerce member</li></ul></div></div>
 <section><div class="wrap"><h2>How it works</h2>{STEPS}</div></section>
 {EA_SECTION}
-<section style="background:var(--soft)"><div class="wrap"><h2>Bookkeeping plans</h2><p class="lede">One monthly price based on how many accounts and transactions you have. No surprise bills.</p>{plan_cards(full=False)}
+<section style="background:var(--soft)"><div class="wrap"><h2>Bookkeeping plans</h2><p class="lede">Monthly bookkeeping starts at $300. Your exact price is set after a free review of your books, so there are no surprise bills.</p>{plan_cards(full=False)}
 <p style="margin-top:18px"><a href="/pricing/">Compare plans and add-ons &rarr;</a></p></div></section>
-<section><div class="wrap"><h2>Who I work with</h2><div class="grid">{"".join(f'<div class="card"><h3>{t}</h3><p>{d}</p></div>' for t, d in INDUSTRIES)}</div>
-<p class="small" style="margin-top:14px">Also: <a href="/services/payroll-with-gusto/">payroll setup and review with Gusto</a>, 1099s, Florida sales tax and Sunbiz annual reports.</p></div></section>
+<section><div class="wrap split"><div><h2>Bookkeeping for any small business</h2>
+<p>Whatever your business does, if it runs on QuickBooks Online I can keep its books: contractors and trades, real estate agents, salons, cleaning and landscaping companies, restaurants, online sellers, professional services and more.</p></div>
+<div class="card"><h3>Also handled in one place</h3><ul class="checks"><li><a href="/services/payroll-with-gusto/">Payroll setup and review with Gusto</a></li><li><a href="/tax/">Business and individual tax returns</a></li><li><a href="/services/irs-notice-help/">IRS notices and penalty relief</a></li><li>1099s, Florida sales tax and Sunbiz annual reports</li></ul></div></div></section>
 <section style="background:var(--soft)"><div class="wrap"><h2>Free help</h2><div class="grid">
 <a class="card notice" href="/irs-notices/"><h3>IRS notice lookup &rarr;</h3><p>Got a letter from the IRS? What it means, what to do, and your deadline.</p></a>
 <a class="card notice" href="/quickbooks-help/"><h3>QuickBooks Online help &rarr;</h3><p>Fixes for bank feeds, reconciliations, Undeposited Funds, 1099s and more.</p></a></div></div></section>
@@ -177,7 +174,7 @@ pages = {
 <div class="actions"><a class="btn" href="/contact/">Get in touch</a><a class="btn ghost" href="/irs-notices/">Look up an IRS notice</a></div></div></div>
 <section><div class="wrap"><div class="grid">
 <div class="card"><h3>Business tax returns</h3><p>Schedule C, partnerships (1065) and S corporations (1120-S). Included in the Advisory plan and discounted on other bookkeeping plans.</p></div>
-<div class="card"><h3>Individual tax returns</h3><p>Federal and state returns for business owners and families, at a flat fee.</p></div>
+<div class="card"><h3>Individual tax returns</h3><p>Federal and state returns for business owners and families, from $650.</p></div>
 <div class="card"><h3>Tax planning &amp; estimates</h3><p>Quarterly estimated payments calculated from your books, and year-end planning before December 31.</p></div>
 <a class="card notice" href="/services/irs-notice-help/"><h3>IRS notices &amp; representation &rarr;</h3><p>CP2000s, balance-due notices, payment plans and audits by mail, answered for you.</p></a>
 <a class="card notice" href="/services/irs-notice-help/#penalties"><h3>Penalty relief &rarr;</h3><p>Small upfront fee plus a percentage of the penalties we get removed. Free penalty review.</p></a>
@@ -192,7 +189,7 @@ pages = {
 <details><summary>Do I need my own QuickBooks Online subscription?</summary><p>Yes. You own your file and your data. If you don&#39;t have QuickBooks Online yet, I&#39;ll help you pick the right version and set it up.</p></details>
 <details><summary>I&#39;m behind. Can I still start?</summary><p>Yes. We start with a cleanup and catch-up for a quoted price, then move you onto a monthly plan.</p></details>
 <details><summary>Do you run payroll?</summary><p>Payroll runs through Gusto. I set up your Gusto account, connect it to QuickBooks, and review every payroll so it&#39;s recorded correctly.</p></details>
-<details><summary>Can you do my taxes too?</summary><p>Yes. I&#39;m an IRS Enrolled Agent. Your business return is included in Advisory and discounted on the other plans, and I prepare individual returns at a flat fee.</p></details>
+<details><summary>Can you do my taxes too?</summary><p>Yes. I&#39;m an IRS Enrolled Agent. Your business return is included in Advisory and discounted on the other plans, and I prepare individual returns starting at $650.</p></details>
 <details><summary>Is there a long-term contract?</summary><p>No. Plans are month to month.</p></details>
 </div></section>{CTA}"""),
 "about/index.html": page("/about/", "About Alek Koldal, EA | Koldal Tax &amp; Advisory",
