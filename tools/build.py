@@ -221,7 +221,7 @@ pages = {
  "Individual and business tax return preparation from Alek Koldal, EA, an IRS Enrolled Agent in Coral Springs, FL. Individual returns from $650.",
  f"""<div class="hero"><div class="wrap"><p class="eyebrow">{EA_BADGE} Tax preparation</p><h1>Tax returns prepared by an Enrolled Agent</h1>
 <p>Individual and business returns prepared by a federally licensed tax professional. For bookkeeping clients, your return comes straight from books I already keep.</p>
-<div class="actions"><a class="btn" href="/contact/">Book a free consultation</a><a class="btn ghost" href="/pricing/#tax">See tax pricing</a></div></div></div>
+<div class="actions"><a class="btn" href="/contact/">Book a free consultation</a><a class="btn ghost" href="/pricing/#tax-pricing">See tax pricing</a></div></div></div>
 <section><div class="wrap"><div class="grid">
 <div class="card"><h3>Individual returns (1040)</h3><p>Federal and state returns for individuals, families and business owners, including self-employment, rental and investment income.</p><p class="small" style="margin-top:10px"><strong>From $650</strong></p></div>
 <div class="card"><h3>Business returns</h3><p>Sole proprietors (Schedule C), partnerships (1065) and S corporations (1120-S).</p><p class="small" style="margin-top:10px"><strong>Included in Advisory, discounted with any bookkeeping plan</strong></p></div>
@@ -259,7 +259,7 @@ pages = {
  "Monthly QuickBooks Online bookkeeping plans from an Enrolled Agent in South Florida, plus add-ons for tax returns, payroll, 1099s and sales tax.",
  f"""<section><div class="wrap"><h1>Plans &amp; pricing</h1><p class="lede">Every plan starts with a free QuickBooks review, so the price is set by your actual books, not a guess.</p>{plan_cards()}</div></section>
 <section style="background:var(--soft)"><div class="wrap"><h2>Add-ons</h2><p class="lede">Add what you need to any plan.</p>{addon_rows()}</div></section>
-<section id="tax"><div class="wrap"><h2>Tax services</h2><p class="lede">Available on their own or with a bookkeeping plan.</p>{tax_rows()}</div></section>
+<section id="tax-pricing"><div class="wrap"><h2>Tax services</h2><p class="lede">Available on their own or with a bookkeeping plan.</p>{tax_rows()}</div></section>
 <section><div class="wrap" style="max-width:780px"><h2>Common questions</h2>
 <details><summary>What counts as a transaction?</summary><p>Each line in your bank or credit card feed: a deposit, a purchase, a transfer. Your free review gives me the real count.</p></details>
 <details><summary>Do I need my own QuickBooks Online subscription?</summary><p>Yes. You own your file and your data. If you don&#39;t have QuickBooks Online yet, I&#39;ll help you pick the right version and set it up.</p></details>
