@@ -278,7 +278,7 @@ pages = {
 }
 import os, html as H
 NOTICES = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "notices.json")))
-URG = {"low": "Low: informational", "medium": "Medium: action needed", "high": "High: respond by the deadline", "urgent": "Urgent: time-sensitive rights"}
+URG = {"low": "Review for accuracy", "medium": "Action may be required", "high": "Response required", "urgent": "Deadline affects your rights"}
 CHECK_IRS = '<div class="note-box"><strong>Always check with the IRS.</strong> IRS notices and rules change, and this page may be out of date. Go by the dates and instructions printed on your own notice, and confirm on <a href="https://www.irs.gov/individuals/understanding-your-irs-notice-or-letter" rel="noopener">IRS.gov</a>.</div>'
 def irs_link(name):
     q = name.split(" / ")[0].replace("Letter ", "Letter ")
@@ -287,7 +287,7 @@ DISCLAIMER = '<p class="small" style="margin-top:28px">This is general informati
 rows = ""
 for n in NOTICES:
     e = lambda x: H.escape(x)
-    rows += f'<a class="card notice" href="/irs-notices/{n["id"]}/" data-q="{e((n["name"]+" "+n["title"]+" "+n["what"]).lower())}"><h3>{e(n["name"])}</h3><p>{e(n["title"])}</p><span class="badge {n["urgency"]}">{n["urgency"].title()}</span></a>'
+    rows += f'<a class="card notice" href="/irs-notices/{n["id"]}/" data-q="{e((n["name"]+" "+n["title"]+" "+n["what"]).lower())}"><h3>{e(n["name"])}</h3><p>{e(n["title"])}</p><span class="badge {n["urgency"]}">{URG[n["urgency"]]}</span></a>'
     li = lambda xs: "<ul>" + "".join(f"<li>{e(x)}</li>" for x in xs) + "</ul>"
     faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": f"What is IRS notice {n['name']}?", "acceptedAnswer": {"@type": "Answer", "text": n["what"]}},
