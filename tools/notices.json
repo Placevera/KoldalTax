@@ -1,0 +1,1768 @@
+[
+ {
+  "id": "cp2000",
+  "name": "CP2000",
+  "title": "Proposed changes to your tax return",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "The income or payments reported to the IRS by employers, banks, brokers and others don't match what's on your return. The IRS is proposing changes, which usually means more tax, interest and possibly a penalty. It is not a bill and not a formal audit yet.",
+  "common": [
+   "A missed 1099 (interest, dividends, freelance, stock sales)",
+   "Stock sales reported without cost basis",
+   "Retirement distributions or unemployment left off the return"
+  ],
+  "todo": [
+   "Compare every item on the notice to your records and your return",
+   "If you agree, sign the response form and pay or set up a payment plan",
+   "If you disagree in whole or part, send the response form with a signed explanation and documents",
+   "Don't file an amended return for these changes; respond to the notice instead"
+  ],
+  "deadline": "Respond by the date on the notice, usually 30 days. If you don't, the IRS sends a Statutory Notice of Deficiency and assesses the tax."
+ },
+ {
+  "id": "cp2501",
+  "name": "CP2501",
+  "title": "Income on your return doesn't match IRS records",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "An earlier, informal version of the CP2000. The IRS found a difference between your return and information it received, and is asking you to explain before it proposes changes.",
+  "common": [
+   "Unreported 1099 or W-2 income",
+   "Income reported on a different line or form than the IRS expected"
+  ],
+  "todo": [
+   "Check whether the income is already included somewhere on your return",
+   "Reply with an explanation and supporting documents, or agree that it was missed",
+   "Respond even if you think it's already correct, so it doesn't move to a CP2000"
+  ],
+  "deadline": "Respond by the date on the notice to avoid a CP2000."
+ },
+ {
+  "id": "cp14",
+  "name": "CP14",
+  "title": "You have a balance due",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "The first bill for unpaid tax. It shows the tax, penalties and interest owed as of the notice date. Interest and late-payment penalties keep growing until it's paid.",
+  "common": [
+   "Return filed without full payment",
+   "Estimated payments missed or applied to the wrong year",
+   "A change the IRS made after processing your return"
+  ],
+  "todo": [
+   "Check that the balance is right, including any payments you made",
+   "Pay in full by the due date, or apply for a payment plan",
+   "If you disagree, contact the IRS at the number on the notice"
+  ],
+  "deadline": "Pay by the date on the notice (usually 21 days) to limit extra interest and penalties."
+ },
+ {
+  "id": "cp501",
+  "name": "CP501",
+  "title": "Reminder: you still have a balance due",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "A follow-up reminder that a balance is still unpaid after an earlier notice. Interest and penalties are still being added.",
+  "common": [
+   "A CP14 that wasn't paid or answered"
+  ],
+  "todo": [
+   "Pay the balance or set up a payment plan",
+   "Contact the IRS if you've already paid or disagree"
+  ],
+  "deadline": "Act by the date on the notice. Next comes a CP503."
+ },
+ {
+  "id": "cp503",
+  "name": "CP503",
+  "title": "Second reminder: balance due",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "An urgent second reminder that a balance is unpaid. Ignoring it moves you closer to a notice of intent to levy.",
+  "common": [
+   "Earlier balance-due notices not paid or answered"
+  ],
+  "todo": [
+   "Pay now or set up a payment plan",
+   "Call the number on the notice if you can't pay in full",
+   "Get help if you're facing several years of balances"
+  ],
+  "deadline": "Act by the date on the notice. Next comes a CP504."
+ },
+ {
+  "id": "cp504",
+  "name": "CP504",
+  "title": "Notice of intent to levy",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "The IRS intends to seize (levy) your state tax refund to pay the balance, and warns it may levy other property or rights. It can also lead to a federal tax lien.",
+  "common": [
+   "Balance unpaid after CP14, CP501 and CP503"
+  ],
+  "todo": [
+   "Pay in full, or set up a payment plan right away",
+   "If you can't pay, ask about hardship status or other options",
+   "Get professional help before a final levy notice arrives"
+  ],
+  "deadline": "Act by the date on the notice. The next step is usually a final notice with appeal rights (LT11 or Letter 1058)."
+ },
+ {
+  "id": "lt11",
+  "name": "LT11 / Letter 1058",
+  "title": "Final notice of intent to levy and your right to a hearing",
+  "urgency": "urgent",
+  "who": "Individuals and businesses",
+  "what": "The IRS's final notice before it can levy wages, bank accounts and other assets. It also gives you the right to a Collection Due Process (CDP) hearing with the IRS Independent Office of Appeals.",
+  "common": [
+   "Unpaid balances after earlier notices"
+  ],
+  "todo": [
+   "Pay in full or arrange a payment plan",
+   "To protect your appeal rights, file Form 12153 (Request for a Collection Due Process hearing) on time",
+   "Talk to an Enrolled Agent or other tax professional now"
+  ],
+  "deadline": "You have 30 days from the notice date to request a CDP hearing. Missing it limits your options."
+ },
+ {
+  "id": "cp90",
+  "name": "CP90",
+  "title": "Final notice of intent to levy",
+  "urgency": "urgent",
+  "who": "Individuals and businesses",
+  "what": "A final notice that the IRS intends to levy your assets, such as wages, bank accounts, Social Security or other income, and your right to a Collection Due Process hearing.",
+  "common": [
+   "Unpaid balances after earlier notices"
+  ],
+  "todo": [
+   "Pay or arrange a payment plan",
+   "File Form 12153 to request a hearing if you disagree or need time",
+   "Get professional help right away"
+  ],
+  "deadline": "30 days from the notice date to request a Collection Due Process hearing."
+ },
+ {
+  "id": "cp3219a",
+  "name": "CP3219A / Letter 3219",
+  "title": "Statutory Notice of Deficiency",
+  "urgency": "urgent",
+  "who": "Individuals",
+  "what": "The IRS has determined you owe additional tax and is formally telling you of your right to challenge it in U.S. Tax Court. Often follows an unanswered CP2000 or audit.",
+  "common": [
+   "No response to a CP2000",
+   "Audit changes you didn't agree to"
+  ],
+  "todo": [
+   "Decide whether you agree with the changes",
+   "If you disagree, file a petition with the U.S. Tax Court before the deadline",
+   "Don't ignore it: once the deadline passes the tax is assessed"
+  ],
+  "deadline": "90 days from the notice date to petition Tax Court (150 days if addressed to you outside the U.S.). The deadline cannot be extended."
+ },
+ {
+  "id": "cp11",
+  "name": "CP11",
+  "title": "We changed your return: you owe money",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "The IRS found a math or calculation error on your return, corrected it, and you now owe tax.",
+  "common": [
+   "Miscalculated credits (child tax credit, earned income credit)",
+   "Recovery or stimulus credit errors",
+   "Arithmetic errors"
+  ],
+  "todo": [
+   "Compare the IRS's changes to your return",
+   "If you agree, pay or set up a payment plan",
+   "If you disagree, contact the IRS within 60 days and they'll reverse the change, though they may then examine it further"
+  ],
+  "deadline": "60 days from the notice date to dispute the change."
+ },
+ {
+  "id": "cp12",
+  "name": "CP12",
+  "title": "We changed your return: your refund changed",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS corrected one or more errors on your return. Your refund is now different, or you now get a refund instead of owing.",
+  "common": [
+   "Miscalculated credits",
+   "Withholding or estimated payment amounts entered incorrectly"
+  ],
+  "todo": [
+   "Review the changes against your return",
+   "If you agree, you usually don't need to reply, but follow the instructions on your notice",
+   "If you disagree, contact the IRS within 60 days"
+  ],
+  "deadline": "60 days from the notice date to dispute the change."
+ },
+ {
+  "id": "cp59",
+  "name": "CP59",
+  "title": "You didn't file a tax return",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "IRS records show you didn't file a return for the year shown, and you may need to. Not filing can lead to penalties and the IRS filing a substitute return for you.",
+  "common": [
+   "A return was never filed",
+   "A return was filed under a different SSN or name",
+   "A return was sent but not processed"
+  ],
+  "todo": [
+   "File the missing return right away",
+   "If you already filed, send a copy and the date filed",
+   "If you weren't required to file, explain why using the response form"
+  ],
+  "deadline": "Respond by the date on the notice."
+ },
+ {
+  "id": "cp05",
+  "name": "CP05",
+  "title": "We're reviewing your return",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS is reviewing your return to verify income, withholding, credits or business income before issuing your refund. It does not mean you did something wrong.",
+  "common": [
+   "Random or automated verification of withholding and credits"
+  ],
+  "todo": [
+   "You usually don't need to reply unless the IRS asks for more information",
+   "Keep your W-2s, 1099s and records handy",
+   "Wait for the follow-up notice"
+  ],
+  "deadline": "No response required. Review typically takes several weeks."
+ },
+ {
+  "id": "cp75",
+  "name": "CP75",
+  "title": "Audit: documents needed for credits",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "The IRS is auditing your return and holding part or all of your refund until you prove eligibility for credits such as the Earned Income Tax Credit, or certain deductions.",
+  "common": [
+   "Earned Income Tax Credit",
+   "Child tax credit or dependent claims",
+   "Business income on Schedule C"
+  ],
+  "todo": [
+   "Gather the documents listed (school or medical records showing children lived with you, business records)",
+   "Send them by the deadline using the enclosed form",
+   "Get help if you're unsure what proves eligibility"
+  ],
+  "deadline": "Respond by the date on the notice, usually 30 days."
+ },
+ {
+  "id": "letter-5071c",
+  "name": "Letter 5071C",
+  "title": "Verify your identity",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "The IRS received a return with your name and SSN and needs you to confirm it was you who filed it, to protect against identity theft. Your return and refund are on hold until you verify.",
+  "common": [
+   "Possible identity theft",
+   "Changes in your filing pattern"
+  ],
+  "todo": [
+   "Verify online at the IRS identity verification site listed in the letter, or by phone",
+   "Have the letter, your prior-year and current-year returns and supporting documents ready",
+   "If you didn't file the return, say so: it may be identity theft"
+  ],
+  "deadline": "Verify as soon as possible. Your refund won't be released until you do."
+ },
+ {
+  "id": "letter-4883c",
+  "name": "Letter 4883C",
+  "title": "Verify your identity by phone",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "Like Letter 5071C, the IRS needs to confirm your identity before processing a return filed under your name, but asks you to call.",
+  "common": [
+   "Possible identity theft"
+  ],
+  "todo": [
+   "Call the number in the letter (only that number)",
+   "Have the letter, the return in question and your prior-year return ready"
+  ],
+  "deadline": "Call as soon as possible; processing stops until you do."
+ },
+ {
+  "id": "letter-12c",
+  "name": "Letter 12C",
+  "title": "We need more information to process your return",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "Your return is missing information or forms, so the IRS can't finish processing it.",
+  "common": [
+   "Missing Form 8962 for Marketplace health insurance (Form 1095-A)",
+   "Missing W-2 or withholding information",
+   "Missing schedules"
+  ],
+  "todo": [
+   "Send the requested form or information",
+   "Include a copy of the letter with your response"
+  ],
+  "deadline": "Respond by the date in the letter, usually 20 days, or your refund may be reduced."
+ },
+ {
+  "id": "letter-566",
+  "name": "Letter 566",
+  "title": "Correspondence audit: first contact",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "The IRS is examining (auditing) specific items on your return by mail and is asking you to send documents to support them.",
+  "common": [
+   "Deductions or credits that need proof",
+   "Business expenses"
+  ],
+  "todo": [
+   "Read which items are being examined",
+   "Send organized copies of receipts and records, never originals",
+   "Consider having an Enrolled Agent represent you"
+  ],
+  "deadline": "Respond by the date in the letter."
+ },
+ {
+  "id": "letter-525",
+  "name": "Letter 525",
+  "title": "Proposed audit changes",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "After examining your return, the IRS is proposing changes, usually additional tax. You can agree, or disagree and provide more information or request an appeal.",
+  "common": [
+   "Documents sent during an audit weren't enough",
+   "No response to an earlier audit letter"
+  ],
+  "todo": [
+   "Review the examination report",
+   "Sign the agreement form if you agree",
+   "If you disagree, send more information or request an Appeals conference"
+  ],
+  "deadline": "Usually 30 days from the letter date. After that, a Statutory Notice of Deficiency may follow."
+ },
+ {
+  "id": "cp49",
+  "name": "CP49",
+  "title": "Your refund was applied to a tax debt",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS used all or part of your refund to pay a balance you owe for another tax year.",
+  "common": [
+   "Prior-year balance due"
+  ],
+  "todo": [
+   "Check which year the refund was applied to",
+   "If any refund remains, it will be sent separately",
+   "Contact the IRS if you think the debt was already paid"
+  ],
+  "deadline": "No response required unless you disagree."
+ },
+ {
+  "id": "cp71c",
+  "name": "CP71C",
+  "title": "Annual reminder of a balance due",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "A yearly reminder that you still have an unpaid balance, which continues to grow with interest and penalties.",
+  "common": [
+   "An older balance that's been in collection or put on hold"
+  ],
+  "todo": [
+   "Pay what you can or set up a payment plan",
+   "Ask about options if you can't pay"
+  ],
+  "deadline": "Act as soon as possible to stop interest and penalties growing."
+ },
+ {
+  "id": "cp521",
+  "name": "CP521",
+  "title": "Installment agreement payment reminder",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "A reminder of your monthly payment under an existing IRS payment plan, and your remaining balance.",
+  "common": [
+   "Active installment agreement"
+  ],
+  "todo": [
+   "Make your payment by the due date",
+   "Consider setting up automatic payments"
+  ],
+  "deadline": "Pay by the due date shown."
+ },
+ {
+  "id": "cp523",
+  "name": "CP523",
+  "title": "Intent to end your payment plan and levy",
+  "urgency": "urgent",
+  "who": "Individuals",
+  "what": "The IRS intends to terminate your installment agreement, usually because payments were missed or new taxes went unpaid, and then levy your assets.",
+  "common": [
+   "Missed monthly payments",
+   "A new balance due",
+   "Unfiled returns"
+  ],
+  "todo": [
+   "Bring payments current right away",
+   "File any missing returns",
+   "Call the IRS or get help to reinstate the agreement"
+  ],
+  "deadline": "Act by the date on the notice. You may have the right to appeal the termination."
+ },
+ {
+  "id": "cp161",
+  "name": "CP161",
+  "title": "Business balance due",
+  "urgency": "medium",
+  "who": "Businesses",
+  "what": "Your business owes money for the tax period shown, often from a return processed with a balance, penalties or a math error.",
+  "common": [
+   "Late filing or late payment penalties",
+   "Payroll tax deposits short or late",
+   "Math errors on the business return"
+  ],
+  "todo": [
+   "Check the balance against your payment records",
+   "Pay or set up a business payment plan",
+   "Request penalty relief if you qualify (for example, first-time abatement)"
+  ],
+  "deadline": "Pay by the date on the notice to avoid more interest and penalties."
+ },
+ {
+  "id": "cp2100",
+  "name": "CP2100 / CP2100A",
+  "title": "Backup withholding: incorrect payee TINs",
+  "urgency": "medium",
+  "who": "Businesses",
+  "what": "Sent to businesses that file 1099s. Some of the names and taxpayer ID numbers you reported don't match IRS records, and you may need to start backup withholding on those payees.",
+  "common": [
+   "Contractors who gave a wrong SSN/EIN",
+   "Name changes or typos on 1099s"
+  ],
+  "todo": [
+   "Compare the list to your records",
+   "Send a B-notice to each listed payee with a new W-9",
+   "Start backup withholding (24%) if a payee doesn't respond in time"
+  ],
+  "deadline": "Send B-notices within 15 business days of receiving the notice."
+ },
+ {
+  "id": "cp575",
+  "name": "CP575",
+  "title": "Your new EIN (Employer Identification Number)",
+  "urgency": "low",
+  "who": "Businesses",
+  "what": "Confirmation that the IRS assigned an EIN to your business. Banks and others often ask for this letter. It isn't a problem notice.",
+  "common": [
+   "Applying for an EIN online, by fax or by mail"
+  ],
+  "todo": [
+   "Keep it with your permanent business records",
+   "If you lose it, ask the IRS for Letter 147C to confirm your EIN"
+  ],
+  "deadline": "No response required."
+ },
+ {
+  "id": "cp01",
+  "name": "CP01",
+  "title": "Your identity theft claim was confirmed",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS confirmed your identity theft report and placed a protective marker on your tax account. It's informational, not a bill, and no reply is needed.",
+  "common": [
+   "You filed an identity theft affidavit (Form 14039)",
+   "Someone else filed a return using your Social Security number"
+  ],
+  "todo": [
+   "Keep the notice with your tax records",
+   "Keep filing your returns as usual",
+   "Watch for an Identity Protection PIN (IP PIN) in the mail each year and enter it on your return; returns filed without it will be rejected"
+  ],
+  "deadline": "No response required."
+ },
+ {
+  "id": "cp01h",
+  "name": "CP01H",
+  "title": "Return not processed: SSN listed as belonging to someone who died",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "The IRS couldn't process your return because Social Security Administration records show that a Social Security number on it belongs to a person who died before the tax year. The account is locked until the records are fixed. It is not a bill.",
+  "common": [
+   "An error in Social Security Administration death records",
+   "A typo in a Social Security number on the return",
+   "A return filed for someone who has died, using the wrong year or filing setup"
+  ],
+  "todo": [
+   "Check every Social Security number on the return against the cards",
+   "If SSA's records are wrong, contact the Social Security Administration to have them corrected",
+   "Once corrected, follow the notice instructions to file or refile the return"
+  ],
+  "deadline": "Act by the date on the notice. Your return and any refund stay on hold until the records are corrected."
+ },
+ {
+  "id": "cp04",
+  "name": "CP04",
+  "title": "You may qualify to defer tax because of military service",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "You served, or are serving, in a combat zone, contingency operation or hazardous duty area, and you may qualify to delay paying tax that is due. It is not a bill, and replying is optional.",
+  "common": [
+   "Military service in a combat zone or qualified hazardous duty area",
+   "Support of a contingency operation"
+  ],
+  "todo": [
+   "Read the notice to see which tax period it covers",
+   "If you want the deferment, complete Form 15109 (Request for Tax Deferment)",
+   "Send it with proof of your service dates by the date on the notice"
+  ],
+  "deadline": "Optional, but send Form 15109 by the date on the notice if you want the deferment."
+ },
+ {
+  "id": "cp05b",
+  "name": "CP05B",
+  "title": "Send documents before we release your refund",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "The IRS is holding your refund until you send documents that verify the income and withholding on your return. It is not a bill, but your refund won't be released until you respond.",
+  "common": [
+   "Withholding on your return doesn't match what employers reported",
+   "Random or automated income verification",
+   "Missing W-2s or 1099s"
+  ],
+  "todo": [
+   "Gather copies of the documents listed in the notice, such as W-2s, 1099s and pay stubs",
+   "Send them with the voucher from the notice to the address shown",
+   "Keep copies and proof of mailing"
+  ],
+  "deadline": "Respond by the date on the notice. Your refund stays on hold until the IRS gets your documents."
+ },
+ {
+  "id": "cp07",
+  "name": "CP07",
+  "title": "Your refund is on hold for review",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS is holding your refund while it reviews treaty benefits or itemized deductions (Schedule A) on your return. It is not a bill and no reply is needed right now.",
+  "common": [
+   "Itemized deductions on Schedule A",
+   "Tax treaty benefits claimed on the return"
+  ],
+  "todo": [
+   "You may not need to reply now, but read the notice carefully and keep it with your records",
+   "Don't file a second copy of your return; it slows the review",
+   "Gather receipts and records in case the IRS asks for them"
+  ],
+  "deadline": "No response required. Respond only if a follow-up letter asks for information."
+ },
+ {
+  "id": "cp08",
+  "name": "CP08",
+  "title": "You may qualify for the Additional Child Tax Credit",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "IRS records show you may be able to claim the Additional Child Tax Credit, the refundable part of the Child Tax Credit, but you didn't. It is not a bill; it's a chance at more refund.",
+  "common": [
+   "You have a qualifying child but didn't claim the credit",
+   "The credit was left off when the return was prepared"
+  ],
+  "todo": [
+   "Complete the Form 15110 worksheet included with the notice",
+   "If you have at least one qualifying child, send Form 15110 and Schedule 8812",
+   "Send it through the IRS Document Upload Tool or by mail, as the notice explains"
+  ],
+  "deadline": "Optional. Respond by the date on the notice if you want the credit."
+ },
+ {
+  "id": "cp09",
+  "name": "CP09",
+  "title": "You may qualify for the Earned Income Credit",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "IRS records show you may be able to claim the Earned Income Tax Credit (EITC), a refundable credit for workers with low to moderate income and qualifying children, but you didn't. It is not a bill.",
+  "common": [
+   "You have a qualifying child and earned income but didn't claim the credit",
+   "The credit was missed when the return was prepared"
+  ],
+  "todo": [
+   "Complete the EITC eligibility worksheet included with the notice",
+   "If you qualify, sign and send it through the IRS Document Upload Tool or by mail",
+   "If you don't qualify, no reply is needed"
+  ],
+  "deadline": "Optional. Respond by the date on the notice if you want the credit."
+ },
+ {
+  "id": "cp10",
+  "name": "CP10",
+  "title": "We changed the amount carried to next year's taxes",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS fixed a calculation error on your return, which changed the overpayment you asked to apply to next year's estimated tax. It is not a bill, but less money may be credited to next year.",
+  "common": [
+   "A math or calculation error on the return",
+   "An error in the credits or payments claimed"
+  ],
+  "todo": [
+   "Read the explanation of the change",
+   "Increase next year's estimated payments if needed, so you don't get an underpayment penalty",
+   "Contact the IRS at the number on the notice if you disagree"
+  ],
+  "deadline": "Contact the IRS by the date on the notice if you disagree."
+ },
+ {
+  "id": "cp13",
+  "name": "CP13",
+  "title": "We changed your return: no balance due",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS corrected an error on your return. After the change you don't owe anything and you don't get a refund. It is not a bill.",
+  "common": [
+   "A math or calculation error",
+   "An error in a credit or deduction amount"
+  ],
+  "todo": [
+   "Compare the change to your copy of the return",
+   "If you agree, no reply is needed",
+   "If you disagree, call the number on the notice by the date shown"
+  ],
+  "deadline": "No response required if you agree. If you disagree, contact the IRS by the date on the notice, usually within 60 days."
+ },
+ {
+  "id": "cp16",
+  "name": "CP16",
+  "title": "We changed your return and used your refund to pay other debts",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS corrected an error on your return, and some or all of your refund went to pay other tax you or your spouse owe. It is not a bill.",
+  "common": [
+   "A math or calculation error on the return",
+   "An unpaid tax balance from another year",
+   "A balance owed by your spouse"
+  ],
+  "todo": [
+   "Review the change and how the refund was applied",
+   "Contact the IRS by the date on the notice if you disagree",
+   "If the refund went to your spouse's debt, ask whether Form 8379 (Injured Spouse Allocation) can get your share back"
+  ],
+  "deadline": "Contact the IRS by the date on the notice if you disagree."
+ },
+ {
+  "id": "cp21a",
+  "name": "CP21A",
+  "title": "We made the change you asked for: you owe money",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "The IRS made the change you requested, usually from an amended return, and you now owe tax. This is a bill, and interest keeps growing until it's paid.",
+  "common": [
+   "An amended return (Form 1040-X) that added income",
+   "A credit removed at your request",
+   "A correction you or your preparer requested"
+  ],
+  "todo": [
+   "Compare the change to the amended return you filed",
+   "Pay by the date on the payment coupon, or set up a payment plan",
+   "Ask about penalty relief (reasonable cause, or first-time abatement if it wasn't applied automatically)",
+   "Contact the IRS if you disagree with the change"
+  ],
+  "deadline": "Pay by the date on the notice to limit extra interest and penalties."
+ },
+ {
+  "id": "cp21b",
+  "name": "CP21B",
+  "title": "We made the change you asked for: refund coming",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS made the change you requested and you are getting a refund, usually within 2 to 3 weeks. It is not a bill.",
+  "common": [
+   "An amended return that lowered your tax",
+   "A credit or deduction added at your request"
+  ],
+  "todo": [
+   "Check that the refund amount matches what you expected",
+   "No reply is needed if you agree",
+   "Contact the IRS if you disagree or the refund doesn't arrive"
+  ],
+  "deadline": "No response required unless you disagree."
+ },
+ {
+  "id": "cp21c",
+  "name": "CP21C",
+  "title": "We made the change you asked for: no balance due",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS made the change you requested. After the change you don't owe anything and you don't get a refund. It is not a bill.",
+  "common": [
+   "An amended return or correction you requested",
+   "A credit or deduction change that offset an amount you owed"
+  ],
+  "todo": [
+   "Check that the change matches what you asked for",
+   "No reply is needed if you agree",
+   "Call the number on the notice if you disagree"
+  ],
+  "deadline": "No response required unless you disagree."
+ },
+ {
+  "id": "cp21e",
+  "name": "CP21E",
+  "title": "Your audit changes were processed",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "The IRS made changes to your account after an audit. Depending on the result, you may owe money, get a refund, or have a zero balance. If the notice shows a balance due, it is a bill.",
+  "common": [
+   "An audit that ended with changes to your return",
+   "Changes you agreed to during an audit"
+  ],
+  "todo": [
+   "Compare the notice to the audit report you received",
+   "Pay any balance by the date on the payment coupon, or set up a payment plan",
+   "Contact the IRS if you disagree",
+   "If you have new documents that weren't considered, ask about audit reconsideration (a request to reopen the audit)"
+  ],
+  "deadline": "If you owe, pay by the date on the notice to limit interest and penalties."
+ },
+ {
+  "id": "cp22a",
+  "name": "CP22A",
+  "title": "We made the change you asked for: you owe money",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "The IRS changed your return as you requested, and you now owe tax. This is a bill, and interest keeps growing until it's paid.",
+  "common": [
+   "An amended return or correction that increased your tax",
+   "A request to remove a credit or deduction"
+  ],
+  "todo": [
+   "Check that the change matches what you asked for",
+   "Pay by the date on the payment coupon, or set up a payment plan",
+   "Ask about penalty relief (reasonable cause, or first-time abatement if it wasn't applied automatically)",
+   "Contact the IRS if you disagree"
+  ],
+  "deadline": "Pay by the date on the notice to limit extra interest and penalties."
+ },
+ {
+  "id": "cp23",
+  "name": "CP23",
+  "title": "Your estimated payments don't match: you owe money",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "The estimated tax payments you claimed on your return don't match the payments the IRS has on record, so you owe money. This is a bill.",
+  "common": [
+   "A payment applied to the wrong tax year",
+   "A payment made under your spouse's Social Security number",
+   "A missed or bounced payment",
+   "A typo in the amount claimed"
+  ],
+  "todo": [
+   "Compare your bank records with the payments listed on the notice (dates, amounts, year, Social Security number)",
+   "If the IRS is right, pay or set up a payment plan",
+   "If you have proof of a missing payment, contact the IRS by the date shown",
+   "Ask about penalty relief (reasonable cause, or first-time abatement if it wasn't applied automatically)"
+  ],
+  "deadline": "Pay or contact the IRS by the date on the notice to limit extra interest and penalties."
+ },
+ {
+  "id": "cp24",
+  "name": "CP24",
+  "title": "Your estimated payments don't match: refund coming",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The estimated tax payments you claimed don't match the IRS records, but you still have an overpayment. The IRS changed your return, and any remaining refund usually arrives in 4 to 6 weeks if you owe no other debts. It is not a bill.",
+  "common": [
+   "A payment applied to a different tax year",
+   "A payment missed or made under your spouse's number",
+   "A typo in the amount claimed"
+  ],
+  "todo": [
+   "Compare your payment records with the notice",
+   "If a payment is missing, contact the IRS with proof",
+   "If you agree, no reply is needed"
+  ],
+  "deadline": "No response required unless you disagree."
+ },
+ {
+  "id": "cp25",
+  "name": "CP25",
+  "title": "Your estimated payments don't match: no balance due",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The estimated tax payments you claimed don't match the IRS records. After the correction you don't owe anything and you don't get a refund. It is not a bill.",
+  "common": [
+   "A payment applied to a different tax year",
+   "A payment made under your spouse's number",
+   "A typo in the amount claimed"
+  ],
+  "todo": [
+   "Compare your payment records with the notice",
+   "No reply is needed if you agree",
+   "If you disagree, contact the IRS with proof of payment by the date shown"
+  ],
+  "deadline": "No response required if you agree. If you disagree, contact the IRS by the date on the notice."
+ },
+ {
+  "id": "cp27",
+  "name": "CP27",
+  "title": "You may qualify for the Earned Income Credit (no children)",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "IRS records show you may qualify for the Earned Income Tax Credit for workers without a qualifying child, but you didn't claim it. It is not a bill; it's a chance at more refund.",
+  "common": [
+   "You had low to moderate earned income and no qualifying child",
+   "The credit was missed when the return was prepared"
+  ],
+  "todo": [
+   "Complete the eligibility worksheet included with the notice",
+   "If you qualify, sign and date it and mail it in the envelope provided",
+   "If you don't qualify, no reply is needed"
+  ],
+  "deadline": "Optional. Respond by the date on the notice if you want the credit."
+ },
+ {
+  "id": "cp30",
+  "name": "CP30",
+  "title": "Penalty for not paying enough tax during the year",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "The IRS charged a penalty because you didn't pay enough tax during the year through withholding or estimated payments. The penalty may reduce your refund or add to what you owe.",
+  "common": [
+   "Not enough tax withheld from your pay",
+   "Estimated payments missed or too small",
+   "Income that came in unevenly during the year"
+  ],
+  "todo": [
+   "Check whether an exception on Form 2210, or calculating based on when income came in (the annualized method), lowers the penalty",
+   "Ask about penalty relief (reasonable cause, or first-time abatement if it wasn't applied automatically)",
+   "Adjust this year's withholding or estimated payments so it doesn't happen again"
+  ],
+  "deadline": "Pay any balance or contact the IRS by the date on the notice."
+ },
+ {
+  "id": "cp39",
+  "name": "CP39",
+  "title": "Your spouse's refund was used to pay your tax debt",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS used a refund belonging to your spouse or former spouse to pay your past-due tax. Some balance may still remain. It is informational, not a new bill.",
+  "common": [
+   "You owed tax from an earlier year",
+   "A joint return produced a refund that was applied to your debt"
+  ],
+  "todo": [
+   "Review your account to see what balance, if any, is left",
+   "Call the IRS if you disagree",
+   "Keep bank records and any amended returns handy if you call"
+  ],
+  "deadline": "No response required unless you disagree. Any remaining balance still needs to be paid."
+ },
+ {
+  "id": "cp42",
+  "name": "CP42",
+  "title": "Your refund was used to pay your spouse's tax debt",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS used your refund to pay your spouse's past-due federal tax. It is not a bill.",
+  "common": [
+   "Your spouse owed tax from another year",
+   "You filed a joint return with a spouse who has a tax debt"
+  ],
+  "todo": [
+   "Review the amount that was applied",
+   "If part of the refund was yours on a joint return, consider Form 8379 (Injured Spouse Allocation) to recover your share",
+   "Call the IRS if you disagree"
+  ],
+  "deadline": "No response required unless you disagree or want to file Form 8379."
+ },
+ {
+  "id": "cp45",
+  "name": "CP45",
+  "title": "We couldn't apply your overpayment to next year",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "You asked the IRS to apply part of your overpayment to next year's estimated tax, but it couldn't apply all of it. It is not a bill, but you may need to pay more estimated tax.",
+  "common": [
+   "The overpayment was smaller than expected after IRS changes",
+   "Part of it went to another tax debt"
+  ],
+  "todo": [
+   "Review how much was actually carried forward",
+   "Increase this year's estimated payments to avoid an underpayment penalty",
+   "Contact the IRS if you think more of the overpayment should have carried forward"
+  ],
+  "deadline": "No response required, but adjust your estimated payments promptly."
+ },
+ {
+  "id": "cp51a",
+  "name": "CP51A",
+  "title": "We figured your tax for you: you owe money",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "You asked the IRS to calculate your tax, and the result is that you owe money. This is a bill.",
+  "common": [
+   "You filed a return and asked the IRS to compute the tax",
+   "Withholding didn't cover the tax"
+  ],
+  "todo": [
+   "Review the IRS calculation",
+   "Pay by the date shown, or set up a payment plan",
+   "Ask about penalty relief (reasonable cause, or first-time abatement if it wasn't applied automatically)",
+   "Contact the IRS if you disagree"
+  ],
+  "deadline": "Pay by the date on the notice to avoid more interest and penalties."
+ },
+ {
+  "id": "cp53",
+  "name": "CP53",
+  "title": "We can't direct deposit your refund",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS couldn't deposit your refund into the bank account on your return, so it is mailing a paper check. It is not a bill.",
+  "common": [
+   "A closed or wrong bank account number",
+   "The account name doesn't match the name on the return"
+  ],
+  "todo": [
+   "You may not need to reply, but check the notice against your records and keep it on file",
+   "Make sure your mailing address is current",
+   "Call the IRS if the check hasn't arrived within 4 weeks"
+  ],
+  "deadline": "No response required."
+ },
+ {
+  "id": "cp60",
+  "name": "CP60",
+  "title": "We moved a payment off your account: you now owe",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "A payment was applied to your account by mistake, and the IRS moved it to where it belonged. This left a balance on your account, so this is a bill.",
+  "common": [
+   "A payment entered under the wrong Social Security number or tax year",
+   "A payment that belonged to someone else"
+  ],
+  "todo": [
+   "Find out where the payment should have gone",
+   "If it really belongs on this account, contact the IRS with proof of payment",
+   "Otherwise pay by the date shown, or set up a payment plan"
+  ],
+  "deadline": "Pay or contact the IRS by the date on the notice to limit interest and penalties."
+ },
+ {
+  "id": "cp62",
+  "name": "CP62",
+  "title": "We applied your payment",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS confirms it applied a payment or credit to your account. It is a confirmation, not a new bill, but it may show a remaining balance.",
+  "common": [
+   "A payment you made",
+   "A credit moved from another year"
+  ],
+  "todo": [
+   "Check that the payment was applied to the right year",
+   "If a balance remains, pay by the date shown or set up a payment plan",
+   "If a refund is shown, no reply is needed"
+  ],
+  "deadline": "No response required unless a balance remains; then pay by the date on the notice."
+ },
+ {
+  "id": "cp63",
+  "name": "CP63",
+  "title": "Your refund is on hold until you file missing returns",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "The IRS is holding your refund because one or more earlier returns haven't been filed and it believes you'll owe tax on them. It is not a bill.",
+  "common": [
+   "A return from a prior year was never filed",
+   "A return was filed but not processed or was lost"
+  ],
+  "todo": [
+   "File the missing returns right away",
+   "If you already filed or didn't need to, explain that in your reply",
+   "Keep copies of everything you send"
+  ],
+  "deadline": "Respond by the date on the notice. If you don't, the IRS may prepare a return for you (CP2566), usually with a higher tax."
+ },
+ {
+  "id": "cp80",
+  "name": "CP80",
+  "title": "We have payments but no return",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "The IRS has payments or credits on your account for a tax year but hasn't received your return. It is not a bill.",
+  "common": [
+   "The return was never filed",
+   "The return was lost in the mail or filed under a different number"
+  ],
+  "todo": [
+   "File the signed return to the address on the notice",
+   "If you already filed, send a signed copy",
+   "Keep proof of mailing"
+  ],
+  "deadline": "Respond by the date on the notice. If you don't, the IRS may prepare a return for you (CP2566)."
+ },
+ {
+  "id": "cp81",
+  "name": "CP81",
+  "title": "You may lose a refund: we have payments but no return",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "The IRS has payments or credits on your account but no return, and time to claim a refund is almost up. It is not a bill, but if you don't file soon you lose the money.",
+  "common": [
+   "The return was never filed",
+   "The return was lost or filed under the wrong number"
+  ],
+  "todo": [
+   "File the return immediately if you were required to file or want the refund",
+   "If you already filed, send a signed copy",
+   "Keep proof of mailing"
+  ],
+  "deadline": "File right away. Once the refund deadline passes, the money can't be refunded."
+ },
+ {
+  "id": "cp88",
+  "name": "CP88",
+  "title": "Your refund is on hold until you file missing returns",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "The IRS is holding your refund because it has no record of one or more earlier returns and believes you'll owe tax on them. It is not a bill.",
+  "common": [
+   "A prior-year return was never filed",
+   "A return was filed but not processed"
+  ],
+  "todo": [
+   "File the missing returns right away",
+   "If you already filed or didn't have to, explain that in your reply",
+   "Keep copies of what you send"
+  ],
+  "deadline": "Respond by the date on the notice. If you don't, the IRS may prepare a return for you (CP2566)."
+ },
+ {
+  "id": "cp102",
+  "name": "CP102",
+  "title": "We changed your payroll tax return: you owe money",
+  "urgency": "medium",
+  "who": "Employers",
+  "what": "The IRS found a calculation error on your payroll tax return, such as Form 941 or 944, and you now owe money. This is a bill.",
+  "common": [
+   "Math errors on the return",
+   "Wages, tax or deposits reported incorrectly",
+   "Deposits applied to the wrong quarter"
+  ],
+  "todo": [
+   "Compare the IRS figures to your return and payroll records",
+   "Pay by the date on the payment coupon, or set up a payment plan",
+   "If you disagree, contact the IRS within 10 days of the notice date",
+   "Ask about penalty relief (reasonable cause, or first-time abatement if it wasn't applied automatically)"
+  ],
+  "deadline": "Contact the IRS within 10 days if you disagree. Otherwise pay by the date on the notice, or more balance-due notices follow."
+ },
+ {
+  "id": "cp142",
+  "name": "CP142",
+  "title": "Your information returns were filed late",
+  "urgency": "medium",
+  "who": "Businesses",
+  "what": "The IRS says your information returns, such as W-2s or 1099s, were filed late, which can lead to a penalty. It is not a bill yet; it asks for an explanation.",
+  "common": [
+   "W-2s or 1099s filed after the deadline",
+   "An extension that wasn't on file",
+   "Returns filed under the wrong business name or EIN"
+  ],
+  "todo": [
+   "Gather proof of when you filed and any extension you had",
+   "Reply within 30 days with the requested information, a copy of the late return and the notice",
+   "Explain any reasonable cause for filing late, which can prevent the penalty"
+  ],
+  "deadline": "Respond within 30 days of the notice date, or a late-filing penalty may be charged."
+ },
+ {
+  "id": "cp143",
+  "name": "CP143",
+  "title": "We accepted your explanation for late information returns",
+  "urgency": "low",
+  "who": "Businesses",
+  "what": "The IRS accepted your explanation for filing information returns late and is not charging a penalty for it. It is not a bill.",
+  "common": [
+   "You answered a CP142 with a good explanation",
+   "Proof that the returns were filed on time or under an extension"
+  ],
+  "todo": [
+   "You may not need to reply, but check the notice against your records and keep it on file",
+   "Keep the notice with your business records",
+   "Contact the IRS if a penalty for the same returns still shows on a later notice"
+  ],
+  "deadline": "No response required."
+ },
+ {
+  "id": "cp153",
+  "name": "CP153",
+  "title": "We can't direct deposit your refund",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS can't deposit your refund or credit into the bank account you gave, so it is mailing a paper check. It is not a bill.",
+  "common": [
+   "A closed or wrong bank account",
+   "The name on the account doesn't match the return"
+  ],
+  "todo": [
+   "You may not need to reply, but check the notice against your records and keep it on file",
+   "Make sure your mailing address is current",
+   "Call the IRS if the check hasn't arrived within 4 weeks"
+  ],
+  "deadline": "No response required."
+ },
+ {
+  "id": "cp163",
+  "name": "CP163",
+  "title": "Reminder: you still owe tax",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "A reminder that you still owe tax, penalties and interest. This is a bill, and interest keeps growing until it's paid.",
+  "common": [
+   "An earlier balance-due notice that wasn't paid",
+   "Penalties and interest added since the last notice"
+  ],
+  "todo": [
+   "Check that the balance is right, including any payments you made",
+   "Pay, or set up a payment plan",
+   "Ask about penalty relief (reasonable cause, or first-time abatement if it wasn't applied automatically)"
+  ],
+  "deadline": "Pay by the date on the notice to limit extra interest and penalties."
+ },
+ {
+  "id": "cp166",
+  "name": "CP166",
+  "title": "Your payment plan payment bounced",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "Your monthly payment plan payment couldn't be taken because there wasn't enough money in the bank account. It is not a new bill, but your payment plan is at risk.",
+  "common": [
+   "Not enough money in the account on the withdrawal date",
+   "A closed or changed bank account"
+  ],
+  "todo": [
+   "Add enough money to the account to cover the payment and any fees",
+   "Contact the IRS to make the missed payment",
+   "Keep future payments on time so the payment plan isn't ended"
+  ],
+  "deadline": "Act right away to keep your payment plan from defaulting."
+ },
+ {
+  "id": "cp171",
+  "name": "CP171",
+  "title": "Reminder: you still owe tax",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "A reminder that you still owe tax, penalties and interest. This is a bill, and interest keeps growing until it's paid.",
+  "common": [
+   "An earlier balance-due notice that wasn't paid",
+   "Penalties and interest added since the last notice"
+  ],
+  "todo": [
+   "Check that the balance is right",
+   "Pay, or set up a payment plan",
+   "Contact the IRS if you've already paid or disagree"
+  ],
+  "deadline": "Pay by the date on the notice to limit extra interest and penalties."
+ },
+ {
+  "id": "cp188",
+  "name": "CP188",
+  "title": "Your refund is on hold while we check for other debts",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS is holding your refund while it checks whether you owe other taxes. It is not a bill.",
+  "common": [
+   "Possible unpaid tax from another year or another account",
+   "A balance on a joint or related account being checked"
+  ],
+  "todo": [
+   "You may not need to reply now, but read the notice carefully and keep it with your records",
+   "Read the notice for how long the review will take",
+   "Watch for a follow-up notice"
+  ],
+  "deadline": "No response required."
+ },
+ {
+  "id": "cp231",
+  "name": "CP231",
+  "title": "Your refund check was returned: update your address",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "Your refund or credit was returned to the IRS as undeliverable. It is not a bill, but you need to update your address to get the money.",
+  "common": [
+   "You moved and didn't update your address",
+   "An error in the address on the return"
+  ],
+  "todo": [
+   "Call the IRS or return the contact section of the notice with your current address",
+   "Consider filing Form 8822 (Change of Address)",
+   "Watch for the reissued check"
+  ],
+  "deadline": "Respond as soon as possible so the refund can be reissued."
+ },
+ {
+  "id": "cp237",
+  "name": "CP237",
+  "title": "We issued a replacement refund check",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS issued a new refund check to replace an earlier one. It is not a bill.",
+  "common": [
+   "The original check expired without being cashed",
+   "The original check was lost or returned"
+  ],
+  "todo": [
+   "Destroy any expired check you still have",
+   "Cash the new check when it arrives",
+   "Call the IRS if the new check doesn't arrive within a few weeks"
+  ],
+  "deadline": "No response required."
+ },
+ {
+  "id": "cp259",
+  "name": "CP259",
+  "title": "Your business didn't file a required return",
+  "urgency": "high",
+  "who": "Businesses",
+  "what": "The IRS has no record that your business filed a required tax return. It is not a bill, but you need to file or explain.",
+  "common": [
+   "A return was never filed",
+   "A return filed under a different business name or EIN",
+   "The business closed without telling the IRS"
+  ],
+  "todo": [
+   "File the return right away, electronically if you can",
+   "Send back the response form explaining why it was late or isn't required",
+   "If you filed in the last 4 weeks under the same name and EIN, you can disregard the notice"
+  ],
+  "deadline": "Respond by the date on the notice. If you don't, the IRS may prepare the return for you and assess tax and penalties."
+ },
+ {
+  "id": "cp261",
+  "name": "CP261",
+  "title": "Your S corporation election was approved",
+  "urgency": "low",
+  "who": "Businesses",
+  "what": "The IRS accepted your Form 2553, so your business is taxed as an S corporation. It is not a bill.",
+  "common": [
+   "You filed Form 2553 to elect S corporation status",
+   "An election filed late that the IRS accepted"
+  ],
+  "todo": [
+   "Keep the notice permanently with your corporate records as proof of the election",
+   "Check that the effective date is the one you wanted",
+   "Contact the IRS if the effective date or tax year shown is wrong"
+  ],
+  "deadline": "No response required."
+ },
+ {
+  "id": "cp504b",
+  "name": "CP504B",
+  "title": "Notice of intent to levy: business",
+  "urgency": "high",
+  "who": "Businesses",
+  "what": "Your business has an unpaid balance and the IRS intends to take (levy) its property or rights to property, and may file a federal tax lien. This is a bill.",
+  "common": [
+   "Business balance unpaid after earlier notices",
+   "Payroll or other business taxes not paid"
+  ],
+  "todo": [
+   "Pay right away, or arrange a payment plan, an offer in compromise (a settlement for less) or hardship status",
+   "Call the IRS if you disagree; you can also request a Collection Appeals Program review",
+   "Check whether you've already received a final notice with hearing rights (LT11 or Letter 1058)",
+   "Ask about penalty relief (reasonable cause, or first-time abatement if it wasn't applied automatically)"
+  ],
+  "deadline": "Act immediately. The next step is a final notice with hearing rights (LT11 or Letter 1058), then levy."
+ },
+ {
+  "id": "cp268",
+  "name": "CP268",
+  "title": "We changed your business return: you have a credit",
+  "urgency": "low",
+  "who": "Businesses",
+  "what": "The IRS corrected an error on your business return, and the change gives you an overpayment. It is not a bill.",
+  "common": [
+   "A math or calculation error on the return",
+   "Payments or credits not counted correctly"
+  ],
+  "todo": [
+   "Compare the change to your return",
+   "Within 30 days, call to ask for a refund check or to apply the credit to other taxes",
+   "Contact the IRS if you disagree"
+  ],
+  "deadline": "Call within 30 days if you want to direct how the credit is used."
+ },
+ {
+  "id": "cp276a",
+  "name": "CP276A",
+  "title": "Your payroll deposit schedule had errors: penalty waived",
+  "urgency": "low",
+  "who": "Employers",
+  "what": "The tax liability schedule you filed with your payroll return (Schedule B or Form 945-A) was wrong. The IRS waived the deposit penalty this time. It is not a bill.",
+  "common": [
+   "Liabilities listed by the wrong payroll date",
+   "Schedule totals that don't match the return"
+  ],
+  "todo": [
+   "Review how tax was listed by payroll date",
+   "Fix your deposit tracking so future schedules are accurate",
+   "Make sure future Schedule B or Form 945-A totals match the return; the penalty may not be waived next time"
+  ],
+  "deadline": "No response required."
+ },
+ {
+  "id": "cp276b",
+  "name": "CP276B",
+  "title": "Your payroll deposits were made incorrectly: penalty waived",
+  "urgency": "low",
+  "who": "Employers",
+  "what": "Your payroll tax deposits weren't made the right way or on time, but the IRS waived the penalty this time. It is not a bill.",
+  "common": [
+   "Deposits made late or on the wrong schedule",
+   "Deposits made by the wrong method"
+  ],
+  "todo": [
+   "Review your deposit timing and schedule",
+   "Make sure current deposits are on time",
+   "Learn whether you are a monthly or semiweekly depositor; the penalty may not be waived next time"
+  ],
+  "deadline": "No response required."
+ },
+ {
+  "id": "cp282",
+  "name": "CP282",
+  "title": "Your partnership may need foreign partner withholding forms",
+  "urgency": "medium",
+  "who": "Businesses",
+  "what": "Your partnership return (Form 1065) shows foreign partners, so the partnership may need to file withholding forms for them. It is not a bill.",
+  "common": [
+   "Foreign partners listed on the partnership return",
+   "Partner addresses or tax ID details that suggest a foreign partner"
+  ],
+  "todo": [
+   "If the partnership owes withholding, file the required forms, such as Forms 8804, 8805 and 8813",
+   "If not, write \"not liable\" on the notice and mail it back",
+   "If you already filed them, list the forms filed and mail the notice back"
+  ],
+  "deadline": "Respond by the date on the notice."
+ },
+ {
+  "id": "cp297",
+  "name": "CP297",
+  "title": "Final notice of intent to levy federal payments",
+  "urgency": "urgent",
+  "who": "Businesses",
+  "what": "The IRS intends to take (levy) federal payments owed to your business, such as government contract payments, to pay your tax debt. It is your last notice before the levy and gives you the right to a hearing. This is a bill.",
+  "common": [
+   "Unpaid business taxes after earlier notices",
+   "No payment plan in place"
+  ],
+  "todo": [
+   "Request a Collection Due Process hearing with Form 12153 within 30 days",
+   "Pay in full, or set up a payment plan or another option",
+   "Ask about penalty relief (reasonable cause, or first-time abatement if it wasn't applied automatically)"
+  ],
+  "deadline": "30 days from the notice date to request a Collection Due Process hearing. After that, the levy can proceed."
+ },
+ {
+  "id": "cp297c",
+  "name": "CP297C",
+  "title": "We levied your federal payments: your right to a hearing",
+  "urgency": "urgent",
+  "who": "Businesses",
+  "what": "The IRS has already levied federal payments due to your business, such as contractor payments, and is telling you of your right to a hearing. It is not a new bill.",
+  "common": [
+   "Unpaid business taxes",
+   "A federal contractor with a tax balance"
+  ],
+  "todo": [
+   "Review the tax periods and amounts listed",
+   "If you disagree, submit Form 12153 to request a Collection Due Process hearing",
+   "Pay or set up a payment plan to stop future levies"
+  ],
+  "deadline": "Request a hearing by the date in the notice."
+ },
+ {
+  "id": "cp91",
+  "name": "CP91",
+  "title": "Final notice before levy on Social Security benefits",
+  "urgency": "urgent",
+  "who": "Individuals",
+  "what": "The IRS intends to take (levy) up to 15% of your Social Security benefits to pay your tax debt. This is a bill, and it gives you the right to a hearing before the levy starts.",
+  "common": [
+   "Unpaid balance after earlier notices",
+   "No payment plan in place"
+  ],
+  "todo": [
+   "Request a Collection Due Process hearing with Form 12153 within 30 days",
+   "Set up a payment plan, an offer in compromise (a settlement for less), or ask for hardship status if you can't pay",
+   "Ask about penalty relief (reasonable cause, or first-time abatement if it wasn't applied automatically)"
+  ],
+  "deadline": "30 days from the notice date to request a Collection Due Process hearing. After that, the levy on your benefits can begin."
+ },
+ {
+  "id": "cp92",
+  "name": "CP92 / CP242",
+  "title": "We took your state refund: your right to a hearing",
+  "urgency": "urgent",
+  "who": "Individuals and businesses",
+  "what": "The IRS took (levied) your state tax refund to pay federal tax you owe, and is telling you of your right to a hearing. CP92 goes to individuals and CP242 to businesses. It is not a new bill.",
+  "common": [
+   "Unpaid federal tax balance",
+   "No payment plan in place"
+  ],
+  "todo": [
+   "Review the amount taken and the balance left",
+   "If you disagree, file Form 12153 within 30 days to request a hearing",
+   "Pay or set up a payment plan to stop further levies"
+  ],
+  "deadline": "30 days from the notice date to request a hearing."
+ },
+ {
+  "id": "cp515",
+  "name": "CP515",
+  "title": "Reminder: we have no record of your tax return",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "The IRS has no record of a prior-year return you were required to file. It is not a bill, but it is an early step toward the IRS figuring your tax for you.",
+  "common": [
+   "A return was never filed",
+   "A return was filed under the wrong Social Security number"
+  ],
+  "todo": [
+   "File the return right away",
+   "If you already filed or didn't need to, explain on Form 15103 by mail, fax or your IRS online account",
+   "Keep copies of everything you send"
+  ],
+  "deadline": "Respond by the date on the notice. If you don't, the IRS may prepare a return for you (CP2566)."
+ },
+ {
+  "id": "cp516",
+  "name": "CP516",
+  "title": "Second reminder: we have no record of your tax return",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "A second reminder that the IRS has no record of one or more prior-year returns. It is not a bill.",
+  "common": [
+   "A return was never filed",
+   "A return was lost or filed under the wrong number"
+  ],
+  "todo": [
+   "File the missing returns right away",
+   "If you already filed or didn't need to, explain on Form 15103",
+   "Get help if several years are missing"
+  ],
+  "deadline": "Respond by the date on the notice. If you don't, the IRS may prepare a return for you (CP2566)."
+ },
+ {
+  "id": "cp518i",
+  "name": "CP518I",
+  "title": "Final reminder: we have no record of your tax return",
+  "urgency": "high",
+  "who": "Individuals",
+  "what": "The final reminder that the IRS has no record of one or more prior-year returns. If you don't respond, the IRS will prepare a return for you based on information it has, usually with a higher tax. It is not a bill.",
+  "common": [
+   "Earlier non-filing reminders weren't answered",
+   "A return was never filed"
+  ],
+  "todo": [
+   "File the missing returns immediately",
+   "If you already filed or didn't need to, explain on Form 15103",
+   "Get help if several years are missing"
+  ],
+  "deadline": "Respond by the date on the notice. Next comes a substitute return and proposed tax (CP2566)."
+ },
+ {
+  "id": "cp518b",
+  "name": "CP518B",
+  "title": "Final reminder: your business didn't file a return",
+  "urgency": "high",
+  "who": "Businesses",
+  "what": "The final reminder that the IRS has no record of a required business tax return. It is not a bill.",
+  "common": [
+   "A return was never filed",
+   "A return filed under a different business name or EIN"
+  ],
+  "todo": [
+   "File the return right away, electronically if you can",
+   "Return the response form",
+   "Respond even if you filed more than 4 weeks ago or under a different name or EIN"
+  ],
+  "deadline": "Respond by the date on the notice. If you don't, the IRS may prepare the return for you and assess tax and penalties."
+ },
+ {
+  "id": "cp2005",
+  "name": "CP2005",
+  "title": "We accepted your information: no change",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS closed its review of income that didn't match its records and isn't making any changes. It is not a bill.",
+  "common": [
+   "You answered a CP2000 or CP2501 with an explanation the IRS accepted",
+   "The income was already reported on your return"
+  ],
+  "todo": [
+   "You may not need to reply, but check the notice against your records and keep it on file",
+   "Keep the notice with your tax records",
+   "Contact the IRS if a later notice contradicts this one"
+  ],
+  "deadline": "No response required."
+ },
+ {
+  "id": "cp2006",
+  "name": "CP2006",
+  "title": "We received your response and are reviewing it",
+  "urgency": "low",
+  "who": "Individuals",
+  "what": "The IRS received your reply about income that didn't match its records and is reviewing it. It is not a bill.",
+  "common": [
+   "You answered a CP2000 or CP2501",
+   "You sent documents disputing proposed changes"
+  ],
+  "todo": [
+   "You may not need to reply now, but read the notice carefully and keep it with your records",
+   "Make a note to follow up if you don't hear back",
+   "Keep copies of what you sent"
+  ],
+  "deadline": "No response required."
+ },
+ {
+  "id": "cp2057",
+  "name": "CP2057",
+  "title": "You may need to amend your return",
+  "urgency": "medium",
+  "who": "Individuals",
+  "what": "The IRS received income information from employers, banks or others that may not be on your return. It is not a bill; the IRS is giving you the chance to correct it yourself.",
+  "common": [
+   "A missed 1099 or W-2",
+   "Income reported on a form the IRS didn't match to your return"
+  ],
+  "todo": [
+   "Compare the income listed to your return",
+   "If the information is right and missing, file an amended return (Form 1040-X)",
+   "If it's wrong, ask the payer to correct it"
+  ],
+  "deadline": "Act by the date on the notice, if one is shown. Correcting it now can avoid a later proposed tax change."
+ },
+ {
+  "id": "cp2566",
+  "name": "CP2566",
+  "title": "We figured your tax because you didn't file",
+  "urgency": "urgent",
+  "who": "Individuals",
+  "what": "You didn't file a return, so the IRS prepared one for you using income reported by employers, banks and others, and is proposing tax, penalties and interest. It is a proposal, not a bill yet, and it usually overstates what you owe.",
+  "common": [
+   "Unanswered non-filing reminders",
+   "A return that was never filed"
+  ],
+  "todo": [
+   "File your actual return right away; it usually results in lower tax",
+   "If you agree with the IRS figures, sign and return the response form",
+   "If you had no filing requirement, call the number on the notice",
+   "Ask about penalty relief (reasonable cause, or first-time abatement if it wasn't applied automatically)"
+  ],
+  "deadline": "Respond by the date on the notice. If you don't, a Statutory Notice of Deficiency (CP3219N) follows."
+ },
+ {
+  "id": "letter-226j",
+  "name": "Letter 226J",
+  "title": "Proposed health coverage penalty for employers",
+  "urgency": "urgent",
+  "who": "Employers",
+  "what": "The IRS is proposing an Affordable Care Act penalty (the employer shared responsibility payment) because it believes your business, as an employer with 50 or more full-time workers, didn't offer qualifying health coverage. It is a proposal, not a bill.",
+  "common": [
+   "A full-time employee got a premium tax credit on the Marketplace",
+   "Errors in the codes on Forms 1095-C",
+   "Coverage that didn't meet affordability or minimum value rules"
+  ],
+  "todo": [
+   "Review your Forms 1095-C and the employee list the IRS sent",
+   "Respond with Form 14764, and Form 14765 to correct any employee details",
+   "Explain any coverage offers or safe harbors that apply",
+   "If you disagree after the response, you can ask for an Appeals review"
+  ],
+  "deadline": "Respond by the date in the letter, at least 90 days for letters issued from 2025. If you don't, the IRS assesses the penalty (CP220J)."
+ },
+ {
+  "id": "letter-950",
+  "name": "Letter 950",
+  "title": "30-day letter: proposed audit changes",
+  "urgency": "urgent",
+  "who": "Individuals and businesses",
+  "what": "After a field audit you didn't agree with, the IRS is proposing changes, usually more tax and possibly penalties. You have 30 days to take the case to the IRS Independent Office of Appeals. It is a proposal, not a bill.",
+  "common": [
+   "Disagreement with the audit findings",
+   "Documents that didn't support deductions or income"
+  ],
+  "todo": [
+   "Read the audit report carefully",
+   "File a written protest within 30 days to go to Appeals",
+   "Ask whether any accuracy penalty can be removed for reasonable cause",
+   "If you agree, sign the agreement form"
+  ],
+  "deadline": "30 days from the letter date to file a protest. Otherwise a Statutory Notice of Deficiency follows."
+ },
+ {
+  "id": "letter-3172",
+  "name": "Letter 3172",
+  "title": "A tax lien was filed: your right to a hearing",
+  "urgency": "urgent",
+  "who": "Individuals and businesses",
+  "what": "The IRS filed a Notice of Federal Tax Lien, a public claim against your property for unpaid tax, and is telling you of your right to a hearing. It relates to the balance you already owe.",
+  "common": [
+   "Unpaid balance after earlier notices",
+   "No payment plan in place"
+  ],
+  "todo": [
+   "Request a Collection Due Process hearing with Form 12153 by the date in the letter",
+   "Ask about lien withdrawal, discharge or subordination (options that remove or limit the lien)",
+   "Pay in full or set up a payment plan"
+  ],
+  "deadline": "Request a hearing by the date in the letter, about 30 days. After that, the lien stays and levies can follow."
+ },
+ {
+  "id": "letter-2205",
+  "name": "Letter 2205 / 2205-A",
+  "title": "Your return was selected for an in-person audit",
+  "urgency": "high",
+  "who": "Individuals and businesses",
+  "what": "The IRS is starting an in-person (field) audit. Letter 2205-A lists the items being examined, and Letter 2205-D is used for partnerships. It is not a bill.",
+  "common": [
+   "Selection for audit based on the return's figures",
+   "Large or unusual deductions or business losses"
+  ],
+  "todo": [
+   "Call to schedule the first meeting within 14 calendar days",
+   "If you want someone to represent you, sign Form 2848 (Power of Attorney)",
+   "Start gathering the records the auditor will ask for in a document request (Form 4564)"
+  ],
+  "deadline": "Call within 14 days to schedule. The audit goes ahead whether or not you respond."
+ },
+ {
+  "id": "letter-692",
+  "name": "Letter 692",
+  "title": "Proposed audit changes: 15 days to respond",
+  "urgency": "urgent",
+  "who": "Individuals and businesses",
+  "what": "The IRS is proposing more changes to your return, usually more tax. You can agree or ask for an Appeals review. It is a proposal, not a bill.",
+  "common": [
+   "Disagreement with audit findings",
+   "Additional issues found during the audit"
+  ],
+  "todo": [
+   "Review the proposed changes",
+   "Sign the form if you agree",
+   "If you disagree, file a protest within 15 days to go to Appeals",
+   "Ask about penalty relief (reasonable cause, or first-time abatement if it wasn't applied automatically)"
+  ],
+  "deadline": "15 days from the letter date. Otherwise a Statutory Notice of Deficiency follows."
+ },
+ {
+  "id": "letter-531",
+  "name": "Letter 531",
+  "title": "Statutory Notice of Deficiency",
+  "urgency": "urgent",
+  "who": "Individuals and businesses",
+  "what": "The IRS has determined you owe more tax and is formally telling you of your right to challenge it in U.S. Tax Court. It is a proposal, not a bill yet.",
+  "common": [
+   "Audit changes you didn't agree to",
+   "No response to earlier audit letters"
+  ],
+  "todo": [
+   "Decide whether you agree with the changes",
+   "If you disagree, file a petition with the U.S. Tax Court before the deadline",
+   "Ask whether any penalties can be removed"
+  ],
+  "deadline": "90 days from the notice date to petition Tax Court (150 days if addressed to you outside the U.S.). The deadline cannot be extended."
+ },
+ {
+  "id": "letter-1153",
+  "name": "Letter 1153",
+  "title": "Proposed personal penalty for unpaid payroll taxes",
+  "urgency": "urgent",
+  "who": "Business owners and officers",
+  "what": "The IRS is proposing to hold you personally responsible for payroll taxes withheld from employees that your business didn't pay (the trust fund recovery penalty). It is a proposal, not a bill yet.",
+  "common": [
+   "Payroll taxes withheld but not paid to the IRS",
+   "You had authority over which bills got paid"
+  ],
+  "todo": [
+   "Review whether you were actually responsible and knew the taxes weren't paid",
+   "File an appeal within 60 days if you disagree",
+   "Ask about mediation to settle the dispute faster"
+  ],
+  "deadline": "60 days from the mailing date to appeal (75 days if addressed to you outside the U.S.). Otherwise the penalty is assessed against you personally."
+ },
+ {
+  "id": "cp3219n",
+  "name": "CP3219N",
+  "title": "Statutory Notice of Deficiency for an unfiled return",
+  "urgency": "urgent",
+  "who": "Individuals",
+  "what": "You didn't file a return, so the IRS figured your tax and is formally telling you of your right to challenge it in U.S. Tax Court. It is a proposal, not a bill yet, and it usually overstates the tax.",
+  "common": [
+   "No response to a CP2566",
+   "A return that was never filed"
+  ],
+  "todo": [
+   "File your actual return right away; it often lowers the tax",
+   "If you disagree, petition the U.S. Tax Court before the deadline",
+   "If you agree, sign and return the form",
+   "Ask about penalty relief (reasonable cause, or first-time abatement if it wasn't applied automatically)"
+  ],
+  "deadline": "90 days from the notice date to petition Tax Court (150 days if addressed to you outside the U.S.). The deadline cannot be extended."
+ },
+ {
+  "id": "cp220j",
+  "name": "CP220J",
+  "title": "Employer health coverage penalty: bill",
+  "urgency": "high",
+  "who": "Employers",
+  "what": "The IRS has assessed the Affordable Care Act employer penalty (the employer shared responsibility payment). This is a bill, and interest runs from the notice date.",
+  "common": [
+   "No response to Letter 226J or Letter 227",
+   "Appeals or the IRS kept the penalty after review"
+  ],
+  "todo": [
+   "Check the amount against your Letter 226J and 227 records",
+   "Pay, or set up a payment plan",
+   "Follow the notice instructions if you want to challenge the penalty"
+  ],
+  "deadline": "Pay by the date on the notice. More balance-due notices follow if you don't."
+ },
+ {
+  "id": "letter-227",
+  "name": "Letter 227",
+  "title": "Update on your employer health coverage penalty",
+  "urgency": "high",
+  "who": "Employers",
+  "what": "The IRS is answering your Letter 226J response. Letters 227-L and 227-M show a revised proposed penalty, and Letter 227-N shows the Appeals result. It is not a bill.",
+  "common": [
+   "You responded to Letter 226J",
+   "Appeals finished reviewing your case"
+  ],
+  "todo": [
+   "Check which version (227-L, 227-M, 227-N) you received",
+   "For 227-L or 227-M, agree on the response form, or disagree with an explanation and a revised Form 14765",
+   "For 227-M you can also request an Appeals meeting",
+   "For 227-N, no reply is needed"
+  ],
+  "deadline": "Respond by the date in the letter. If you don't, the IRS bills the penalty (CP220J)."
+ },
+ {
+  "id": "lt39",
+  "name": "LT39",
+  "title": "Reminder: overdue balance or missing returns",
+  "urgency": "high",
+  "who": "Individuals and businesses",
+  "what": "A reminder that you have an overdue tax balance, missing returns, or both, and that the IRS may file a tax lien. This is a bill.",
+  "common": [
+   "Unpaid balance after earlier notices",
+   "Returns not filed",
+   "A payment plan that ended"
+  ],
+  "todo": [
+   "Pay by the date on the notice, or pay what you can and set up a payment plan (online if you owe under $50,000)",
+   "File any missing returns listed",
+   "If you can't pay basic living expenses, ask about hardship status",
+   "Ask about penalty relief (reasonable cause, or first-time abatement if it wasn't applied automatically)"
+  ],
+  "deadline": "Pay by the date on the notice. Ignoring it risks a lien, a levy on wages or bank accounts, and certification that can affect your passport."
+ }
+]
