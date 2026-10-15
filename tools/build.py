@@ -279,6 +279,10 @@ pages = {
 import os, html as H
 NOTICES = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "notices.json")))
 URG = {"low": "Low: informational", "medium": "Medium: action needed", "high": "High: respond by the deadline", "urgent": "Urgent: time-sensitive rights"}
+CHECK_IRS = '<div class="note-box"><strong>Always check with the IRS.</strong> IRS notices and rules change, and this page may be out of date. Go by the dates and instructions printed on your own notice, and confirm on <a href="https://www.irs.gov/individuals/understanding-your-irs-notice-or-letter" rel="noopener">IRS.gov</a>.</div>'
+def irs_link(name):
+    q = name.split(" / ")[0].replace("Letter ", "Letter ")
+    return f'<p><a class="textlink" href="https://www.irs.gov/site-index-search?search={H.escape(q).replace(" ", "+")}" rel="noopener">Look up {H.escape(name)} on IRS.gov</a></p>'
 DISCLAIMER = '<p class="small" style="margin-top:28px">This is general information, not tax advice for your situation. Always go by the dates and instructions printed on your own notice. Official IRS explanation: <a href="https://www.irs.gov/individuals/understanding-your-irs-notice-or-letter" rel="noopener">Understanding your IRS notice or letter</a>.</p>'
 rows = ""
 for n in NOTICES:
@@ -290,17 +294,17 @@ for n in NOTICES:
         {"@type": "Question", "name": f"What should I do if I get a {n['name']}?", "acceptedAnswer": {"@type": "Answer", "text": " ".join(n["todo"])}},
         {"@type": "Question", "name": f"How long do I have to respond to a {n['name']}?", "acceptedAnswer": {"@type": "Answer", "text": n["deadline"]}}]}
     body = f"""<section><div class="wrap" style="max-width:780px"><p class="small"><a href="/irs-notices/">IRS notices</a> &rsaquo; {e(n["name"])}</p>
-<h1>IRS {e(n["name"])}: {e(n["title"])}</h1><p><span class="badge {n["urgency"]}">{URG[n["urgency"]]}</span> <span class="small">For: {e(n["who"])}</span></p>
+<h1>IRS {e(n["name"])}: {e(n["title"])}</h1><p><span class="badge {n["urgency"]}">{URG[n["urgency"]]}</span> <span class="small">For: {e(n["who"])}</span></p>{CHECK_IRS}
 <h2>What this notice means</h2><p>{e(n["what"])}</p>
 <h2>Common reasons you got it</h2>{li(n["common"])}
 <h2>What to do</h2>{li(n["todo"])}
-<h2>Deadline</h2><p><strong>{e(n["deadline"])}</strong></p>
+<h2>Deadline</h2><p><strong>{e(n["deadline"])}</strong></p>{irs_link(n["name"])}
 {quick_form("IRS notice: " + n["name"], "Get help with your " + e(n["name"]), "As an IRS Enrolled Agent, I can review your notice, explain what it means for you, and respond to the IRS on your behalf with a signed Form 2848 (Power of Attorney). Send your details and I&#39;ll get back to you.")}
 {DISCLAIMER}</div></section><script type="application/ld+json">{json.dumps(faq)}</script>"""
     pages[f"irs-notices/{n['id']}/index.html"] = page(f"/irs-notices/{n['id']}/", f"IRS {e(n['name'])} Notice Explained: {e(n['title'])} | Koldal Tax &amp; Advisory", e(f"Got an IRS {n['name']}? What it means, common reasons, what to do, and your deadline. Plain-English guide from Alek Koldal, EA."), body)
 pages["irs-notices/index.html"] = page("/irs-notices/", "IRS Notice Lookup: What Your IRS Letter Means | Koldal Tax &amp; Advisory",
  "Look up your IRS notice or letter (CP2000, CP14, CP504, LT11, 5071C and more) and get a plain-English explanation, what to do, and your deadline.",
- f"""<section><div class="wrap"><h1>IRS notice lookup</h1><p style="color:var(--muted);max-width:680px">Find the notice number in the top or bottom right corner of your IRS letter (for example CP2000 or LTR 5071C), then search for it below.</p>
+ f"""<section><div class="wrap"><h1>IRS notice lookup</h1><p style="color:var(--muted);max-width:680px">Find the notice number in the top or bottom right corner of your IRS letter (for example CP2000 or LTR 5071C), then search for it below.</p>{CHECK_IRS}
 <input id="nq" type="search" placeholder="Search, e.g. CP2000, levy, identity" aria-label="Search IRS notices" style="max-width:520px;margin:10px 0 24px">
 <div class="grid" id="nl">{rows}</div><p id="none" style="display:none">No match. <a href="/contact/">Send me your notice</a> and I'll explain it.</p>{DISCLAIMER}</div></section>
 <script>const q=document.getElementById('nq'),cs=[...document.querySelectorAll('#nl .notice')];q.addEventListener('input',()=>{{const v=q.value.toLowerCase().replace(/ /g,'');let n=0;cs.forEach(c=>{{const m=c.dataset.q.replace(/ /g,'').includes(v);c.style.display=m?'':'none';n+=m}});document.getElementById('none').style.display=n?'none':''}});</script>""")

@@ -241,3 +241,5 @@ section:has(+ section > .wrap > .cta){padding-bottom:40px}
 @media (max-width:860px){.portrait{max-width:340px}}
 .hero + section{padding-top:16px}
 h1 + .lede{margin-top:20px}
+.note-box{border-left:3px solid var(--brass);background:var(--mist);padding:16px 20px;margin:24px 0;font-size:15px;color:var(--muted);max-width:680px}
+.note-box strong{color:var(--ink)}
