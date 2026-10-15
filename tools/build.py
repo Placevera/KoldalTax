@@ -4,7 +4,7 @@ SITE = "https://www.koldaltax.com"
 # Add your business phone here (e.g. "(954) 555-0123") to show call buttons across the site.
 PHONE = ""
 CITIES = ["Coral Springs", "Margate", "Parkland", "Coconut Creek", "Tamarac", "Pompano Beach"]
-NAV = [("/services/", "Services"), ("/pricing/", "Pricing"), ("/tax/", "Tax &amp; IRS"), ("/resources/", "Free Help"), ("/about/", "About")]
+NAV = [("/bookkeeping/", "Bookkeeping"), ("/tax/", "Tax"), ("/advisory/", "Planning"), ("/services/irs-notice-help/", "IRS Help"), ("/pricing/", "Pricing"), ("/about/", "About")]
 SCHEMA = {"@context": "https://schema.org", "@type": "AccountingService", "name": "Koldal Tax & Advisory",
           "url": SITE, "email": "alek@koldaltax.com", "founder": {"@type": "Person", "name": "Alek Koldal, EA"},
           "address": {"@type": "PostalAddress", "addressLocality": "Coral Springs", "addressRegion": "FL", "addressCountry": "US"},
@@ -36,7 +36,7 @@ def page(path, title, desc, body):
 <script type="application/ld+json">{json.dumps(SCHEMA)}</script>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="/">Koldal Tax &amp; Advisory</a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav id="site-nav">{nav}{f'<a class="btn ghost" href="{TEL}">Call {PHONE}</a>' if PHONE else ""}<a class="btn" href="/contact/">Free QuickBooks review</a></nav></div><script>{{const b=document.querySelector(".menu-btn"),h=b.closest("header");b.addEventListener("click",()=>{{const o=h.classList.toggle("open");b.setAttribute("aria-expanded",o);b.textContent=o?"Close":"Menu"}})}}</script></header>
+<header><div class="wrap"><a class="brand" href="/">Koldal Tax &amp; Advisory</a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav id="site-nav">{nav}{f'<a class="btn ghost" href="{TEL}">Call {PHONE}</a>' if PHONE else ""}<a class="btn" href="/contact/">Book a consultation</a></nav></div><script>{{const b=document.querySelector(".menu-btn"),h=b.closest("header");b.addEventListener("click",()=>{{const o=h.classList.toggle("open");b.setAttribute("aria-expanded",o);b.textContent=o?"Close":"Menu"}})}}</script></header>
 <main>
 {body}
 </main>
@@ -66,7 +66,7 @@ def quick_form(topic, heading, blurb):
 <button class="btn" type="submit">Request help</button><div class="msg" role="status"></div></form>
 {f'<p class="small" style="margin-top:12px">Or call <a href="{TEL}">{PHONE}</a>.</p>' if PHONE else ""}</div>"""
 
-CTA = """<section><div class="wrap"><div class="cta"><div><h2>Find out where your books stand</h2><p style="margin:6px 0 0;opacity:.85">I'll look through your QuickBooks Online file for free and tell you what it needs.</p></div><a class="btn" href="/contact/">Get a free QuickBooks review</a></div></div></section>"""
+CTA = """<section><div class="wrap"><div class="cta"><div><h2>Let&#39;s talk about what you need</h2><p style="margin:6px 0 0;opacity:.85">Bookkeeping, a tax return, planning or an IRS letter: the first consultation is free.</p></div><a class="btn" href="/contact/">Book a free consultation</a></div></div></section>"""
 
 EA_BADGE = '<span class="ea">EA</span>'
 
@@ -145,13 +145,24 @@ REVIEW_FORM = """<form data-kind="contact" class="card"><input type="hidden" nam
 <div class="row"><label>First name<input id="f-first" name="first_name" required autocomplete="given-name"></label><label>Last name<input id="f-last" name="last_name" required autocomplete="family-name"></label></div>
 <div class="row"><label>Email<input id="f-email" type="email" name="email" required autocomplete="email"></label><label>Phone<input id="f-phone" type="tel" name="phone" autocomplete="tel"></label></div>
 <div class="row"><label>Business name<input id="f-biz" name="x_business" autocomplete="organization"></label><label>Type of business<input id="f-type" name="x_type" placeholder="e.g. contractor, salon"></label></div>
-<div class="row"><label>Are your books up to date?<select id="f-current" name="x_current"><option>Yes, mostly</option><option>A few months behind</option><option>More than a year behind</option><option>Not sure</option></select></label>
-<label>Using QuickBooks Online?<select id="f-qbo" name="x_qbo"><option>Yes</option><option>QuickBooks Desktop</option><option>Another program</option><option>Spreadsheets or nothing yet</option></select></label></div>
-<label>What do you need help with?<select id="f-need" name="x_need"><option>Monthly bookkeeping</option><option>Cleanup &amp; catch-up</option><option>Payroll with Gusto</option><option>Tax return</option><option>IRS notice or penalty</option><option>Something else</option></select></label>
+<div class="row"><label>Are your books up to date<select id="f-current" name="x_current"><option>Yes, mostly</option><option>A few months behind</option><option>More than a year behind</option><option>Not sure</option></select></label>
+<label>Using QuickBooks Online<select id="f-qbo" name="x_qbo"><option>Yes</option><option>QuickBooks Desktop</option><option>Another program</option><option>Spreadsheets or nothing yet</option></select></label></div>
+<label>What do you need help with<select id="f-need" name="x_need"><option>Monthly bookkeeping</option><option>Cleanup &amp; catch-up</option><option>Payroll with Gusto</option><option>Tax return</option><option>IRS notice or penalty</option><option>Something else</option></select></label>
 <label>Anything else? (optional)<textarea id="f-msg" name="message" style="min-height:90px"></textarea></label>
 <label class="hp">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
 <button class="btn" type="submit">Request my free review</button><div class="msg" role="status"></div></form>"""
 
+PILLARS = [
+ ("Bookkeeping", "Monthly QuickBooks Online bookkeeping", "Reconciled accounts and clear monthly reports, plus cleanup, catch-up and Gusto payroll.", "From $300/month", "/bookkeeping/"),
+ ("Tax preparation", "Individual &amp; business returns", "Returns for individuals, sole proprietors, partnerships and S corporations, including prior years.", "1040s from $650", "/tax/"),
+ ("Tax planning", "Planning &amp; advisory", "Year-end planning, quarterly estimates, business structure and a monthly review of your numbers.", "Included in Advisory plan", "/advisory/"),
+ ("IRS help", "Notices &amp; representation", "IRS letters, payment plans, audits by mail and penalty relief, handled by your Enrolled Agent.", "Free notice review", "/services/irs-notice-help/"),
+]
+PORTRAIT = """<figure class="portrait"><div class="portrait-frame"><img src="/assets/headshot.jpg" alt="Alek Koldal, EA" width="420" height="520" onerror="this.remove()"><span class="portrait-ph" aria-hidden="true">AK</span></div>
+<figcaption><strong>Alek Koldal, EA</strong><span>IRS Enrolled Agent · Founder</span></figcaption></figure>"""
+CONTACT_FORM = REVIEW_FORM.replace('''<div class="row"><label>Are your books up to date<select id="f-current" name="x_current"><option>Yes, mostly</option><option>A few months behind</option><option>More than a year behind</option><option>Not sure</option></select></label>
+<label>Using QuickBooks Online<select id="f-qbo" name="x_qbo"><option>Yes</option><option>QuickBooks Desktop</option><option>Another program</option><option>Spreadsheets or nothing yet</option></select></label></div>
+''', '').replace('value="Free QuickBooks review"', 'value="Consultation request"').replace('<option>Monthly bookkeeping</option><option>Cleanup &amp; catch-up</option><option>Payroll with Gusto</option><option>Tax return</option><option>IRS notice or penalty</option><option>Something else</option>', '<option>Bookkeeping</option><option>Tax return</option><option>Tax planning &amp; advisory</option><option>IRS notice or penalty</option><option>Payroll with Gusto</option><option>Something else</option>').replace('Request my free review', 'Request a consultation').replace('<label>Business name<input id="f-biz" name="x_business" autocomplete="organization"></label><label>Type of business<input id="f-type" name="x_type" placeholder="e.g. contractor, salon"></label>', '<label>Business name (if any)<input id="f-biz" name="x_business" autocomplete="organization"></label><label>Type of business<input id="f-type" name="x_type" placeholder="e.g. contractor, salon"></label>')
 SERVICES = [
  ("Individual Tax Returns", "Federal and state tax preparation and filing for individuals and families.", []),
  ("Business Tax Returns", "Tax preparation for sole proprietors, partnerships, and S corporations.", []),
@@ -170,38 +181,85 @@ def cards(items):
     return h
 
 pages = {
-"index.html": page("/", "QuickBooks Bookkeeping &amp; Tax by an Enrolled Agent in Coral Springs, FL | Koldal Tax &amp; Advisory",
- "Monthly QuickBooks Online bookkeeping and tax services from Alek Koldal, EA, an IRS Enrolled Agent in Coral Springs, FL. Start with a free QuickBooks review.",
- f"""<div class="hero"><div class="wrap"><p class="eyebrow">Alek Koldal, EA · Coral Springs, FL</p><h1>QuickBooks bookkeeping and taxes, handled by an Enrolled Agent</h1>
-<p>Your QuickBooks Online file reconciled every month, reports you can trust, and an IRS-licensed tax professional who already knows your numbers when tax time or an IRS letter comes.</p>
-<div class="actions"><a class="btn" href="/contact/">Get a free QuickBooks review</a><a class="btn ghost" href="/pricing/">See plans &amp; pricing</a></div>
-<p class="small" style="margin-top:14px">Just need a tax return? <a href="/tax/">See tax services</a></p>
-<ul class="proof"><li>{EA_BADGE} IRS Enrolled Agent</li><li>&#9733; 5.0 on Google</li><li>QuickBooks Online specialist</li><li>Chamber of Commerce member</li></ul></div></div>
+"index.html": page("/", "Bookkeeping, Tax &amp; IRS Help in Coral Springs, FL | Koldal Tax &amp; Advisory",
+ "Bookkeeping, tax preparation, tax planning and IRS representation for small businesses and individuals, from Alek Koldal, EA, an IRS Enrolled Agent in Coral Springs, FL.",
+ f"""<div class="hero"><div class="wrap hero-grid"><div>
+<p class="eyebrow">Alek Koldal, EA · Coral Springs, FL</p>
+<h1>Bookkeeping, tax and IRS help for small businesses and individuals</h1>
+<p>One Enrolled Agent for your books, your tax return, your planning, and anything the IRS sends you.</p>
+<div class="actions"><a class="btn" href="/contact/">Book a free consultation</a><a class="btn ghost" href="#services">Explore services</a></div></div>
+{PORTRAIT}</div></div>
+<div class="trust"><div class="wrap"><ul><li>{EA_BADGE} IRS Enrolled Agent</li><li>&#9733; 5.0 on Google</li><li>QuickBooks Online</li><li>Chamber of Commerce member</li></ul></div></div>
+<section id="services"><div class="wrap"><p class="eyebrow">Services</p><h2>How I can help</h2>
+<div class="pillars">{"".join(f'<a class="pillar" href="{u}"><span class="pillar-k">{k}</span><h3>{t}</h3><p>{d}</p><span class="pillar-f">{f}</span></a>' for k, t, d, f, u in PILLARS)}</div></div></section>
+<section class="band-dark"><div class="wrap split"><div><p class="eyebrow">Why an Enrolled Agent</p><h2>The highest credential the IRS awards</h2>
+<p>Enrolled Agents are licensed by the U.S. Department of the Treasury and can represent taxpayers before the IRS on any tax matter, in every state.</p>
+<p>Working with one person for your books, returns and planning means nothing gets lost between advisors, and if the IRS ever writes, the person who knows your numbers is the one who answers.</p></div>
+<ul class="ea-list"><li><strong>Federally licensed</strong><span>Tested by the IRS on individual, business and representation tax law.</span></li>
+<li><strong>One point of contact</strong><span>You work with me directly, all year, not just in April.</span></li>
+<li><strong>Local</strong><span>Based in Coral Springs and serving South Florida, in person or remotely.</span></li></ul></div></section>
+<section><div class="wrap"><p class="eyebrow">Getting started</p><h2>Simple from the first call</h2>
+<ol class="steps"><li><h3>Free consultation</h3><p>Tell me what you need. For bookkeeping clients, I also look through your QuickBooks file.</p></li>
+<li><h3>Clear quote</h3><p>You get a plan and a price before any work starts.</p></li>
+<li><h3>Ongoing support</h3><p>Books, returns and planning handled, with answers when you need them.</p></li></ol></div></section>
+<section style="background:var(--soft)"><div class="wrap split"><div><p class="eyebrow">Free resources</p><h2>Got an IRS letter or a QuickBooks problem?</h2><p class="lede">Plain-English guides you can use right now.</p></div>
+<div class="linklist"><a href="/irs-notices/"><strong>IRS notice lookup</strong><span>What your notice means, what to do and your deadline</span></a><a href="/quickbooks-help/"><strong>QuickBooks Online help</strong><span>Fixes for bank feeds, reconciliations, 1099s and more</span></a></div></div></section>
+{CTA}"""),
+"bookkeeping/index.html": page("/bookkeeping/", "QuickBooks Online Bookkeeping in Coral Springs, FL | Koldal Tax &amp; Advisory",
+ "Monthly QuickBooks Online bookkeeping, cleanup and catch-up, and payroll with Gusto for small businesses in Coral Springs and South Florida. From $300 a month.",
+ f"""<div class="hero"><div class="wrap"><p class="eyebrow">Bookkeeping</p><h1>Monthly QuickBooks Online bookkeeping</h1>
+<p>Accounts reconciled every month, reports you can trust, and books that are ready for your tax return. From $300 a month.</p>
+<div class="actions"><a class="btn" href="/contact/">Book a free consultation</a><a class="btn ghost" href="/pricing/">See plans &amp; pricing</a></div></div></div>
 <section><div class="wrap"><h2>How it works</h2>{STEPS}</div></section>
-{EA_SECTION}
-<section style="background:var(--soft)"><div class="wrap"><h2>Bookkeeping plans</h2><p class="lede">Monthly bookkeeping starts at $300. Your exact price is set after a free review of your books, so there are no surprise bills.</p>{plan_cards(full=False)}
+<section style="background:var(--soft)"><div class="wrap"><h2>Plans</h2><p class="lede">Your exact price is set after a free review of your books, so there are no surprise bills.</p>{plan_cards(full=False)}
 <p style="margin-top:18px"><a href="/pricing/">Compare plans and add-ons &rarr;</a></p></div></section>
-<section><div class="wrap"><p class="eyebrow">{EA_BADGE} Tax services</p><h2>Tax returns and IRS help from your Enrolled Agent</h2><p class="lede">For bookkeeping clients and anyone who needs a tax professional.</p>{tax_cards()}
-<p style="margin-top:18px"><a href="/tax/">All tax services &rarr;</a></p></div></section>
-<section><div class="wrap split"><div><h2>Bookkeeping for any small business</h2>
+<section><div class="wrap split"><div><h2>For any small business</h2>
 <p>Whatever your business does, if it runs on QuickBooks Online I can keep its books: contractors and trades, real estate agents, salons, cleaning and landscaping companies, restaurants, online sellers, professional services and more.</p></div>
-<div class="card"><h3>Also handled in one place</h3><ul class="checks"><li><a href="/services/payroll-with-gusto/">Payroll setup and review with Gusto</a></li><li><a href="/tax/">Business and individual tax returns</a></li><li><a href="/services/irs-notice-help/">IRS notices and penalty relief</a></li><li>1099s, Florida sales tax and Sunbiz annual reports</li></ul></div></div></section>
-<section style="background:var(--soft)"><div class="wrap"><h2>Free help</h2><div class="grid">
-<a class="card notice" href="/irs-notices/"><h3>IRS notice lookup &rarr;</h3><p>Got a letter from the IRS? What it means, what to do, and your deadline.</p></a>
-<a class="card notice" href="/quickbooks-help/"><h3>QuickBooks Online help &rarr;</h3><p>Fixes for bank feeds, reconciliations, Undeposited Funds, 1099s and more.</p></a></div></div></section>
+<div class="linklist"><a href="/services/quickbooks-cleanup/"><strong>Cleanup &amp; catch-up</strong><span>Months or years behind? Get caught up, then stay caught up</span></a><a href="/services/payroll-with-gusto/"><strong>Payroll with Gusto</strong><span>Setup, QuickBooks connection and a review of every payroll</span></a><a href="/quickbooks-help/1099-contractors/"><strong>1099s, sales tax &amp; annual reports</strong><span>1099-NECs, Florida sales tax and your Sunbiz report</span></a></div></div></section>
 {CTA}"""),
-"tax/index.html": page("/tax/", "Tax Preparation &amp; IRS Help from an Enrolled Agent | Coral Springs, FL",
- "Business and individual tax returns, tax planning, IRS notices and penalty relief from Alek Koldal, EA, an IRS Enrolled Agent in Coral Springs, FL.",
- f"""<div class="hero"><div class="wrap"><p class="eyebrow">{EA_BADGE} IRS Enrolled Agent</p><h1>Tax returns and IRS help from a federally licensed tax professional</h1>
-<p>As an Enrolled Agent I&#39;m licensed by the U.S. Treasury to prepare returns and represent taxpayers before the IRS on any tax matter. For bookkeeping clients, your return is prepared straight from books I already keep.</p>
-<div class="actions"><a class="btn" href="/contact/">Get in touch</a><a class="btn ghost" href="/irs-notices/">Look up an IRS notice</a></div></div></div>
-<section><div class="wrap">{tax_cards()}<p class="small" style="margin-top:18px">Also: <a href="/quickbooks-help/1099-contractors/">1099 preparation and filing</a> each January.</p></div></div></section>
+"tax/index.html": page("/tax/", "Tax Preparation by an Enrolled Agent in Coral Springs, FL | Koldal Tax &amp; Advisory",
+ "Individual and business tax return preparation from Alek Koldal, EA, an IRS Enrolled Agent in Coral Springs, FL. Individual returns from $650.",
+ f"""<div class="hero"><div class="wrap"><p class="eyebrow">{EA_BADGE} Tax preparation</p><h1>Tax returns prepared by an Enrolled Agent</h1>
+<p>Individual and business returns prepared by a federally licensed tax professional. For bookkeeping clients, your return comes straight from books I already keep.</p>
+<div class="actions"><a class="btn" href="/contact/">Book a free consultation</a><a class="btn ghost" href="/pricing/#tax">See tax pricing</a></div></div></div>
+<section><div class="wrap"><div class="grid">
+<div class="card"><h3>Individual returns (1040)</h3><p>Federal and state returns for individuals, families and business owners, including self-employment, rental and investment income.</p><p class="small" style="margin-top:10px"><strong>From $650</strong></p></div>
+<div class="card"><h3>Business returns</h3><p>Sole proprietors (Schedule C), partnerships (1065) and S corporations (1120-S).</p><p class="small" style="margin-top:10px"><strong>Included in Advisory, discounted with any bookkeeping plan</strong></p></div>
+<div class="card"><h3>Unfiled &amp; prior-year returns</h3><p>Behind on filing? I&#39;ll get missing years filed and you back in good standing with the IRS.</p><p class="small" style="margin-top:10px"><strong>Quoted</strong></p></div></div>
+<p class="small" style="margin-top:22px">Planning ahead for next year? See <a href="/advisory/">tax planning &amp; advisory</a>. Got a letter from the IRS? See <a href="/services/irs-notice-help/">IRS help</a>.</p></div></section>
 {CTA}"""),
+"advisory/index.html": page("/advisory/", "Tax Planning &amp; Advisory in Coral Springs, FL | Koldal Tax &amp; Advisory",
+ "Tax planning, quarterly estimates, year-end planning and business advisory from Alek Koldal, EA, an IRS Enrolled Agent in Coral Springs, FL.",
+ f"""<div class="hero"><div class="wrap"><p class="eyebrow">Tax planning &amp; advisory</p><h1>Plan your taxes before the year ends, not after</h1>
+<p>Most tax savings happen during the year. I use your actual numbers to plan ahead, so April brings no surprises and your business decisions come with the tax answer built in.</p>
+<div class="actions"><a class="btn" href="/contact/">Book a free consultation</a></div></div></div>
+<section><div class="wrap"><div class="grid">
+<div class="card"><h3>Year-end tax planning</h3><p>A review before December 31 of what you&#39;ll owe and the moves that can still lower it.</p></div>
+<div class="card"><h3>Quarterly estimated taxes</h3><p>Estimated payments calculated from your real income, so you pay the right amount on time.</p></div>
+<div class="card"><h3>Business structure</h3><p>Whether an LLC, S corporation election or a change in owner pay makes sense for you, with the numbers to back it.</p></div>
+<div class="card"><h3>Monthly review &amp; cash flow</h3><p>A regular call on your numbers and a cash-flow forecast, so you can plan hires, purchases and taxes.</p></div></div>
+<p class="lede" style="margin-top:28px">Planning is included in the <a href="/pricing/">Advisory bookkeeping plan</a>, or available on its own for a quoted fee.</p></div></section>
+{CTA}"""),
+"services/index.html": page("/services/", "Services | Koldal Tax &amp; Advisory",
+ "Bookkeeping, tax preparation, tax planning and IRS representation from an Enrolled Agent in Coral Springs, FL.",
+ f"""<section><div class="wrap"><h1>Services</h1><p class="lede">Everything your business and your taxes need, from one Enrolled Agent.</p>
+<div class="pillars">{"".join(f'<a class="pillar" href="{u}"><span class="pillar-k">{k}</span><h3>{t}</h3><p>{d}</p><span class="pillar-f">{f}</span></a>' for k, t, d, f, u in PILLARS)}</div>
+<h2 style="margin-top:44px">Also available</h2><div class="linklist">
+<a href="/services/quickbooks-cleanup/"><strong>QuickBooks cleanup &amp; catch-up</strong><span>Get caught up, then stay caught up</span></a>
+<a href="/services/payroll-with-gusto/"><strong>Payroll with Gusto</strong><span>Setup, QuickBooks connection and review of every payroll</span></a>
+<a href="/quickbooks-help/1099-contractors/"><strong>1099s, Florida sales tax &amp; Sunbiz reports</strong><span>The yearly and monthly filings small businesses need</span></a></div></div></section>{CTA}"""),
+"contact/index.html": page("/contact/", "Book a Free Consultation | Koldal Tax &amp; Advisory",
+ "Book a free consultation with Alek Koldal, EA about bookkeeping, tax preparation, tax planning or IRS help.",
+ f"""<section><div class="wrap split"><div><h1>Book a free consultation</h1>
+<p>Tell me a little about what you need and I&#39;ll get back to you to set up a time to talk. The consultation is free and there&#39;s no obligation.</p>
+<p>For bookkeeping, I&#39;ll also ask for view access to your QuickBooks Online file so I can see where things stand.</p>
+<p>Prefer email? <a href="mailto:alek@koldaltax.com?subject=Consultation">alek@koldaltax.com</a></p></div>
+{CONTACT_FORM}</div></section>"""),
 "pricing/index.html": page("/pricing/", "Bookkeeping Plans &amp; Pricing | Koldal Tax &amp; Advisory",
  "Monthly QuickBooks Online bookkeeping plans from an Enrolled Agent in South Florida, plus add-ons for tax returns, payroll, 1099s and sales tax.",
  f"""<section><div class="wrap"><h1>Plans &amp; pricing</h1><p class="lede">Every plan starts with a free QuickBooks review, so the price is set by your actual books, not a guess.</p>{plan_cards()}</div></section>
 <section style="background:var(--soft)"><div class="wrap"><h2>Add-ons</h2><p class="lede">Add what you need to any plan.</p>{addon_rows()}</div></section>
-<section><div class="wrap"><h2>Tax services</h2><p class="lede">Available on their own or with a bookkeeping plan.</p>{tax_rows()}</div></section>
+<section id="tax"><div class="wrap"><h2>Tax services</h2><p class="lede">Available on their own or with a bookkeeping plan.</p>{tax_rows()}</div></section>
 <section><div class="wrap" style="max-width:780px"><h2>Common questions</h2>
 <details><summary>What counts as a transaction?</summary><p>Each line in your bank or credit card feed: a deposit, a purchase, a transfer. Your free review gives me the real count.</p></details>
 <details><summary>Do I need my own QuickBooks Online subscription?</summary><p>Yes. You own your file and your data. If you don&#39;t have QuickBooks Online yet, I&#39;ll help you pick the right version and set it up.</p></details>
@@ -219,23 +277,6 @@ pages = {
 <p><strong>Alek Koldal, EA</strong><br><a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a></p>
 <p><a class="btn" href="/contact/">Get a free QuickBooks review</a></p></div>
 <div><img class="headshot" src="/assets/headshot.jpg" alt="Alek Koldal, EA" width="380" height="475" onerror="this.remove()"></div></div></section>"""),
-"services/index.html": page("/services/", "Bookkeeping, Tax &amp; Payroll Services | Koldal Tax &amp; Advisory",
- "QuickBooks Online bookkeeping, cleanup and catch-up, tax returns, IRS help and payroll with Gusto from an Enrolled Agent in Coral Springs, FL.",
- f"""<section><div class="wrap"><h1>Services</h1><p class="lede">Monthly bookkeeping is the core, backed by an Enrolled Agent for everything tax.</p>
-<h2 style="margin-top:30px">Bookkeeping &amp; accounting</h2><div class="grid">
-<a class="card notice" href="/services/quickbooks-online-bookkeeping/"><h3>Monthly QuickBooks Online bookkeeping &rarr;</h3><p>Reconciled accounts and monthly reports, every month. From $300/month.</p></a>
-<a class="card notice" href="/services/quickbooks-cleanup/"><h3>Cleanup &amp; catch-up &rarr;</h3><p>Months or years behind? Get caught up, then stay caught up.</p></a>
-<a class="card notice" href="/services/payroll-with-gusto/"><h3>Payroll with Gusto &rarr;</h3><p>Setup, QuickBooks connection and a review of every payroll.</p></a>
-<div class="card"><h3>1099s, sales tax &amp; annual reports</h3><p>1099-NECs each January, Florida sales tax filings and your Sunbiz annual report.</p></div></div>
-<h2 style="margin-top:40px">Tax services</h2>{tax_cards()}
-<p style="margin-top:24px"><a href="/pricing/">See plans &amp; pricing &rarr;</a></p></div></div></section>{CTA}"""),
-"contact/index.html": page("/contact/", "Free QuickBooks Review &amp; Contact | Koldal Tax &amp; Advisory",
- "Request a free QuickBooks Online review or contact Alek Koldal, EA about bookkeeping, tax returns, IRS notices or payroll.",
- f"""<section><div class="wrap split"><div><h1>Get a free QuickBooks review</h1>
-<p>Tell me a little about your business. I&#39;ll get back to you to set up view access to your QuickBooks Online file, then walk you through what I find and which plan fits.</p>
-<p>The review is free and there&#39;s no obligation. Have a tax or IRS question instead? Use the same form and pick it from the list.</p>
-<p>Prefer email? <a href="mailto:alek@koldaltax.com?subject=QuickBooks%20review">alek@koldaltax.com</a></p></div>
-{REVIEW_FORM}</div></section>"""),
 "resources/index.html": page("/resources/", "Free QuickBooks &amp; IRS Help | Koldal Tax &amp; Advisory", "Free guides from an Enrolled Agent: look up your IRS notice or fix common QuickBooks Online problems.", f"""<section><div class="wrap"><h1>Free help</h1><p class="lede">Plain-English guides from an Enrolled Agent who works in QuickBooks Online every day.</p><div class="grid" style="margin-top:20px"><a class="card notice" href="/irs-notices/"><h3>IRS notice lookup &rarr;</h3><p>Find your notice number (CP2000, CP14, CP504, 5071C and more) and see what it means, what to do and your deadline.</p></a><a class="card notice" href="/quickbooks-help/"><h3>QuickBooks Online help &rarr;</h3><p>Step-by-step fixes for bank feeds, reconciliations, uncategorized transactions, 1099s and more.</p></a></div></div></section>{CTA}"""),
 "404.html": page("/404.html", "Page not found | Koldal Tax &amp; Advisory", "Page not found.",
  """<section><div class="wrap"><h1>Page not found</h1><p>That page doesn't exist. <a href="/">Go to the homepage</a> or <a href="/contact/">get in touch</a>.</p></div></section>"""),
@@ -299,15 +340,6 @@ def service_page(slug, title, desc, h1, intro, sections, topic, links):
 <h2>Helpful guides</h2><ul>{lk}</ul>{quick_form(topic, "Get started", "Tell me a bit about your situation and I&#39;ll get back to you.")}</div></section>""")
 
 AREA = f"Based in Coral Springs and working with clients in {', '.join(CITIES[1:-1])} and {CITIES[-1]}, as well as remotely across Florida."
-service_page("quickbooks-online-bookkeeping", "QuickBooks Online Bookkeeping in Coral Springs, FL | Koldal Tax &amp; Advisory",
- "Monthly QuickBooks Online bookkeeping, cleanup and catch-up for small businesses in Coral Springs, Margate, Parkland and South Florida.",
- "QuickBooks Online bookkeeping for small businesses",
- "Monthly bookkeeping, cleanup and catch-up in QuickBooks Online, done by an Enrolled Agent who also prepares your taxes. " + AREA,
- [("Monthly bookkeeping", SERVICES[3][2]),
-  ("Cleanup &amp; catch-up", "Behind by a few months or a few years? I'll bring your QuickBooks Online file up to date, reconcile every account, and leave you with books you can trust at tax time."),
-  ("Why it helps to have your bookkeeper do your taxes", "Your books and your return are done by the same person, so nothing gets lost between them, and questions get answered once.")],
- "QuickBooks Online bookkeeping",
- [(f"/quickbooks-help/{a['id']}/", H.escape(a["title"])) for a in QBO[:6]] + [("/quickbooks-help/", "All QuickBooks Online help")])
 service_page("irs-notice-help", "IRS Notice &amp; Letter Help in Coral Springs, FL | Koldal Tax &amp; Advisory",
  "Got a letter from the IRS? An Enrolled Agent in Coral Springs, FL can explain your notice, respond for you, and set up payment plans.",
  "Help with IRS notices and letters",

@@ -10,7 +10,7 @@
       const data = Object.fromEntries(new FormData(form));
       data.kind = form.dataset.kind;
       // Fold extra questions (fields named x_*) into the message so the email shows them.
-      const extras = [...form.querySelectorAll("[name^=x_]")].filter((el) => el.value).map((el) => el.closest("label").firstChild.textContent.trim() + " " + el.value);
+      const extras = [...form.querySelectorAll("[name^=x_]")].filter((el) => el.value).map((el) => el.closest("label").firstChild.textContent.replace(/\s*\(.*\)\s*$/, "").trim() + ": " + el.value.trim());
       Object.keys(data).filter((k) => k.startsWith("x_")).forEach((k) => delete data[k]);
       if (extras.length) data.message = extras.join("\n") + (data.message ? "\n\n" + data.message : "");
       data.page = location.pathname;
