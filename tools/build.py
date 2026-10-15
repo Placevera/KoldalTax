@@ -186,7 +186,7 @@ pages = {
 <p>Bookkeeping, tax preparation, planning and IRS help for small businesses and individuals, from one Enrolled Agent.</p>
 <div class="actions"><a class="btn" href="/contact/">Book a consultation</a><a class="textlink" href="#services">Our services</a></div></div>
 {PORTRAIT}</div></div>
-<div class="trust"><div class="wrap"><ul><li>IRS Enrolled Agent</li><li>5.0 on Google</li><li>QuickBooks Online</li><li>Chamber of Commerce member</li></ul></div></div>
+<div class="trust"><div class="wrap"><ul><li>IRS Enrolled Agent</li><li>5.0 on Google</li><li>QuickBooks Online</li><li>Fully insured</li></ul></div></div>
 <section id="services"><div class="wrap"><p class="eyebrow">Services</p><h2>Everything in one place</h2>
 <div class="pillars">{"".join(f'<a class="pillar" href="{u}"><span class="pillar-k">{k}</span><h3>{t}</h3><p>{d}</p><span class="pillar-f">{f}</span></a>' for k, t, d, f, u in PILLARS)}</div></div></section>
 <section class="band-dark"><div class="wrap split"><div><p class="eyebrow">Why an Enrolled Agent</p>
@@ -268,6 +268,7 @@ pages = {
 <p>Koldal Tax &amp; Advisory helps small business owners keep accurate books, make informed decisions, and stop dreading tax season.</p>
 <p>I&#39;m an IRS Enrolled Agent, licensed by the U.S. Department of the Treasury to prepare returns and represent taxpayers before the IRS. Day to day I work mainly in QuickBooks Online, handling monthly bookkeeping, cleanups and catch-ups, so your books and your taxes are handled by the same person.</p>
 <p>Based in Coral Springs, Florida, I believe responsive communication, personalized service, and practical solutions are the foundation of every good client relationship. My goal is to be more than your bookkeeper: a trusted advisor and long-term partner in your business.</p>
+<p>The practice carries professional liability (errors &amp; omissions), cyber liability and general liability insurance, so your finances and your data are protected.</p>
 <p><strong>Alek Koldal, EA</strong><br><a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a></p>
 <p><a class="btn" href="/contact/">Get a free QuickBooks review</a></p></div>
 <div><img class="headshot" src="/assets/headshot.jpg" alt="Alek Koldal, EA" width="380" height="475" onerror="this.remove()"></div></div></section>"""),
