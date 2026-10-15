@@ -75,7 +75,7 @@ PLANS = [
  ("Growth", "Custom quote", "For an established business with more moving parts.", "Up to 5 accounts, roughly 300 transactions a month",
   ["Everything in Essentials", "Loan and merchant account reconciliations", "Customer invoices and unpaid bills tracked", "Quarterly review call", "Quarterly estimated tax payments calculated"]),
  ("Advisory", "Custom quote", "For owners who want a numbers partner, not just clean books.", "Larger volume, quoted after your review",
-  ["Everything in Growth", "Monthly review call", "Cash-flow forecast", "Year-end review of your numbers"]),
+  ["Everything in Growth", "Monthly review call", "Year-end review of your numbers"]),
 ]
 ADDONS = [
  ("QuickBooks setup &amp; cleanup (one time)", "$800 to $2,500", "/services/quickbooks-cleanup/"),
@@ -231,7 +231,7 @@ pages = {
 <div class="card"><h3>Year-end tax planning</h3><p>A review before December 31 of what you&#39;ll owe and the moves that can still lower it.</p></div>
 <div class="card"><h3>Quarterly estimated taxes</h3><p>Estimated payments calculated from your real income, so you pay the right amount on time.</p></div>
 <div class="card"><h3>Business structure</h3><p>Whether an LLC, S corporation election or a change in owner pay makes sense for you, with the numbers to back it.</p></div>
-<div class="card"><h3>Monthly review &amp; cash flow</h3><p>A regular call on your numbers and a cash-flow forecast, so you can plan hires, purchases and taxes.</p></div></div>
+</div>
 <p class="lede" style="margin-top:28px">Planning is quoted for your situation, on its own or alongside <a href="/bookkeeping/">monthly bookkeeping</a>.</p></div></section>
 {CTA}"""),
 "services/index.html": page("/services/", "Services | Koldal Tax &amp; Advisory",
