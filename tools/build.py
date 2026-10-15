@@ -3,6 +3,7 @@ out = sys.argv[1]
 SITE = "https://www.koldaltax.com"
 # Add your business phone here (e.g. "(954) 555-0123") to show call buttons across the site.
 PHONE = "(954) 603-4143"
+PORTAL = "https://www.encyro.com/koldaltax"
 CITIES = ["Coral Springs", "Margate", "Parkland", "Coconut Creek", "Tamarac", "Pompano Beach"]
 NAV = [("/bookkeeping/", "Bookkeeping"), ("/tax/", "Tax"), ("/advisory/", "Planning"), ("/services/irs-notice-help/", "IRS Help"), ("/about/", "About")]
 SCHEMA = {"@context": "https://schema.org", "@type": "AccountingService", "name": "Koldal Tax & Advisory",
@@ -44,7 +45,7 @@ def page(path, title, desc, body):
 <div><a class="brand" href="/"><b>Koldal</b><small>Tax &amp; Advisory</small></a><p class="small">Alek Koldal, EA<br>Coral Springs, Florida<br>{f'<a href="{TEL}">{PHONE}</a><br>' if PHONE else ""}<a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a></p></div>
 <div><strong>Services</strong><a href="/bookkeeping/">Bookkeeping</a><a href="/tax/">Tax preparation</a><a href="/advisory/">Tax planning</a><a href="/services/irs-notice-help/">IRS help</a><a href="/pricing/">Pricing</a></div>
 <div><strong>Resources</strong><a href="/irs-notices/">IRS notice lookup</a><a href="/quickbooks-help/">QuickBooks help</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
-<div><strong>Connect</strong><a href="https://g.page/r/CTKng70qwgj_EBM/review" rel="noopener">Google reviews</a><a href="https://www.linkedin.com/in/aleksander-koldal" rel="noopener">LinkedIn</a><a href="https://members.csccrchamber.com/list/member/koldal-tax-advisory-margate-7305" rel="noopener">Chamber of Commerce</a></div>
+<div><strong>Connect</strong><a href="{PORTAL}" rel="noopener">Send documents securely</a><a href="https://g.page/r/CTKng70qwgj_EBM/review" rel="noopener">Google reviews</a><a href="https://www.linkedin.com/in/aleksander-koldal" rel="noopener">LinkedIn</a><a href="https://members.csccrchamber.com/list/member/koldal-tax-advisory-margate-7305" rel="noopener">Chamber of Commerce</a></div>
 <p class="legal">&copy; 2026 Koldal Tax &amp; Advisory · Serving {", ".join(CITIES[:-1])} and {CITIES[-1]}</p>
 </div></footer>
 {f'<a class="callbar" href="{TEL}">Call {PHONE}</a>' if PHONE else ""}
@@ -251,7 +252,8 @@ pages = {
  f"""<section><div class="wrap split"><div><h1>Book a free consultation</h1>
 <p>Tell me a little about what you need and I&#39;ll get back to you to set up a time to talk. The consultation is free and there&#39;s no obligation.</p>
 <p>For bookkeeping, I&#39;ll also ask for view access to your QuickBooks Online file so I can see where things stand.</p>
-<p>Prefer email? <a href="mailto:alek@koldaltax.com?subject=Consultation">alek@koldaltax.com</a></p></div>
+<p>Prefer email? <a href="mailto:alek@koldaltax.com?subject=Consultation">alek@koldaltax.com</a></p>
+<p>Need to send tax documents or an IRS notice? Use my <a href="{PORTAL}" rel="noopener">secure upload portal</a> instead of email.</p></div>
 {CONTACT_FORM}</div></section>"""),
 "pricing/index.html": page("/pricing/", "Bookkeeping Plans &amp; Pricing | Koldal Tax &amp; Advisory",
  "Monthly QuickBooks Online bookkeeping plans from an Enrolled Agent in South Florida, plus add-ons for tax returns, payroll and 1099s.",
@@ -351,7 +353,7 @@ service_page("irs-notice-help", "IRS Notice &amp; Letter Help in Coral Springs, 
  [("What I can do", ["Explain what your notice means and what it will cost","Pull and review your IRS transcripts","Respond to proposed changes such as a CP2000","Set up payment plans for balances due","Respond to identity verification and missing information letters","Protect your appeal rights when time limits apply"]),
   ("Penalty relief", "The IRS now removes some first-year late filing and late payment penalties automatically, but plenty are left: penalties from older years, repeat years, estimated tax and accuracy penalties, late 1099 and payroll filings, and cases where the automatic relief simply wasn&#39;t applied. I check your transcripts to see what&#39;s already been removed, then request relief for what remains, usually based on reasonable cause. I charge a small upfront fee plus a percentage of the penalties removed through my request, never on relief the IRS gave automatically. The first penalty review is free."),
   ("IRS transcripts", "Not sure what the IRS has on file? With a signed Form 8821 or 2848, I pull your wage &amp; income and account transcripts and walk you through them: the W-2s and 1099s reported under your name, payments, balances and any missing returns. It&#39;s the fastest way to see where you stand before filing or answering a notice."),
-  ("How it works", ["Send me a copy of every page of the notice, and the tax return for that year if you have it", "I prepare IRS Form 2848 (Power of Attorney) so I can speak to the IRS for you. You sign it, often electronically, and I file it", "For a transcript review only, a Form 8821 (Tax Information Authorization) is enough", "I pull your transcripts, review the notice against them and tell you your options", "I respond to the IRS and follow it through to the end"])],
+  ("How it works", [f"Send me every page of the notice, and the tax return for that year if you have it, through my <a href=\"{PORTAL}\" rel=\"noopener\">secure upload portal</a>", "I prepare IRS Form 2848 (Power of Attorney) so I can speak to the IRS for you. You sign it, often electronically, and I file it", "For a transcript review only, a Form 8821 (Tax Information Authorization) is enough", "I pull your transcripts, review the notice against them and tell you your options", "I respond to the IRS and follow it through to the end"])],
  "IRS notice help",
  [(f"/irs-notices/{n['id']}/", "IRS " + H.escape(n["name"]) + ": " + H.escape(n["title"])) for n in NOTICES[:6]] + [("/irs-notices/", "Look up any IRS notice")])
 service_page("quickbooks-cleanup", "QuickBooks Cleanup &amp; Catch-Up in Coral Springs, FL | Koldal Tax &amp; Advisory",
