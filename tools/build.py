@@ -294,7 +294,7 @@ for n in NOTICES:
 <h2>Common reasons you got it</h2>{li(n["common"])}
 <h2>What to do</h2>{li(n["todo"])}
 <h2>Deadline</h2><p><strong>{e(n["deadline"])}</strong></p>
-{quick_form("IRS notice: " + n["name"], "Get help with your " + e(n["name"]), "As an IRS Enrolled Agent, I can review your notice, explain what it means for you, and respond to the IRS on your behalf. Send your details and I&#39;ll get back to you.")}
+{quick_form("IRS notice: " + n["name"], "Get help with your " + e(n["name"]), "As an IRS Enrolled Agent, I can review your notice, explain what it means for you, and respond to the IRS on your behalf with a signed Form 2848 (Power of Attorney). Send your details and I&#39;ll get back to you.")}
 {DISCLAIMER}</div></section><script type="application/ld+json">{json.dumps(faq)}</script>"""
     pages[f"irs-notices/{n['id']}/index.html"] = page(f"/irs-notices/{n['id']}/", f"IRS {e(n['name'])} Notice Explained: {e(n['title'])} | Koldal Tax &amp; Advisory", e(f"Got an IRS {n['name']}? What it means, common reasons, what to do, and your deadline. Plain-English guide from Alek Koldal, EA."), body)
 pages["irs-notices/index.html"] = page("/irs-notices/", "IRS Notice Lookup: What Your IRS Letter Means | Koldal Tax &amp; Advisory",
@@ -340,8 +340,8 @@ service_page("irs-notice-help", "IRS Notice &amp; Letter Help in Coral Springs, 
  "An IRS letter doesn't have to be stressful. As an Enrolled Agent, I'm federally licensed to represent taxpayers before the IRS. " + AREA,
  [("What I can do", ["Explain what your notice means and what it will cost","Pull and review your IRS transcripts","Respond to proposed changes such as a CP2000","Set up payment plans for balances due","Respond to identity verification and missing information letters","Protect your appeal rights when time limits apply"]),
   ("Penalty relief", "Many penalties can be reduced or removed, through first-time abatement or reasonable cause. I charge a small upfront fee plus a percentage of the penalties the IRS actually removes, so you mostly pay when it works. The first penalty review is free."),
-  ("IRS transcripts", "Not sure what the IRS has on file? I pull your wage &amp; income and account transcripts and walk you through them: the W-2s and 1099s reported under your name, payments, balances and any missing returns. It&#39;s the fastest way to see where you stand before filing or answering a notice."),
-  ("What to send me", "A copy of every page of the notice, and the tax return for that year if you have it.")],
+  ("IRS transcripts", "Not sure what the IRS has on file? With a signed Form 8821 or 2848, I pull your wage &amp; income and account transcripts and walk you through them: the W-2s and 1099s reported under your name, payments, balances and any missing returns. It&#39;s the fastest way to see where you stand before filing or answering a notice."),
+  ("How it works", ["Send me a copy of every page of the notice, and the tax return for that year if you have it", "I prepare IRS Form 2848 (Power of Attorney) so I can speak to the IRS for you. You sign it, often electronically, and I file it", "For a transcript review only, a Form 8821 (Tax Information Authorization) is enough", "I pull your transcripts, review the notice against them and tell you your options", "I respond to the IRS and follow it through to the end"])],
  "IRS notice help",
  [(f"/irs-notices/{n['id']}/", "IRS " + H.escape(n["name"]) + ": " + H.escape(n["title"])) for n in NOTICES[:6]] + [("/irs-notices/", "Look up any IRS notice")])
 service_page("quickbooks-cleanup", "QuickBooks Cleanup &amp; Catch-Up in Coral Springs, FL | Koldal Tax &amp; Advisory",
