@@ -2,7 +2,7 @@ import sys, json
 out = sys.argv[1]
 SITE = "https://www.koldaltax.com"
 # Add your business phone here (e.g. "(954) 555-0123") to show call buttons across the site.
-PHONE = ""
+PHONE = "(954) 603-4143"
 CITIES = ["Coral Springs", "Margate", "Parkland", "Coconut Creek", "Tamarac", "Pompano Beach"]
 NAV = [("/bookkeeping/", "Bookkeeping"), ("/tax/", "Tax"), ("/advisory/", "Planning"), ("/services/irs-notice-help/", "IRS Help"), ("/about/", "About")]
 SCHEMA = {"@context": "https://schema.org", "@type": "AccountingService", "name": "Koldal Tax & Advisory",
@@ -10,7 +10,7 @@ SCHEMA = {"@context": "https://schema.org", "@type": "AccountingService", "name"
           "address": {"@type": "PostalAddress", "addressLocality": "Coral Springs", "addressRegion": "FL", "addressCountry": "US"},
           "areaServed": [{"@type": "City", "name": c + ", FL"} for c in CITIES]}
 if PHONE: SCHEMA["telephone"] = PHONE
-TEL = "tel:" + "".join(ch for ch in PHONE if ch.isdigit() or ch == "+")
+TEL = "tel:+1" + "".join(ch for ch in PHONE if ch.isdigit() or ch == "+")
 
 def page(path, title, desc, body):
     nav = "".join(f'<a href="{h}"{" aria-current=\"page\"" if h == path else ""}>{t}</a>' for h, t in NAV)
