@@ -19,7 +19,7 @@
       try {
         const res = await fetch(endpoint, {
           method: "POST",
-          headers: { "Content-Type": "application/json", apikey: cfg.SUPABASE_ANON_KEY, Authorization: "Bearer " + cfg.SUPABASE_ANON_KEY },
+          headers: { "Content-Type": "application/json", apikey: cfg.SUPABASE_ANON_KEY },
           body: JSON.stringify(data),
         });
         if (!res.ok) throw new Error(await res.text());

@@ -1,5 +1,5 @@
-// Fill these in from Supabase: Project Settings > API. The anon key is safe to publish.
+// Supabase project for the contact form. The publishable key is safe to publish.
 window.KT_CONFIG = {
-  SUPABASE_URL: "https://YOUR-PROJECT.supabase.co",
-  SUPABASE_ANON_KEY: "YOUR-ANON-KEY"
+  SUPABASE_URL: "https://nqnzgptuxmrilwihrszs.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_PBtgeXeBxge5G_8GapGWoQ_KEpbOMV2"
 };
