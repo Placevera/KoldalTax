@@ -208,7 +208,7 @@ pages = {
 <p class="statement">The highest credential the IRS awards, on your side all year.</p></div>
 <ul class="ea-list"><li><strong>Federally licensed</strong><span>Licensed by the U.S. Treasury to represent taxpayers before the IRS, in every state.</span></li>
 <li><strong>One firm</strong><span>Books, returns and IRS letters handled under one roof, with an Enrolled Agent on every tax question.</span></li>
-<li><strong>Local</strong><span>Based in Coral Springs, serving South Florida in person or remotely.</span></li></ul></div></section>
+<li><strong>Local</strong><span>Based in Coral Springs. We work remotely and are happy to meet over coffee anywhere in South Florida.</span></li></ul></div></section>
 {REVIEWS}
 <section><div class="wrap"><p class="eyebrow">How it works</p><h2>Simple from the first call</h2>
 <ol class="steps"><li><h3>Consultation</h3><p>Tell me what you need. It&#39;s free.</p></li>
@@ -286,7 +286,7 @@ pages = {
 <p>At Koldal Tax &amp; Advisory, we help small business owners keep accurate books, make informed financial decisions, and stop dreading tax season.</p>
 <p>I&#39;m an IRS Enrolled Agent, a federally licensed tax professional authorized by the U.S. Department of the Treasury to prepare tax returns and represent taxpayers before the IRS. My work focuses on tax preparation, proactive tax planning, and resolving complex tax issues, including IRS notices, unfiled returns, penalties and compliance matters.</p>
 <p>Our bookkeeping team keeps clients&#39; QuickBooks Online records current throughout the year, so bookkeeping and tax preparation work together. Because an Enrolled Agent is part of the same firm, you can get tax guidance when questions come up, not just at tax season.</p>
-<p>Based in Coral Springs, Florida, we believe good service starts with responsive communication, practical advice and solutions that fit the real challenges business owners face.</p>
+<p>Based in Coral Springs, Florida, we work remotely, so you can share documents securely from anywhere. When it helps to sit down together, we&#39;re always happy to meet over coffee somewhere local. We believe good service starts with responsive communication, practical advice and solutions that fit the real challenges business owners face.</p>
 <p>Our practice carries professional liability (errors &amp; omissions), cyber liability and general liability insurance, and we handle your financial information and sensitive data with care.</p>
 <p>Whether you need reliable bookkeeping, tax preparation, tax planning or help with an IRS issue, our goal is simple: confidence in your numbers and clarity about your taxes.</p>
 <p><strong>Alek Koldal, EA</strong><br><a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a></p>
