@@ -247,3 +247,4 @@ h1 + .lede{margin-top:20px}
 .onboard h2{margin:0 0 14px}.onboard p{color:var(--muted)}
 .onboard .checks{margin:0}
 @media (max-width:860px){.onboard{grid-template-columns:1fr;gap:28px}}
+footer .badge-link img{display:block;margin-top:8px;border-radius:2px}
