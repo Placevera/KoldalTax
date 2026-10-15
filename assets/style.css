@@ -249,3 +249,7 @@ h1 + .lede{margin-top:20px}
 .onboard .checks{margin:0}
 @media (max-width:860px){.onboard{grid-template-columns:1fr;gap:28px}}
 footer .badge-link img{display:block;margin-top:8px;border-radius:2px}
+form.card{display:grid}
+form.card,.quick form{gap:22px}
+.split h1{margin-bottom:22px}
+footer .brand{display:inline-grid;align-self:start;justify-content:start}
