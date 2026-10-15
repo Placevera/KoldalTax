@@ -73,12 +73,11 @@ PLANS = [
  ("Essentials", "From $300<span>/month</span>", "For a newer or simpler business.", "Up to 2 bank or card accounts, roughly 100 transactions a month",
   ["Monthly bank and credit card reconciliations", "Every transaction categorized", "Monthly profit &amp; loss and balance sheet", "Email support during the year", "Books ready for your tax return"]),
  ("Growth", "Custom quote", "For an established business with more moving parts.", "Up to 5 accounts, roughly 300 transactions a month",
-  ["Everything in Essentials", "Loan and merchant account reconciliations", "Customer invoices and unpaid bills tracked", "Quarterly review call", "Quarterly estimated tax payments calculated"]),
- ("Advisory", "Custom quote", "For owners who want a numbers partner, not just clean books.", "Larger volume, quoted after your review",
+  ["Everything in Essentials", "Loan and merchant account reconciliations", "Customer invoices and unpaid bills tracked", "Quarterly review call"]),
+ ("Advisory", "Custom quote", "For owners who want to talk through their numbers every month.", "Larger volume, quoted after your review",
   ["Everything in Growth", "Monthly review call", "Year-end review of your numbers"]),
 ]
 ADDONS = [
- ("QuickBooks setup &amp; cleanup (one time)", "$800 to $2,500", "/services/quickbooks-cleanup/"),
  ("Payroll setup &amp; review with Gusto", "Monthly add-on", "/services/payroll-with-gusto/"),
  ("1099 preparation &amp; filing", "Per form, each January", "/quickbooks-help/1099-contractors/"),
 ]
@@ -114,8 +113,13 @@ def plan_cards(full=True):
         pop = ''
         h += f'''<div class="card plan{' featured' if i == 1 else ''}">{pop}<h3>{name}</h3>
 <p class="price">{price}</p><p>{who}</p><p class="small">{size}</p><ul class="checks">{ul}</ul>
-<a class="btn{'' if i == 1 else ' ghost'}" href="/contact/">Start with a free review</a></div>'''
+<a class="btn{'' if i == 1 else ' ghost'}" href="/contact/">Book a consultation</a></div>'''
     return f'<div class="plans">{h}</div>'
+
+ONBOARDING = """<div class="onboard"><div><p class="eyebrow">Getting started</p><h2>One-time onboarding</h2>
+<p>Before monthly bookkeeping starts, I get your books right once, so every month after that is accurate.</p>
+<p class="price">$800 to $2,500</p><p class="small">One time. Quoted after I look at your file, based on how much cleanup it needs.</p></div>
+<ul class="checks"><li>Prior months cleaned up and reconciled</li><li>Bank and credit card accounts reviewed</li><li>Bank rules set up so transactions categorize correctly</li><li>Your chart of accounts organized</li><li>Books tied to your last tax return</li></ul></div>"""
 
 def addon_rows():
     rows = ""
@@ -125,8 +129,8 @@ def addon_rows():
     return f'<div class="tablewrap"><table class="addons"><thead><tr><th>Add-on</th><th>Pricing</th></tr></thead><tbody>{rows}</tbody></table></div>'
 
 STEPS = """<ol class="steps">
-<li><h3>Free QuickBooks review</h3><p>Give me view access to your QuickBooks Online file. I&#39;ll tell you what&#39;s right, what&#39;s off, and which plan fits.</p></li>
-<li><h3>Catch up, if needed</h3><p>If you&#39;re behind, I clean up and reconcile the past months first, for a quoted price.</p></li>
+<li><h3>Consultation</h3><p>We talk about your business and I look at your QuickBooks Online file to see where things stand.</p></li>
+<li><h3>One-time onboarding</h3><p>I clean up prior months, set up bank rules and tie your books to your last tax return. Quoted up front, usually $800 to $2,500.</p></li>
 <li><h3>Monthly bookkeeping</h3><p>Every month your accounts are reconciled and your reports land in your inbox. At tax time, your Enrolled Agent already knows your numbers.</p></li></ol>"""
 
 EA_SECTION = """<section class="band-dark"><div class="wrap split"><div><p class="eyebrow">Enrolled Agent</p><h2>Your bookkeeper is also a federally licensed tax professional</h2>
@@ -152,7 +156,7 @@ REVIEW_FORM = """<form data-kind="contact" class="card"><input type="hidden" nam
 PILLARS = [
  ("Bookkeeping", "Monthly QuickBooks Online bookkeeping", "Reconciled accounts and clear monthly reports, plus cleanup, catch-up and Gusto payroll.", "From $300/month", "/bookkeeping/"),
  ("Tax preparation", "Individual &amp; business returns", "Returns for individuals, sole proprietors, partnerships and S corporations, including prior years.", "1040s from $650", "/tax/"),
- ("Tax planning", "Planning &amp; advisory", "Year-end planning, quarterly estimates, business structure and a monthly review of your numbers.", "Quoted for your situation", "/advisory/"),
+ ("Tax planning", "Planning &amp; advisory", "Year-end planning, quarterly estimates and advice on business structure, like S corporation elections.", "Quoted for your situation", "/advisory/"),
  ("IRS help", "Notices &amp; representation", "IRS letters, payment plans, audits by mail and penalty relief, handled by your Enrolled Agent.", "Free notice review", "/services/irs-notice-help/"),
 ]
 PORTRAIT = """<figure class="portrait"><div class="portrait-frame"><img src="/assets/headshot.jpg" alt="Alek Koldal, EA" width="420" height="520" onerror="this.remove()"><span class="portrait-ph" aria-hidden="true">AK</span></div>
@@ -203,19 +207,19 @@ pages = {
  "Monthly QuickBooks Online bookkeeping, cleanup and catch-up, and payroll with Gusto for small businesses in Coral Springs and South Florida. From $300 a month.",
  f"""<div class="hero"><div class="wrap"><p class="eyebrow">Bookkeeping</p><h1>Monthly QuickBooks Online bookkeeping</h1>
 <p>Accounts reconciled every month, reports you can trust, and books that are ready for your tax return. From $300 a month.</p>
-<div class="actions"><a class="btn" href="/contact/">Book a free consultation</a><a class="btn ghost" href="/pricing/">See plans &amp; pricing</a></div></div></div>
+<div class="actions"><a class="btn" href="/contact/">Book a consultation</a><a class="btn ghost" href="/pricing/">See plans &amp; pricing</a></div></div></div>
 <section><div class="wrap"><h2>How it works</h2>{STEPS}</div></section>
-<section style="background:var(--soft)"><div class="wrap"><h2>Plans</h2><p class="lede">Your exact price is set after a free review of your books, so there are no surprise bills.</p>{plan_cards(full=False)}
+<section style="background:var(--soft)"><div class="wrap"><h2>Plans</h2><p class="lede">Your monthly price is set after I look at your books, plus a one-time onboarding to get them right. No surprise bills.</p>{plan_cards(full=False)}
 <p style="margin-top:18px"><a href="/pricing/">Compare plans and add-ons &rarr;</a></p></div></section>
 <section><div class="wrap split"><div><h2>For any small business</h2>
 <p>Whatever your business does, if it runs on QuickBooks Online I can keep its books: contractors and trades, real estate agents, salons, cleaning and landscaping companies, restaurants, online sellers, professional services and more.</p></div>
-<div class="linklist"><a href="/services/quickbooks-cleanup/"><strong>Setup &amp; cleanup</strong><span>A one-time start: prior months cleaned up and your books tied to your tax return</span></a><a href="/services/payroll-with-gusto/"><strong>Payroll with Gusto</strong><span>Setup, QuickBooks connection and a review of every payroll</span></a><a href="/quickbooks-help/1099-contractors/"><strong>1099 preparation</strong><span>1099-NECs for your contractors, filed each January</span></a></div></div></section>
+<div class="linklist"><a href="/services/quickbooks-cleanup/"><strong>Onboarding &amp; cleanup</strong><span>Prior months cleaned up and your books tied to your tax return, once</span></a><a href="/services/payroll-with-gusto/"><strong>Payroll with Gusto</strong><span>Setup, QuickBooks connection and a review of every payroll</span></a><a href="/quickbooks-help/1099-contractors/"><strong>1099 preparation</strong><span>1099-NECs for your contractors, filed each January</span></a></div></div></section>
 {CTA}"""),
 "tax/index.html": page("/tax/", "Tax Preparation by an Enrolled Agent in Coral Springs, FL | Koldal Tax &amp; Advisory",
  "Individual and business tax return preparation from Alek Koldal, EA, an IRS Enrolled Agent in Coral Springs, FL. Individual returns from $650.",
  f"""<div class="hero"><div class="wrap"><p class="eyebrow">{EA_BADGE} Tax preparation</p><h1>Tax returns prepared by an Enrolled Agent</h1>
 <p>Individual and business returns prepared by a federally licensed tax professional. For bookkeeping clients, your return comes straight from books I already keep.</p>
-<div class="actions"><a class="btn" href="/contact/">Book a free consultation</a><a class="btn ghost" href="/pricing/#tax-pricing">See tax pricing</a></div></div></div>
+<div class="actions"><a class="btn" href="/contact/">Book a consultation</a><a class="btn ghost" href="/pricing/#tax-pricing">See tax pricing</a></div></div></div>
 <section><div class="wrap"><div class="grid">
 <div class="card"><h3>Individual returns (1040)</h3><p>Federal and state returns for individuals, families and business owners, including self-employment, rental and investment income.</p><p class="small" style="margin-top:10px"><strong>From $650</strong></p></div>
 <div class="card"><h3>Business returns</h3><p>Sole proprietors (Schedule C), partnerships (1065) and S corporations (1120-S).</p><p class="small" style="margin-top:10px"><strong>Quoted</strong></p></div>
@@ -226,7 +230,7 @@ pages = {
  "Tax planning, quarterly estimates, year-end planning and business advisory from Alek Koldal, EA, an IRS Enrolled Agent in Coral Springs, FL.",
  f"""<div class="hero"><div class="wrap"><p class="eyebrow">Tax planning &amp; advisory</p><h1>Plan your taxes before the year ends, not after</h1>
 <p>Most tax savings happen during the year. I use your actual numbers to plan ahead, so April brings no surprises and your business decisions come with the tax answer built in.</p>
-<div class="actions"><a class="btn" href="/contact/">Book a free consultation</a></div></div></div>
+<div class="actions"><a class="btn" href="/contact/">Book a consultation</a></div></div></div>
 <section><div class="wrap"><div class="grid">
 <div class="card"><h3>Year-end tax planning</h3><p>A review before December 31 of what you&#39;ll owe and the moves that can still lower it.</p></div>
 <div class="card"><h3>Quarterly estimated taxes</h3><p>Estimated payments calculated from your real income, so you pay the right amount on time.</p></div>
@@ -239,7 +243,7 @@ pages = {
  f"""<section><div class="wrap"><h1>Services</h1><p class="lede">Everything your business and your taxes need, from one Enrolled Agent.</p>
 <div class="pillars">{"".join(f'<a class="pillar" href="{u}"><span class="pillar-k">{k}</span><h3>{t}</h3><p>{d}</p><span class="pillar-f">{f}</span></a>' for k, t, d, f, u in PILLARS)}</div>
 <h2 style="margin-top:44px">Also available</h2><div class="linklist">
-<a href="/services/quickbooks-cleanup/"><strong>QuickBooks cleanup &amp; catch-up</strong><span>Get caught up, then stay caught up</span></a>
+<a href="/services/quickbooks-cleanup/"><strong>Onboarding &amp; cleanup</strong><span>Prior months cleaned up and your books tied to your tax return, once</span></a>
 <a href="/services/payroll-with-gusto/"><strong>Payroll with Gusto</strong><span>Setup, QuickBooks connection and review of every payroll</span></a>
 <a href="/quickbooks-help/1099-contractors/"><strong>1099 preparation</strong><span>1099-NECs for your contractors, filed each January</span></a></div></div></section>{CTA}"""),
 "contact/index.html": page("/contact/", "Book a Free Consultation | Koldal Tax &amp; Advisory",
@@ -251,16 +255,17 @@ pages = {
 {CONTACT_FORM}</div></section>"""),
 "pricing/index.html": page("/pricing/", "Bookkeeping Plans &amp; Pricing | Koldal Tax &amp; Advisory",
  "Monthly QuickBooks Online bookkeeping plans from an Enrolled Agent in South Florida, plus add-ons for tax returns, payroll and 1099s.",
- f"""<section><div class="wrap"><h1>Plans &amp; pricing</h1><p class="lede">Every plan starts with a free QuickBooks review, so the price is set by your actual books, not a guess.</p>{plan_cards()}</div></section>
-<section style="background:var(--soft)"><div class="wrap"><h2>Add-ons</h2><p class="lede">Add what you need to any plan.</p>{addon_rows()}</div></section>
-<section id="tax-pricing"><div class="wrap"><h2>Tax services</h2><p class="lede">Available on their own or with a bookkeeping plan.</p>{tax_rows()}</div></section>
+ f"""<section><div class="wrap"><h1>Plans &amp; pricing</h1><p class="lede">Your monthly price is set after I look at your books, so it&#39;s based on your actual volume, not a guess.</p>{plan_cards()}</div></section>
+<section style="background:var(--soft)"><div class="wrap">{ONBOARDING}</div></section>
+<section><div class="wrap"><h2>Add-ons</h2><p class="lede">Add what you need to any plan.</p>{addon_rows()}</div></section>
+<section id="tax-pricing" style="background:var(--soft)"><div class="wrap"><h2>Tax services</h2><p class="lede">Available on their own or with a bookkeeping plan.</p>{tax_rows()}</div></section>
 <section><div class="wrap" style="max-width:780px"><h2>Common questions</h2>
-<details><summary>What counts as a transaction?</summary><p>Each line in your bank or credit card feed: a deposit, a purchase, a transfer. Your free review gives me the real count.</p></details>
+<details><summary>Why is there a one-time onboarding fee?</summary><p>Monthly bookkeeping is only as good as the starting point. Most books need some cleanup first, and doing it once up front means every month after that is accurate and your books match your tax return.</p></details>
+<details><summary>What if my books are already in good shape?</summary><p>Then onboarding is quick and priced at the low end. I quote it after looking at your file, so you know the cost before any work starts.</p></details>
+<details><summary>What counts as a transaction?</summary><p>Each line in your bank or credit card feed: a deposit, a purchase or a transfer.</p></details>
 <details><summary>Do I need my own QuickBooks Online subscription?</summary><p>Yes. You own your file and your data. If you don&#39;t have QuickBooks Online yet, I&#39;ll help you pick the right version and set it up.</p></details>
-<details><summary>I&#39;m behind. Can I still start?</summary><p>Yes. We start with a one-time setup and cleanup ($800 to $2,500 depending on the work), then move you onto a monthly plan.</p></details>
-<details><summary>Do you run payroll?</summary><p>Payroll runs through Gusto. I set up your Gusto account, connect it to QuickBooks, and review every payroll so it&#39;s recorded correctly.</p></details>
-<details><summary>Can you do my taxes too?</summary><p>Yes. I&#39;m an IRS Enrolled Agent. I prepare business returns from the books I keep, and individual returns starting at $650.</p></details>
-<details><summary>Is there a long-term contract?</summary><p>No. Plans are month to month.</p></details>
+<details><summary>Do you run payroll?</summary><p>Payroll runs through Gusto. I set up your Gusto account, connect it to QuickBooks and review every payroll so it&#39;s recorded correctly.</p></details>
+<details><summary>Can you do my taxes too?</summary><p>Yes. I&#39;m an IRS Enrolled Agent. Tax returns are quoted separately; individual returns start at $650.</p></details>
 </div></section>{CTA}"""),
 "about/index.html": page("/about/", "About Alek Koldal, EA | Koldal Tax &amp; Advisory",
  "Alek Koldal is an IRS Enrolled Agent providing QuickBooks Online bookkeeping and tax services for small businesses in Coral Springs and South Florida.",
@@ -270,7 +275,7 @@ pages = {
 <p>Based in Coral Springs, Florida, I believe responsive communication, personalized service, and practical solutions are the foundation of every good client relationship. My goal is to be more than your bookkeeper: a trusted advisor and long-term partner in your business.</p>
 <p>The practice carries professional liability (errors &amp; omissions), cyber liability and general liability insurance, so your finances and your data are protected.</p>
 <p><strong>Alek Koldal, EA</strong><br><a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a></p>
-<p><a class="btn" href="/contact/">Get a free QuickBooks review</a></p></div>
+<p><a class="btn" href="/contact/">Book a consultation</a></p></div>
 <div><img class="headshot" src="/assets/headshot.jpg" alt="Alek Koldal, EA" width="380" height="475" onerror="this.remove()"></div></div></section>"""),
 "resources/index.html": page("/resources/", "Free QuickBooks &amp; IRS Help | Koldal Tax &amp; Advisory", "Free guides from an Enrolled Agent: look up your IRS notice or fix common QuickBooks Online problems.", f"""<section><div class="wrap"><h1>Free help</h1><p class="lede">Plain-English guides from an Enrolled Agent who works in QuickBooks Online every day.</p><div class="grid" style="margin-top:20px"><a class="card notice" href="/irs-notices/"><h3>IRS notice lookup &rarr;</h3><p>Find your notice number (CP2000, CP14, CP504, 5071C and more) and see what it means, what to do and your deadline.</p></a><a class="card notice" href="/quickbooks-help/"><h3>QuickBooks Online help &rarr;</h3><p>Step-by-step fixes for bank feeds, reconciliations, uncategorized transactions, 1099s and more.</p></a></div></div></section>{CTA}"""),
 "404.html": page("/404.html", "Page not found | Koldal Tax &amp; Advisory", "Page not found.",
@@ -350,11 +355,11 @@ service_page("irs-notice-help", "IRS Notice &amp; Letter Help in Coral Springs, 
  "IRS notice help",
  [(f"/irs-notices/{n['id']}/", "IRS " + H.escape(n["name"]) + ": " + H.escape(n["title"])) for n in NOTICES[:6]] + [("/irs-notices/", "Look up any IRS notice")])
 service_page("quickbooks-cleanup", "QuickBooks Cleanup &amp; Catch-Up in Coral Springs, FL | Koldal Tax &amp; Advisory",
- "Months or years behind in QuickBooks Online? Cleanup and catch-up bookkeeping from an Enrolled Agent in Coral Springs, FL, quoted after a free review.",
+ "Months or years behind in QuickBooks Online? Cleanup and catch-up bookkeeping from an Enrolled Agent in Coral Springs, FL, quoted up front.",
  "QuickBooks cleanup &amp; catch-up",
  "Get caught up, then stay caught up. I bring your QuickBooks Online file current, reconcile every account, and leave you with books ready for your tax return. " + AREA,
- [("What&#39;s included", ["Bank and credit card accounts reconciled month by month", "Uncategorized and Ask My Accountant transactions sorted", "Duplicates, Undeposited Funds and opening balances fixed", "Loan and owner draw entries corrected", "A clean profit &amp; loss and balance sheet at the end"]),
-  ("How pricing works", "Getting started is a one-time setup fee, usually $800 to $2,500 depending on the work. It covers cleaning up prior months, reviewing your bank accounts, setting up bank rules, getting to know your accounts, and making sure your books tie to your tax return. I quote the exact amount after reviewing your file, then you move onto a monthly plan so it never piles up again."),
+ [("What&#39;s included", ["Prior months cleaned up and every bank and credit card account reconciled", "Uncategorized and Ask My Accountant transactions sorted", "Duplicates, Undeposited Funds and opening balances fixed", "Bank rules set up so transactions categorize correctly", "Your books tied to your last tax return"]),
+  ("How pricing works", "It&#39;s a one-time fee, usually $800 to $2,500 depending on how much cleanup your file needs. I quote the exact amount after looking at your file, before any work starts. After that, you move onto a monthly plan so it never piles up again."),
   ("Taxes behind too?", "As an Enrolled Agent I can also file missing returns and deal with any IRS notices that came while you were catching up.")],
  "QuickBooks cleanup",
  [(f"/quickbooks-help/{a['id']}/", H.escape(a["title"])) for a in QBO if a["id"] in ("catch-up-bookkeeping", "reconciliation-discrepancy", "uncategorized-transactions", "undeposited-funds", "duplicate-transactions")])
