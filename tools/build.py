@@ -4,7 +4,7 @@ SITE = "https://www.koldaltax.com"
 # Add your business phone here (e.g. "(954) 555-0123") to show call buttons across the site.
 PHONE = ""
 CITIES = ["Coral Springs", "Margate", "Parkland", "Coconut Creek", "Tamarac", "Pompano Beach"]
-NAV = [("/bookkeeping/", "Bookkeeping"), ("/tax/", "Tax"), ("/advisory/", "Planning"), ("/services/irs-notice-help/", "IRS Help"), ("/pricing/", "Pricing"), ("/about/", "About")]
+NAV = [("/bookkeeping/", "Bookkeeping"), ("/tax/", "Tax"), ("/advisory/", "Planning"), ("/services/irs-notice-help/", "IRS Help"), ("/about/", "About")]
 SCHEMA = {"@context": "https://schema.org", "@type": "AccountingService", "name": "Koldal Tax & Advisory",
           "url": SITE, "email": "alek@koldaltax.com", "founder": {"@type": "Person", "name": "Alek Koldal, EA"},
           "address": {"@type": "PostalAddress", "addressLocality": "Coral Springs", "addressRegion": "FL", "addressCountry": "US"},
@@ -31,23 +31,21 @@ def page(path, title, desc, body):
 <meta property="og:image" content="{SITE}/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Hanken+Grotesk:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/assets/style.css">
 <script type="application/ld+json">{json.dumps(SCHEMA)}</script>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="/">Koldal Tax &amp; Advisory</a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav id="site-nav">{nav}{f'<a class="btn ghost" href="{TEL}">Call {PHONE}</a>' if PHONE else ""}<a class="btn" href="/contact/">Book a consultation</a></nav></div><script>{{const b=document.querySelector(".menu-btn"),h=b.closest("header");b.addEventListener("click",()=>{{const o=h.classList.toggle("open");b.setAttribute("aria-expanded",o);b.textContent=o?"Close":"Menu"}})}}</script></header>
+<header><div class="wrap"><a class="brand" href="/"><b>Koldal</b><small>Tax &amp; Advisory</small></a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav id="site-nav">{nav}{f'<a class="btn ghost" href="{TEL}">Call {PHONE}</a>' if PHONE else ""}<a class="btn" href="/contact/">Contact</a></nav></div><script>{{const b=document.querySelector(".menu-btn"),h=b.closest("header");b.addEventListener("click",()=>{{const o=h.classList.toggle("open");b.setAttribute("aria-expanded",o);b.textContent=o?"Close":"Menu"}})}}</script></header>
 <main>
 {body}
 </main>
 <footer><div class="wrap">
-<div><strong>Koldal Tax &amp; Advisory</strong><br>Alek Koldal, EA (Enrolled Agent)<br>Coral Springs, Florida<br>{f'<a href="{TEL}">{PHONE}</a><br>' if PHONE else ""}<a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a><br>Serving {", ".join(CITIES[:-1])} and {CITIES[-1]}<br>
-<a href="https://members.csccrchamber.com/list/member/koldal-tax-advisory-margate-7305" rel="noopener">Chamber of Commerce member</a> · <a href="https://www.linkedin.com/in/aleksander-koldal" rel="noopener">LinkedIn</a> · <a href="https://g.page/r/CTKng70qwgj_EBM/review" rel="noopener">Leave a Google review</a>
-<p class="small">&copy; 2026 Koldal Tax &amp; Advisory</p></div>
-<div><strong>Newsletter</strong><p class="small">Tax deadlines and tips, a few times a year.</p>
-<form data-kind="newsletter"><label class="hp">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
-<input type="email" name="email" required placeholder="Email address" aria-label="Email address"><button class="btn" type="submit">Sign up</button>
-<div class="msg" role="status" style="grid-column:1/-1"></div></form></div>
+<div><a class="brand" href="/"><b>Koldal</b><small>Tax &amp; Advisory</small></a><p class="small">Alek Koldal, EA<br>Coral Springs, Florida<br>{f'<a href="{TEL}">{PHONE}</a><br>' if PHONE else ""}<a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a></p></div>
+<div><strong>Services</strong><a href="/bookkeeping/">Bookkeeping</a><a href="/tax/">Tax preparation</a><a href="/advisory/">Tax planning</a><a href="/services/irs-notice-help/">IRS help</a><a href="/pricing/">Pricing</a></div>
+<div><strong>Resources</strong><a href="/irs-notices/">IRS notice lookup</a><a href="/quickbooks-help/">QuickBooks help</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
+<div><strong>Connect</strong><a href="https://g.page/r/CTKng70qwgj_EBM/review" rel="noopener">Google reviews</a><a href="https://www.linkedin.com/in/aleksander-koldal" rel="noopener">LinkedIn</a><a href="https://members.csccrchamber.com/list/member/koldal-tax-advisory-margate-7305" rel="noopener">Chamber of Commerce</a></div>
+<p class="legal">&copy; 2026 Koldal Tax &amp; Advisory · Serving {", ".join(CITIES[:-1])} and {CITIES[-1]}</p>
 </div></footer>
 {f'<a class="callbar" href="{TEL}">Call {PHONE}</a>' if PHONE else ""}
 <script src="/assets/config.js"></script><script src="/assets/forms.js"></script>
@@ -66,7 +64,7 @@ def quick_form(topic, heading, blurb):
 <button class="btn" type="submit">Request help</button><div class="msg" role="status"></div></form>
 {f'<p class="small" style="margin-top:12px">Or call <a href="{TEL}">{PHONE}</a>.</p>' if PHONE else ""}</div>"""
 
-CTA = """<section><div class="wrap"><div class="cta"><div><h2>Let&#39;s talk about what you need</h2><p style="margin:6px 0 0;opacity:.85">Bookkeeping, a tax return, planning or an IRS letter: the first consultation is free.</p></div><a class="btn" href="/contact/">Book a free consultation</a></div></div></section>"""
+CTA = """<section><div class="wrap"><div class="cta"><div><h2>Let&#39;s talk about what you need.</h2><p>The first consultation is free.</p></div><a class="btn" href="/contact/">Book a consultation</a></div></div></section>"""
 
 EA_BADGE = '<span class="ea">EA</span>'
 
@@ -184,26 +182,23 @@ pages = {
 "index.html": page("/", "Bookkeeping, Tax &amp; IRS Help in Coral Springs, FL | Koldal Tax &amp; Advisory",
  "Bookkeeping, tax preparation, tax planning and IRS representation for small businesses and individuals, from Alek Koldal, EA, an IRS Enrolled Agent in Coral Springs, FL.",
  f"""<div class="hero"><div class="wrap hero-grid"><div>
-<p class="eyebrow">Alek Koldal, EA · Coral Springs, FL</p>
-<h1>Bookkeeping, tax and IRS help for small businesses and individuals</h1>
-<p>One Enrolled Agent for your books, your tax return, your planning, and anything the IRS sends you.</p>
-<div class="actions"><a class="btn" href="/contact/">Book a free consultation</a><a class="btn ghost" href="#services">Explore services</a></div></div>
+<p class="eyebrow">Enrolled Agent · Coral Springs, FL</p>
+<h1>Clear books. Confident taxes.</h1>
+<p>Bookkeeping, tax preparation, planning and IRS help for small businesses and individuals, from one Enrolled Agent.</p>
+<div class="actions"><a class="btn" href="/contact/">Book a consultation</a><a class="textlink" href="#services">Our services</a></div></div>
 {PORTRAIT}</div></div>
-<div class="trust"><div class="wrap"><ul><li>{EA_BADGE} IRS Enrolled Agent</li><li>&#9733; 5.0 on Google</li><li>QuickBooks Online</li><li>Chamber of Commerce member</li></ul></div></div>
-<section id="services"><div class="wrap"><p class="eyebrow">Services</p><h2>How I can help</h2>
+<div class="trust"><div class="wrap"><ul><li>IRS Enrolled Agent</li><li>5.0 on Google</li><li>QuickBooks Online</li><li>Chamber of Commerce member</li></ul></div></div>
+<section id="services"><div class="wrap"><p class="eyebrow">Services</p><h2>Everything in one place</h2>
 <div class="pillars">{"".join(f'<a class="pillar" href="{u}"><span class="pillar-k">{k}</span><h3>{t}</h3><p>{d}</p><span class="pillar-f">{f}</span></a>' for k, t, d, f, u in PILLARS)}</div></div></section>
-<section class="band-dark"><div class="wrap split"><div><p class="eyebrow">Why an Enrolled Agent</p><h2>The highest credential the IRS awards</h2>
-<p>Enrolled Agents are licensed by the U.S. Department of the Treasury and can represent taxpayers before the IRS on any tax matter, in every state.</p>
-<p>Working with one person for your books, returns and planning means nothing gets lost between advisors, and if the IRS ever writes, the person who knows your numbers is the one who answers.</p></div>
-<ul class="ea-list"><li><strong>Federally licensed</strong><span>Tested by the IRS on individual, business and representation tax law.</span></li>
-<li><strong>One point of contact</strong><span>You work with me directly, all year, not just in April.</span></li>
-<li><strong>Local</strong><span>Based in Coral Springs and serving South Florida, in person or remotely.</span></li></ul></div></section>
-<section><div class="wrap"><p class="eyebrow">Getting started</p><h2>Simple from the first call</h2>
-<ol class="steps"><li><h3>Free consultation</h3><p>Tell me what you need. For bookkeeping clients, I also look through your QuickBooks file.</p></li>
-<li><h3>Clear quote</h3><p>You get a plan and a price before any work starts.</p></li>
-<li><h3>Ongoing support</h3><p>Books, returns and planning handled, with answers when you need them.</p></li></ol></div></section>
-<section style="background:var(--soft)"><div class="wrap split"><div><p class="eyebrow">Free resources</p><h2>Got an IRS letter or a QuickBooks problem?</h2><p class="lede">Plain-English guides you can use right now.</p></div>
-<div class="linklist"><a href="/irs-notices/"><strong>IRS notice lookup</strong><span>What your notice means, what to do and your deadline</span></a><a href="/quickbooks-help/"><strong>QuickBooks Online help</strong><span>Fixes for bank feeds, reconciliations, 1099s and more</span></a></div></div></section>
+<section class="band-dark"><div class="wrap split"><div><p class="eyebrow">Why an Enrolled Agent</p>
+<p class="statement">The highest credential the IRS awards, working on your books all year.</p></div>
+<ul class="ea-list"><li><strong>Federally licensed</strong><span>Licensed by the U.S. Treasury to represent taxpayers before the IRS, in every state.</span></li>
+<li><strong>One point of contact</strong><span>The person who keeps your books prepares your return and answers the IRS.</span></li>
+<li><strong>Local</strong><span>Based in Coral Springs, serving South Florida in person or remotely.</span></li></ul></div></section>
+<section><div class="wrap"><p class="eyebrow">How it works</p><h2>Simple from the first call</h2>
+<ol class="steps"><li><h3>Consultation</h3><p>Tell me what you need. It&#39;s free.</p></li>
+<li><h3>Clear quote</h3><p>A plan and a price before any work starts.</p></li>
+<li><h3>Ongoing support</h3><p>Books, returns and planning handled all year.</p></li></ol></div></section>
 {CTA}"""),
 "bookkeeping/index.html": page("/bookkeeping/", "QuickBooks Online Bookkeeping in Coral Springs, FL | Koldal Tax &amp; Advisory",
  "Monthly QuickBooks Online bookkeeping, cleanup and catch-up, and payroll with Gusto for small businesses in Coral Springs and South Florida. From $300 a month.",
