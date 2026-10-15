@@ -9,7 +9,7 @@ go to a Supabase edge function that saves each submission and emails it to alek@
 1. Run `supabase/migrations/20261014000000_submissions.sql` in the Supabase SQL editor (creates the `submissions` table).
 2. Deploy the function: `supabase functions deploy contact --project-ref <your-ref>`
 3. Set its secrets:
-   `supabase secrets set RESEND_API_KEY=re_... NOTIFY_EMAIL=alek@koldaltax.com FROM_EMAIL="Koldal Tax Website <website@koldaltax.com>"`
+   `supabase secrets set RESEND_API_KEY=re_... NOTIFY_EMAIL=alek@koldaltax.com FROM_EMAIL="Koldal Tax & Advisory Website <website@koldaltax.com>"`
 4. Put the project URL and anon key into `assets/config.js` (Project Settings > API).
 
 ### 2. Resend (sends the notification emails)

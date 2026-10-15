@@ -60,7 +60,7 @@ Deno.serve(async (req) => {
     method: "POST",
     headers: { Authorization: `Bearer ${Deno.env.get("RESEND_API_KEY")}`, "Content-Type": "application/json" },
     body: JSON.stringify({
-      from: Deno.env.get("FROM_EMAIL") ?? "Koldal Tax Website <website@koldaltax.com>",
+      from: Deno.env.get("FROM_EMAIL") ?? "Koldal Tax & Advisory Website <website@koldaltax.com>",
       to: [Deno.env.get("NOTIFY_EMAIL") ?? "alek@koldaltax.com"],
       reply_to: row.email,
       subject,
