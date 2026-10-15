@@ -79,7 +79,7 @@ PLANS = [
 ]
 ADDONS = [
  ("Payroll setup &amp; review with Gusto", "Monthly add-on", "/services/payroll-with-gusto/"),
- ("1099 preparation &amp; filing", "Per form, each January", "/quickbooks-help/1099-contractors/"),
+ ("1099 filing (you send contractor details and amounts)", "Per form, each January", "/quickbooks-help/1099-contractors/"),
 ]
 
 TAX_SERVICES = [
@@ -213,7 +213,7 @@ pages = {
 <p style="margin-top:18px"><a href="/pricing/">Compare plans and add-ons &rarr;</a></p></div></section>
 <section><div class="wrap split"><div><h2>For any small business</h2>
 <p>Whatever your business does, if it runs on QuickBooks Online I can keep its books: contractors and trades, real estate agents, salons, cleaning and landscaping companies, restaurants, online sellers, professional services and more.</p></div>
-<div class="linklist"><a href="/services/quickbooks-cleanup/"><strong>Onboarding &amp; cleanup</strong><span>Prior months cleaned up and your books tied to your tax return, once</span></a><a href="/services/payroll-with-gusto/"><strong>Payroll with Gusto</strong><span>Setup, QuickBooks connection and a review of every payroll</span></a><a href="/quickbooks-help/1099-contractors/"><strong>1099 preparation</strong><span>1099-NECs for your contractors, filed each January</span></a></div></div></section>
+<div class="linklist"><a href="/services/quickbooks-cleanup/"><strong>Onboarding &amp; cleanup</strong><span>Prior months cleaned up and your books tied to your tax return, once</span></a><a href="/services/payroll-with-gusto/"><strong>Payroll with Gusto</strong><span>Setup, QuickBooks connection and a review of every payroll</span></a><a href="/quickbooks-help/1099-contractors/"><strong>1099 filing</strong><span>Send me your contractors and amounts paid, and I file the 1099s each January</span></a></div></div></section>
 {CTA}"""),
 "tax/index.html": page("/tax/", "Tax Preparation by an Enrolled Agent in Coral Springs, FL | Koldal Tax &amp; Advisory",
  "Individual and business tax return preparation from Alek Koldal, EA, an IRS Enrolled Agent in Coral Springs, FL. Individual returns from $650.",
@@ -245,7 +245,7 @@ pages = {
 <h2 style="margin-top:44px">Also available</h2><div class="linklist">
 <a href="/services/quickbooks-cleanup/"><strong>Onboarding &amp; cleanup</strong><span>Prior months cleaned up and your books tied to your tax return, once</span></a>
 <a href="/services/payroll-with-gusto/"><strong>Payroll with Gusto</strong><span>Setup, QuickBooks connection and review of every payroll</span></a>
-<a href="/quickbooks-help/1099-contractors/"><strong>1099 preparation</strong><span>1099-NECs for your contractors, filed each January</span></a></div></div></section>{CTA}"""),
+<a href="/quickbooks-help/1099-contractors/"><strong>1099 filing</strong><span>Send me your contractors and amounts paid, and I file the 1099s each January</span></a></div></div></section>{CTA}"""),
 "contact/index.html": page("/contact/", "Book a Free Consultation | Koldal Tax &amp; Advisory",
  "Book a free consultation with Alek Koldal, EA about bookkeeping, tax preparation, tax planning or IRS help.",
  f"""<section><div class="wrap split"><div><h1>Book a free consultation</h1>
@@ -368,7 +368,7 @@ service_page("payroll-with-gusto", "Payroll Setup &amp; Review with Gusto | Kold
  "Payroll with Gusto, set up and checked",
  "Payroll runs through Gusto, which files payroll taxes and W-2s. I set it up right, connect it to QuickBooks Online, and review every payroll so your books and your payroll match. " + AREA,
  [("What I do", ["Set up your Gusto account, employees and contractors", "Connect Gusto to QuickBooks Online with the right accounts", "Review each payroll as it posts to your books", "Make sure owner pay is handled correctly for S corporations", "Reconcile payroll liabilities at year end"]),
-  ("Contractors", "Paying contractors through Gusto? I make sure their W-9s are collected and their 1099s are right.")],
+  ("Contractors", "Paying contractors? Send me each contractor&#39;s details and the amount paid, and I file their 1099s for you each January.")],
  "Payroll with Gusto",
  [("/quickbooks-help/1099-contractors/", "Preparing 1099s in QuickBooks Online"), ("/quickbooks-help/owner-draws/", "Personal expenses paid from the business account")])
 
