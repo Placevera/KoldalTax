@@ -90,7 +90,7 @@ TAX_SERVICES = [
  ("Unfiled &amp; prior-year returns", "Behind on filing? I&#39;ll get missing years filed and you back in good standing.", "Quoted"),
  ("IRS notices &amp; representation", "CP2000s, balance-due notices, payment plans and audits by mail, answered for you.", "Quoted"),
  ("IRS transcript review", "Your wage &amp; income and account transcripts pulled and explained: what the IRS has on file, what you owe and what&#39;s missing.", "Quoted"),
- ("Penalty relief", "First-time abatement and reasonable-cause requests. Free penalty review.", "Small upfront fee plus a percentage of penalties removed"),
+ ("Penalty relief", "Reasonable-cause requests, older-year penalties and penalties the IRS doesn&#39;t remove on its own. Free penalty review.", "Small upfront fee plus a percentage of penalties I get removed"),
 ]
 TAX_LINKS = {"IRS transcript review": "/services/irs-notice-help/#irs", "IRS notices &amp; representation": "/services/irs-notice-help/", "Penalty relief": "/services/irs-notice-help/#penalty"}
 
@@ -340,7 +340,7 @@ service_page("irs-notice-help", "IRS Notice &amp; Letter Help in Coral Springs, 
  "Help with IRS notices and letters",
  "An IRS letter doesn't have to be stressful. As an Enrolled Agent, I'm federally licensed to represent taxpayers before the IRS. " + AREA,
  [("What I can do", ["Explain what your notice means and what it will cost","Pull and review your IRS transcripts","Respond to proposed changes such as a CP2000","Set up payment plans for balances due","Respond to identity verification and missing information letters","Protect your appeal rights when time limits apply"]),
-  ("Penalty relief", "Many penalties can be reduced or removed, through first-time abatement or reasonable cause. I charge a small upfront fee plus a percentage of the penalties the IRS actually removes, so you mostly pay when it works. The first penalty review is free."),
+  ("Penalty relief", "The IRS now removes some first-year late filing and late payment penalties automatically, but plenty are left: penalties from older years, repeat years, estimated tax and accuracy penalties, late 1099 and payroll filings, and cases where the automatic relief simply wasn&#39;t applied. I check your transcripts to see what&#39;s already been removed, then request relief for what remains, usually based on reasonable cause. I charge a small upfront fee plus a percentage of the penalties removed through my request, never on relief the IRS gave automatically. The first penalty review is free."),
   ("IRS transcripts", "Not sure what the IRS has on file? With a signed Form 8821 or 2848, I pull your wage &amp; income and account transcripts and walk you through them: the W-2s and 1099s reported under your name, payments, balances and any missing returns. It&#39;s the fastest way to see where you stand before filing or answering a notice."),
   ("How it works", ["Send me a copy of every page of the notice, and the tax return for that year if you have it", "I prepare IRS Form 2848 (Power of Attorney) so I can speak to the IRS for you. You sign it, often electronically, and I file it", "For a transcript review only, a Form 8821 (Tax Information Authorization) is enough", "I pull your transcripts, review the notice against them and tell you your options", "I respond to the IRS and follow it through to the end"])],
  "IRS notice help",
