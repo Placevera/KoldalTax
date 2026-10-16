@@ -44,7 +44,7 @@ def page(path, title, desc, body):
 <footer><div class="wrap">
 <div><a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="56" height="42"><b>Koldal</b><small>Tax &amp; Advisory</small></a><p class="small">Alek Koldal, EA<br>Coral Springs, Florida<br>{f'<a href="{TEL}">{PHONE}</a><br>' if PHONE else ""}<a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a></p></div>
 <div><strong>Services</strong><a href="/bookkeeping/">Bookkeeping</a><a href="/tax/">Tax preparation</a><a href="/advisory/">Tax planning</a><a href="/services/irs-notice-help/">IRS help</a><a href="/pricing/">Pricing</a></div>
-<div><strong>Resources</strong><a href="/irs-notices/">IRS notice lookup</a><a href="/quickbooks-help/">QuickBooks help</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
+<div><strong>Resources</strong><a href="/articles/">Articles</a><a href="/irs-notices/">IRS notice lookup</a><a href="/quickbooks-help/">QuickBooks help</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
 <div><strong>Connect</strong><a href="{PORTAL}" rel="noopener">Send documents securely</a><a href="https://g.page/r/CTKng70qwgj_EBM/review" rel="noopener">Google reviews</a><a href="https://www.linkedin.com/in/aleksander-koldal" rel="noopener">LinkedIn</a><a href="https://members.csccrchamber.com/list/member/koldal-tax-advisory-margate-7305" rel="noopener">Chamber of Commerce</a><a class="badge-link" href="https://members.csccrchamber.com/list/member/koldal-tax-advisory-margate-7305" rel="noopener"><img src="/assets/chamber-member.png" alt="Proud member, Coral Springs Coconut Creek Regional Chamber" width="125" height="83" loading="lazy"></a></div>
 <p class="legal">&copy; 2026 Koldal Tax &amp; Advisory. All rights reserved. · Serving {", ".join(CITIES[:-1])} and {CITIES[-1]}</p>
 </div></footer>
@@ -294,7 +294,7 @@ pages = {
 <p><strong>Alek Koldal, EA</strong><br><a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a></p>
 <p><a class="btn" href="/contact/">Book a consultation</a></p></div>
 <div><img class="headshot" src="/assets/headshot.jpg" alt="Alek Koldal, EA" width="380" height="475" onerror="this.remove()"></div></div></section>"""),
-"resources/index.html": page("/resources/", "Free QuickBooks &amp; IRS Help | Koldal Tax &amp; Advisory", "Free guides from an Enrolled Agent: look up your IRS notice or fix common QuickBooks Online problems.", f"""<section><div class="wrap"><h1>Free help</h1><p class="lede">Plain-English guides from Koldal Tax &amp; Advisory on IRS notices and QuickBooks Online.</p><div class="grid" style="margin-top:20px"><a class="card notice" href="/irs-notices/"><h3>IRS notice lookup &rarr;</h3><p>Find your notice number (CP2000, CP14, CP504, 5071C and more) and see what it means, what to do and your deadline.</p></a><a class="card notice" href="/quickbooks-help/"><h3>QuickBooks Online help &rarr;</h3><p>Step-by-step fixes for bank feeds, reconciliations, uncategorized transactions, 1099s and more.</p></a></div></div></section>{CTA}"""),
+"resources/index.html": page("/resources/", "Free QuickBooks &amp; IRS Help | Koldal Tax &amp; Advisory", "Free guides from an Enrolled Agent: look up your IRS notice or fix common QuickBooks Online problems.", f"""<section><div class="wrap"><h1>Free help</h1><p class="lede">Plain-English guides from Koldal Tax &amp; Advisory on IRS notices and QuickBooks Online.</p><div class="grid" style="margin-top:20px"><a class="card notice" href="/irs-notices/"><h3>IRS notice lookup &rarr;</h3><p>Find your notice number (CP2000, CP14, CP504, 5071C and more) and see what it means, what to do and your deadline.</p></a><a class="card notice" href="/articles/"><h3>Articles &rarr;</h3><p>Short monthly pieces on the tax questions clients ask most, like what a filing extension does and doesn&#39;t cover.</p></a><a class="card notice" href="/quickbooks-help/"><h3>QuickBooks Online help &rarr;</h3><p>Step-by-step fixes for bank feeds, reconciliations, uncategorized transactions, 1099s and more.</p></a></div></div></section>{CTA}"""),
 "404.html": page("/404.html", "Page not found | Koldal Tax &amp; Advisory", "Page not found.",
  """<section><div class="wrap"><h1>Page not found</h1><p>That page doesn't exist. <a href="/">Go to the homepage</a> or <a href="/contact/">get in touch</a>.</p></div></section>"""),
 }
@@ -352,6 +352,18 @@ pages["quickbooks-help/index.html"] = page("/quickbooks-help/", "QuickBooks Onli
 <input id="nq" type="search" placeholder="Search, e.g. bank feed, reconcile, 1099" aria-label="Search QuickBooks help" style="max-width:520px;margin:10px 0 24px">
 <div class="grid" id="nl">{qrows}</div><p id="none" style="display:none">No match. <a href="/contact/">Ask me directly</a>.</p></div></section>
 <script>const q=document.getElementById('nq'),cs=[...document.querySelectorAll('#nl .notice')];q.addEventListener('input',()=>{{const v=q.value.toLowerCase();let n=0;cs.forEach(c=>{{const m=c.dataset.q.includes(v);c.style.display=m?'':'none';n+=m}});document.getElementById('none').style.display=n?'none':''}});</script>""")
+
+ARTICLES = sorted(json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "articles.json"))), key=lambda x: x["date"], reverse=True)
+for a in ARTICLES:
+    ld = json.dumps({"@context": "https://schema.org", "@type": "Article", "headline": a["title"], "datePublished": a["date"], "author": {"@type": "Person", "name": "Alek Koldal, EA"}, "publisher": {"@type": "Organization", "name": "Koldal Tax & Advisory"}})
+    pages[f"articles/{a['slug']}/index.html"] = page(f"/articles/{a['slug']}/", f"{a['title']} | Koldal Tax &amp; Advisory", e(a["summary"]),
+     f"""<section><div class="wrap article" style="max-width:720px"><p class="small"><a href="/articles/">Articles</a></p><h1>{a['title']}</h1>
+<p class="byline">By Alek Koldal, EA · <time datetime="{a['date']}">{a['date_label']}</time></p>{a['html']}</div></section>
+<script type="application/ld+json">{ld}</script>{CTA}""")
+arows = "".join(f'<a class="card notice" href="/articles/{a["slug"]}/"><p class="small">{a["date_label"]}</p><h3>{a["title"]}</h3><p>{e(a["summary"])}</p></a>' for a in ARTICLES)
+pages["articles/index.html"] = page("/articles/", "Tax Articles | Koldal Tax &amp; Advisory",
+ "Short, plain-English tax articles from Alek Koldal, EA, an IRS Enrolled Agent in Coral Springs, FL.",
+ f"""<section><div class="wrap"><h1>Articles</h1><p class="lede">Short, plain-English pieces on the tax questions clients ask most. A new one each month.</p><div class="grid" style="margin-top:20px">{arows}</div></div></section>{CTA}""")
 
 def service_page(slug, title, desc, h1, intro, sections, topic, links, lead=""):
     secs = "".join(f"<h2 id=\"{h.split()[0].lower().strip(',')}\">{h}</h2>" + ("<ul>" + "".join(f"<li>{x}</li>" for x in body) + "</ul>" if isinstance(body, list) else f"<p>{body}</p>") for h, body in sections)
