@@ -3,6 +3,8 @@ out = sys.argv[1]
 SITE = "https://www.koldaltax.com"
 # Add your business phone here (e.g. "(954) 555-0123") to show call buttons across the site.
 PHONE = "(954) 603-4143"
+GA = """<script async src="https://www.googletagmanager.com/gtag/js?id=G-LVS27FSG08"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-LVS27FSG08");</script>"""
 PORTAL = "https://www.encyro.com/koldaltax"
 CITIES = ["Coral Springs", "Margate", "Parkland", "Coconut Creek", "Tamarac", "Pompano Beach"]
 NAV = [("/bookkeeping/", "Bookkeeping"), ("/tax/", "Tax"), ("/advisory/", "Planning"), ("/services/irs-notice-help/", "IRS Help"), ("/resources/", "Resources"), ("/about/", "About")]
@@ -20,6 +22,7 @@ def page(path, title, desc, body):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{GA}
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{SITE}{path}">
