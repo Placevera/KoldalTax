@@ -88,7 +88,7 @@ TAX_SERVICES = [
  ("Business tax returns", "Partnerships (1065), S corporations (1120-S) and C corporations (1120), prepared from your books.", "Quoted"),
  ("Trust &amp; estate returns (1041)", "Fiduciary income tax returns for trusts and estates.", "Quoted"),
  ("Tax planning &amp; projections", "Year-end planning and quarterly estimated payments, so April has no surprises.", "Quoted"),
- ("Unfiled &amp; prior-year returns", "Behind on filing? I&#39;ll get missing years filed and you back in good standing.", "Quoted"),
+ ("Unfiled &amp; amended returns", "Missing years filed and earlier returns corrected, so you&#39;re back in good standing.", "Quoted"),
  ("IRS notices &amp; representation", "CP2000s, balance-due notices, payment plans and audits by mail, answered for you.", "Quoted"),
  ("IRS transcript review", "Your wage &amp; income and account transcripts pulled and explained: what the IRS has on file, what you owe and what&#39;s missing.", "Quoted"),
  ("Penalty relief", "Reasonable-cause requests, older-year penalties and penalties the IRS doesn&#39;t remove on its own. Free penalty review.", "Small upfront fee plus a percentage of penalties I get removed"),
@@ -237,7 +237,7 @@ pages = {
 <div class="card"><h3>Individual returns (1040)</h3><p>Federal and state returns for individuals, families and business owners, including self-employment (Schedule C), rental income (Schedule E) and investment income.</p><p class="small" style="margin-top:10px"><strong>From $650</strong></p></div>
 <div class="card"><h3>Business returns</h3><p>Partnerships (1065), S corporations (1120-S) and C corporations (1120).</p><p class="small" style="margin-top:10px"><strong>Quoted</strong></p></div>
 <div class="card"><h3>Trust &amp; estate returns (1041)</h3><p>Fiduciary income tax returns for trusts and estates, prepared for trustees and executors.</p><p class="small" style="margin-top:10px"><strong>Quoted</strong></p></div>
-<div class="card"><h3>Unfiled &amp; prior-year returns</h3><p>Behind on filing? I&#39;ll get missing years filed and you back in good standing with the IRS.</p><p class="small" style="margin-top:10px"><strong>Quoted</strong></p></div></div>
+<div class="card"><h3>Unfiled &amp; amended returns</h3><p>Behind on filing, or need to fix a return you already filed? I&#39;ll file the missing years and amend past returns (1040-X and business amendments) to get you back in good standing with the IRS.</p><p class="small" style="margin-top:10px"><strong>Quoted</strong></p></div></div>
 <p class="small" style="margin-top:22px">Planning ahead for next year? See <a href="/advisory/">tax planning &amp; advisory</a>. Got a letter from the IRS? See <a href="/services/irs-notice-help/">IRS help</a>.</p></div></section>
 {CTA}"""),
 "advisory/index.html": page("/advisory/", "Tax Planning &amp; Advisory in Coral Springs, FL | Koldal Tax &amp; Advisory",
