@@ -5,7 +5,7 @@ SITE = "https://www.koldaltax.com"
 PHONE = "(954) 603-4143"
 PORTAL = "https://www.encyro.com/koldaltax"
 CITIES = ["Coral Springs", "Margate", "Parkland", "Coconut Creek", "Tamarac", "Pompano Beach"]
-NAV = [("/bookkeeping/", "Bookkeeping"), ("/tax/", "Tax"), ("/advisory/", "Planning"), ("/services/irs-notice-help/", "IRS Help"), ("/about/", "About")]
+NAV = [("/bookkeeping/", "Bookkeeping"), ("/tax/", "Tax"), ("/advisory/", "Planning"), ("/services/irs-notice-help/", "IRS Help"), ("/resources/", "Resources"), ("/about/", "About")]
 SCHEMA = {"@context": "https://schema.org", "@type": "AccountingService", "name": "Koldal Tax & Advisory",
           "url": SITE, "email": "alek@koldaltax.com", "founder": {"@type": "Person", "name": "Alek Koldal, EA"},
           "address": {"@type": "PostalAddress", "addressLocality": "Coral Springs", "addressRegion": "FL", "addressCountry": "US"},
@@ -37,7 +37,7 @@ def page(path, title, desc, body):
 <script type="application/ld+json">{json.dumps(SCHEMA)}</script>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="56" height="42"><b>Koldal</b><small>Tax &amp; Advisory</small></a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav id="site-nav">{nav}{f'<a class="btn ghost" href="{TEL}">Call {PHONE}</a>' if PHONE else ""}<a class="btn" href="/contact/">Contact</a></nav></div><script>{{const b=document.querySelector(".menu-btn"),h=b.closest("header");b.addEventListener("click",()=>{{const o=h.classList.toggle("open");b.setAttribute("aria-expanded",o);b.textContent=o?"Close":"Menu"}})}}</script></header>
+<div class="topbar"><div class="wrap">{f'<a href="{TEL}">Call {PHONE}</a>' if PHONE else ""}<a href="{PORTAL}" rel="noopener">Send documents securely</a></div></div><header><div class="wrap"><a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="56" height="42"><b>Koldal</b><small>Tax &amp; Advisory</small></a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav id="site-nav">{nav}<a class="btn" href="/contact/">Contact</a></nav></div><script>{{const b=document.querySelector(".menu-btn"),h=b.closest("header");b.addEventListener("click",()=>{{const o=h.classList.toggle("open");b.setAttribute("aria-expanded",o);b.textContent=o?"Close":"Menu"}})}}</script></header>
 <main>
 {body}
 </main>
@@ -289,7 +289,7 @@ pages = {
 <p><strong>Alek Koldal, EA</strong><br><a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a></p>
 <p><a class="btn" href="/contact/">Book a consultation</a></p></div>
 <div><img class="headshot" src="/assets/headshot.jpg" alt="Alek Koldal, EA" width="380" height="475" onerror="this.remove()"></div></div></section>"""),
-"resources/index.html": page("/resources/", "Free QuickBooks &amp; IRS Help | Koldal Tax &amp; Advisory", "Free guides from an Enrolled Agent: look up your IRS notice or fix common QuickBooks Online problems.", f"""<section><div class="wrap"><h1>Free help</h1><p class="lede">Plain-English guides from Koldal Tax &amp; Advisory on IRS notices and QuickBooks Online.</p><div class="grid" style="margin-top:20px"><a class="card notice" href="/irs-notices/"><h3>IRS notice lookup &rarr;</h3><p>Find your notice number (CP2000, CP14, CP504, 5071C and more) and see what it means, what to do and your deadline.</p></a><a class="card notice" href="/articles/"><h3>Articles &rarr;</h3><p>Short monthly pieces on the tax questions clients ask most, like what a filing extension does and doesn&#39;t cover.</p></a><a class="card notice" href="/quickbooks-help/"><h3>QuickBooks Online help &rarr;</h3><p>Step-by-step fixes for bank feeds, reconciliations, uncategorized transactions, 1099s and more.</p></a></div></div></section>{CTA}"""),
+"resources/index.html": page("/resources/", "Free QuickBooks &amp; IRS Help | Koldal Tax &amp; Advisory", "Free guides from an Enrolled Agent: look up your IRS notice or fix common QuickBooks Online problems.", f"""<section><div class="wrap"><h1>Resources</h1><p class="lede">Plain-English articles and guides from Koldal Tax &amp; Advisory on taxes, IRS notices and QuickBooks Online.</p><div class="grid" style="margin-top:20px"><a class="card notice" href="/irs-notices/"><h3>IRS notice lookup &rarr;</h3><p>Find your notice number (CP2000, CP14, CP504, 5071C and more) and see what it means, what to do and your deadline.</p></a><a class="card notice" href="/articles/"><h3>Articles &rarr;</h3><p>Short monthly pieces on the tax questions clients ask most, like what a filing extension does and doesn&#39;t cover.</p></a><a class="card notice" href="/quickbooks-help/"><h3>QuickBooks Online help &rarr;</h3><p>Step-by-step fixes for bank feeds, reconciliations, uncategorized transactions, 1099s and more.</p></a></div></div></section>{CTA}"""),
 "404.html": page("/404.html", "Page not found | Koldal Tax &amp; Advisory", "Page not found.",
  """<section><div class="wrap"><h1>Page not found</h1><p>That page doesn't exist. <a href="/">Go to the homepage</a> or <a href="/contact/">get in touch</a>.</p></div></section>"""),
 }
