@@ -17,7 +17,7 @@
    "If you disagree in whole or part, send the response form with a signed explanation and documents",
    "Don't file an amended return for these changes; respond to the notice instead"
   ],
-  "deadline": "Respond by the date on the notice, usually 30 days. If you don't, the IRS sends a Statutory Notice of Deficiency and assesses the tax."
+  "deadline": "Respond by the date on the notice, usually 30 days. If you don't, the IRS sends a Statutory Notice of Deficiency, and the tax is assessed if you don't petition Tax Court in time."
  },
  {
   "id": "cp2501",
@@ -146,7 +146,7 @@
   "title": "Statutory Notice of Deficiency",
   "urgency": "urgent",
   "who": "Individuals",
-  "what": "The IRS has determined you owe additional tax and is formally telling you of your right to challenge it in U.S. Tax Court. Often follows an unanswered CP2000 or audit.",
+  "what": "The IRS has determined you owe additional tax and is formally telling you of your right to challenge it in U.S. Tax Court. It often follows an unanswered CP2000 or an audit you didn't agree with.",
   "common": [
    "No response to a CP2000",
    "Audit changes you didn't agree to"
@@ -274,7 +274,7 @@
   "title": "Verify your identity by phone",
   "urgency": "high",
   "who": "Individuals",
-  "what": "Like Letter 5071C, the IRS needs to confirm your identity before processing a return filed under your name, but asks you to call.",
+  "what": "As with Letter 5071C, the IRS needs to confirm your identity before processing a return filed under your name, but asks you to call.",
   "common": [
    "Possible identity theft"
   ],
@@ -369,7 +369,7 @@
    "Pay what you can or set up a payment plan",
    "Ask about options if you can't pay"
   ],
-  "deadline": "Act as soon as possible to stop interest and penalties growing."
+  "deadline": "Act as soon as possible to keep interest and penalties from growing."
  },
  {
   "id": "cp521",
@@ -412,7 +412,7 @@
   "title": "Business balance due",
   "urgency": "medium",
   "who": "Businesses",
-  "what": "Your business owes money for the tax period shown, often from a return processed with a balance, penalties or a math error.",
+  "what": "Your business owes money for the tax period shown, often because a return was processed with an unpaid balance, penalties or a math error.",
   "common": [
    "Late filing or late payment penalties",
    "Payroll tax deposits short or late",
@@ -557,7 +557,7 @@
   "title": "You may qualify for the Additional Child Tax Credit",
   "urgency": "low",
   "who": "Individuals",
-  "what": "IRS records show you may be able to claim the Additional Child Tax Credit, the refundable part of the Child Tax Credit, but you didn't. It is not a bill; it's a chance at more refund.",
+  "what": "IRS records show you may be able to claim the Additional Child Tax Credit, the refundable part of the Child Tax Credit, but you didn't. It is not a bill; it's a chance at a larger refund.",
   "common": [
    "You have a qualifying child but didn't claim the credit",
    "The credit was left off when the return was prepared"
@@ -801,7 +801,7 @@
   "title": "You may qualify for the Earned Income Credit (no children)",
   "urgency": "low",
   "who": "Individuals",
-  "what": "IRS records show you may qualify for the Earned Income Tax Credit for workers without a qualifying child, but you didn't claim it. It is not a bill; it's a chance at more refund.",
+  "what": "IRS records show you may qualify for the Earned Income Tax Credit for workers without a qualifying child, but you didn't claim it. It is not a bill; it's a chance at a larger refund.",
   "common": [
    "You had low to moderate earned income and no qualifying child",
    "The credit was missed when the return was prepared"
@@ -1011,7 +1011,7 @@
    "If you already filed, send a signed copy",
    "Keep proof of mailing"
   ],
-  "deadline": "File right away. Once the refund deadline passes, the money can't be refunded."
+  "deadline": "File right away. Once the deadline passes, you lose the right to the refund."
  },
  {
   "id": "cp88",
@@ -1482,7 +1482,7 @@
   "todo": [
    "File the return right away, electronically if you can",
    "Return the response form",
-   "Respond even if you filed more than 4 weeks ago or under a different name or EIN"
+   "If you filed more than 4 weeks ago, or under a different name or EIN, still return the response form"
   ],
   "deadline": "Respond by the date on the notice. If you don't, the IRS may prepare the return for you and assess tax and penalties."
  },
@@ -1565,7 +1565,7 @@
   "title": "Proposed health coverage penalty for employers",
   "urgency": "urgent",
   "who": "Employers",
-  "what": "The IRS is proposing an Affordable Care Act penalty (the employer shared responsibility payment) because it believes your business, as an employer with 50 or more full-time workers, didn't offer qualifying health coverage. It is a proposal, not a bill.",
+  "what": "The IRS is proposing an Affordable Care Act penalty (the employer shared responsibility payment) because it believes your business, as an employer with 50 or more full-time employees (including full-time equivalents), didn't offer qualifying health coverage. It is a proposal, not a bill.",
   "common": [
    "A full-time employee got a premium tax credit on the Marketplace",
    "Errors in the codes on Forms 1095-C",
@@ -1732,7 +1732,7 @@
   "title": "Update on your employer health coverage penalty",
   "urgency": "high",
   "who": "Employers",
-  "what": "The IRS is answering your Letter 226J response. Letters 227-L and 227-M show a revised proposed penalty, and Letter 227-N shows the Appeals result. It is not a bill.",
+  "what": "The IRS is answering your Letter 226J response. Letter 227-J confirms the agreed penalty, 227-K closes it with no penalty, 227-L shows a reduced amount, 227-M keeps the penalty unchanged, and 227-N shows the Appeals result. It is not a bill.",
   "common": [
    "You responded to Letter 226J",
    "Appeals finished reviewing your case"

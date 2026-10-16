@@ -63,7 +63,7 @@ def quick_form(topic, heading, blurb):
 <form data-kind="contact" style="margin-top:14px"><input type="hidden" name="service" value="{t}">
 <div class="row"><label>First name<input name="first_name" required autocomplete="given-name"></label><label>Last name<input name="last_name" required autocomplete="family-name"></label></div>
 <div class="row"><label>Email<input type="email" name="email" required autocomplete="email"></label><label>Phone<input type="tel" name="phone" autocomplete="tel"></label></div>
-<label>Anything I should know? (optional)<textarea name="message" style="min-height:80px"></textarea></label>
+<label>Anything we should know? (optional)<textarea name="message" style="min-height:80px"></textarea></label>
 <label class="hp">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
 <button class="btn" type="submit">Request help</button><div class="msg" role="status"></div></form>
 {f'<p class="small" style="margin-top:12px">Or call <a href="{TEL}">{PHONE}</a>.</p>' if PHONE else ""}</div>"""
@@ -163,7 +163,7 @@ REVIEW_FORM = """<form data-kind="contact" class="card"><input type="hidden" nam
 <div class="row"><label>Business name<input id="f-biz" name="x_business" autocomplete="organization"></label><label>Type of business<input id="f-type" name="x_type" placeholder="e.g. contractor, salon"></label></div>
 <div class="row"><label>Are your books up to date<select id="f-current" name="x_current"><option>Yes, mostly</option><option>A few months behind</option><option>More than a year behind</option><option>Not sure</option></select></label>
 <label>Using QuickBooks Online<select id="f-qbo" name="x_qbo"><option>Yes</option><option>QuickBooks Desktop</option><option>Another program</option><option>Spreadsheets or nothing yet</option></select></label></div>
-<label>What do you need help with<select id="f-need" name="x_need"><option>Monthly bookkeeping</option><option>Cleanup &amp; catch-up</option><option>Payroll with Gusto</option><option>Tax return</option><option>IRS notice or penalty</option><option>Something else</option></select></label>
+<label>What do you need help with?<select id="f-need" name="x_need"><option>Monthly bookkeeping</option><option>Cleanup &amp; catch-up</option><option>Payroll with Gusto</option><option>Tax return</option><option>IRS notice or penalty</option><option>Something else</option></select></label>
 <label>Anything else? (optional)<textarea id="f-msg" name="message" style="min-height:90px"></textarea></label>
 <label class="hp">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
 <button class="btn" type="submit">Request my free review</button><div class="msg" role="status"></div></form>"""
@@ -346,9 +346,9 @@ for a in QBO:
     pages[f"quickbooks-help/{a['id']}/index.html"] = page(f"/quickbooks-help/{a['id']}/", f"{e(a['title'])} | QuickBooks Online Help | Koldal Tax &amp; Advisory", e(a["q"] + " Causes and step-by-step fixes from Koldal Tax &amp; Advisory in Coral Springs, FL."), body)
 pages["quickbooks-help/index.html"] = page("/quickbooks-help/", "QuickBooks Online Help: Common Problems and Fixes | Koldal Tax &amp; Advisory",
  "Fix common QuickBooks Online problems: bank feeds, reconciliations, uncategorized transactions, Undeposited Funds, 1099s and more. From Koldal Tax &amp; Advisory in Coral Springs.",
- f"""<section><div class="wrap"><h1>QuickBooks Online help</h1><p style="color:var(--muted);max-width:680px">Plain-English fixes for the QuickBooks Online problems we see most often. If you&#39;d rather have it done for you, every page has a quick way to reach me.</p>
+ f"""<section><div class="wrap"><h1>QuickBooks Online help</h1><p style="color:var(--muted);max-width:680px">Plain-English fixes for the QuickBooks Online problems we see most often. If you&#39;d rather have it done for you, every page has a quick way to reach us.</p>
 <input id="nq" type="search" placeholder="Search, e.g. bank feed, reconcile, 1099" aria-label="Search QuickBooks help" style="max-width:520px;margin:10px 0 24px">
-<div class="grid" id="nl">{qrows}</div><p id="none" style="display:none">No match. <a href="/contact/">Ask me directly</a>.</p></div></section>
+<div class="grid" id="nl">{qrows}</div><p id="none" style="display:none">No match. <a href="/contact/">Ask us directly</a>.</p></div></section>
 <script>const q=document.getElementById('nq'),cs=[...document.querySelectorAll('#nl .notice')];q.addEventListener('input',()=>{{const v=q.value.toLowerCase();let n=0;cs.forEach(c=>{{const m=c.dataset.q.includes(v);c.style.display=m?'':'none';n+=m}});document.getElementById('none').style.display=n?'none':''}});</script>""")
 
 ARTICLES = sorted(json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "articles.json"))), key=lambda x: x["date"], reverse=True)
@@ -370,13 +370,13 @@ def service_page(slug, title, desc, h1, intro, sections, topic, links, lead=""):
      f"""<section><div class="wrap" style="max-width:780px"><p class="small"><a href="/services/">Services</a></p>{lead}{"<h2>" + h1 + "</h2>" if lead else "<h1>" + h1 + "</h1>"}<p style="font-size:19px;color:var(--muted)">{intro}</p>{secs}
 <h2>Helpful guides</h2><ul>{lk}</ul>{quick_form(topic, "Get started", "Tell me a bit about your situation and I&#39;ll get back to you.")}</div></section>""")
 
-AREA = f"Based in Coral Springs and working with clients in {', '.join(CITIES[1:-1])} and {CITIES[-1]}, as well as remotely across Florida."
+AREA = f"We're based in Coral Springs and work with clients in {', '.join(CITIES[1:-1])} and {CITIES[-1]}, and remotely across Florida."
 service_page("irs-notice-help", "IRS Notice &amp; Letter Help in Coral Springs, FL | Koldal Tax &amp; Advisory",
  "Got a letter from the IRS? An Enrolled Agent in Coral Springs, FL can explain your notice, respond for you, and set up payment plans.",
  "Help with IRS notices and letters",
  "An IRS letter doesn't have to be stressful. As an Enrolled Agent, I'm federally licensed to represent taxpayers before the IRS. " + AREA,
  [("What I can do", ["Explain what your notice means and what it will cost","Pull and review your IRS transcripts","Respond to proposed changes such as a CP2000","Set up payment plans for balances due","Respond to identity verification and missing information letters","Protect your appeal rights when time limits apply"]),
-  ("Penalty relief", "The IRS now removes some first-year late filing and late payment penalties automatically, but plenty are left: penalties from older years, repeat years, estimated tax and accuracy penalties, late 1099 and payroll filings, and cases where the automatic relief simply wasn&#39;t applied. I check your transcripts to see what&#39;s already been removed, then request relief for what remains, usually based on reasonable cause. I charge a small upfront fee plus a percentage of the penalties removed through my request, never on relief the IRS gave automatically. The first penalty review is free."),
+  ("Penalty relief", "Starting in 2026, the IRS removes some first-time late filing and late payment penalties automatically, but plenty are left: penalties from older years, repeat years, estimated tax and accuracy penalties, late 1099 and payroll filings, and cases where the automatic relief simply wasn&#39;t applied. I check your transcripts to see what&#39;s already been removed, then request relief for what remains, usually based on reasonable cause. I charge a small upfront fee plus a percentage of the penalties removed through my request, never on relief the IRS gave automatically. The first penalty review is free."),
   ("IRS transcripts", "Not sure what the IRS has on file? With a signed Form 8821 or 2848, I pull your wage &amp; income and account transcripts and walk you through them: the W-2s and 1099s reported under your name, payments, balances and any missing returns. It&#39;s the fastest way to see where you stand before filing or answering a notice."),
   ("How it works", [f"Send me every page of the notice, and the tax return for that year if you have it, through my <a href=\"{PORTAL}\" rel=\"noopener\">secure upload portal</a>", "I prepare IRS Form 2848 (Power of Attorney) so I can speak to the IRS for you. You sign it, often electronically, and I file it", "For a transcript review only, a Form 8821 (Tax Information Authorization) is enough", "I pull your transcripts, review the notice against them and tell you your options", "I respond to the IRS and follow it through to the end"])],
  "IRS notice help",
