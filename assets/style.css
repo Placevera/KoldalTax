@@ -260,3 +260,6 @@ footer .brand{display:inline-grid;align-self:start;justify-content:start}
 .quote .stars{color:#e3a72f;letter-spacing:2px;font-size:15px}
 .quote blockquote{margin:0;font-size:17px;line-height:1.6;color:var(--ink);flex:1}
 .quote figcaption{font-size:14px;color:var(--muted);font-weight:600}
+.problems{padding:8px 0 48px;margin-bottom:48px;border-bottom:1px solid var(--line)}
+.problems .q{font:400 clamp(26px,3.4vw,36px)/1.2 var(--display);color:var(--ink);margin:0 0 10px}
+.problems .q+p:not(.q){margin-top:22px;font-size:18px;color:var(--muted)}

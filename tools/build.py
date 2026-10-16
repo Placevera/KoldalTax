@@ -353,11 +353,11 @@ pages["quickbooks-help/index.html"] = page("/quickbooks-help/", "QuickBooks Onli
 <div class="grid" id="nl">{qrows}</div><p id="none" style="display:none">No match. <a href="/contact/">Ask me directly</a>.</p></div></section>
 <script>const q=document.getElementById('nq'),cs=[...document.querySelectorAll('#nl .notice')];q.addEventListener('input',()=>{{const v=q.value.toLowerCase();let n=0;cs.forEach(c=>{{const m=c.dataset.q.includes(v);c.style.display=m?'':'none';n+=m}});document.getElementById('none').style.display=n?'none':''}});</script>""")
 
-def service_page(slug, title, desc, h1, intro, sections, topic, links):
+def service_page(slug, title, desc, h1, intro, sections, topic, links, lead=""):
     secs = "".join(f"<h2 id=\"{h.split()[0].lower().strip(',')}\">{h}</h2>" + ("<ul>" + "".join(f"<li>{x}</li>" for x in body) + "</ul>" if isinstance(body, list) else f"<p>{body}</p>") for h, body in sections)
     lk = "".join(f'<li><a href="{u}">{t}</a></li>' for u, t in links)
     pages[f"services/{slug}/index.html"] = page(f"/services/{slug}/", title, desc,
-     f"""<section><div class="wrap" style="max-width:780px"><p class="small"><a href="/services/">Services</a></p><h1>{h1}</h1><p style="font-size:19px;color:var(--muted)">{intro}</p>{secs}
+     f"""<section><div class="wrap" style="max-width:780px"><p class="small"><a href="/services/">Services</a></p>{lead}{"<h2>" + h1 + "</h2>" if lead else "<h1>" + h1 + "</h1>"}<p style="font-size:19px;color:var(--muted)">{intro}</p>{secs}
 <h2>Helpful guides</h2><ul>{lk}</ul>{quick_form(topic, "Get started", "Tell me a bit about your situation and I&#39;ll get back to you.")}</div></section>""")
 
 AREA = f"Based in Coral Springs and working with clients in {', '.join(CITIES[1:-1])} and {CITIES[-1]}, as well as remotely across Florida."
@@ -370,7 +370,12 @@ service_page("irs-notice-help", "IRS Notice &amp; Letter Help in Coral Springs, 
   ("IRS transcripts", "Not sure what the IRS has on file? With a signed Form 8821 or 2848, I pull your wage &amp; income and account transcripts and walk you through them: the W-2s and 1099s reported under your name, payments, balances and any missing returns. It&#39;s the fastest way to see where you stand before filing or answering a notice."),
   ("How it works", [f"Send me every page of the notice, and the tax return for that year if you have it, through my <a href=\"{PORTAL}\" rel=\"noopener\">secure upload portal</a>", "I prepare IRS Form 2848 (Power of Attorney) so I can speak to the IRS for you. You sign it, often electronically, and I file it", "For a transcript review only, a Form 8821 (Tax Information Authorization) is enough", "I pull your transcripts, review the notice against them and tell you your options", "I respond to the IRS and follow it through to the end"])],
  "IRS notice help",
- [(f"/irs-notices/{n['id']}/", "IRS " + H.escape(n["name"]) + ": " + H.escape(n["title"])) for n in NOTICES[:6]] + [("/irs-notices/", "Look up any IRS notice")])
+ [(f"/irs-notices/{n['id']}/", "IRS " + H.escape(n["name"]) + ": " + H.escape(n["title"])) for n in NOTICES[:6]] + [("/irs-notices/", "Look up any IRS notice")],
+ lead="""<div class="problems"><h1 class="eyebrow">Tax problems &amp; IRS resolution</h1>
+<p class="q">Haven&#39;t filed in a while?</p><p class="q">Got a letter from the IRS?</p><p class="q">Owe more than you can pay?</p>
+<p>I help individuals and business owners catch up on missing returns, deal with the IRS for them, and find a realistic way to resolve what&#39;s owed.</p>
+<ul class="checks"><li>Unfiled and prior-year returns</li><li>IRS notices, back taxes and payment plans</li><li>Penalty relief and other IRS resolution matters</li></ul>
+<a class="btn" href="/contact/">Book a consultation</a></div>""")
 service_page("quickbooks-cleanup", "QuickBooks Cleanup &amp; Catch-Up in Coral Springs, FL | Koldal Tax &amp; Advisory",
  "Months or years behind in QuickBooks Online? Cleanup and catch-up bookkeeping from an Enrolled Agent in Coral Springs, FL, quoted up front.",
  "QuickBooks cleanup &amp; catch-up",
