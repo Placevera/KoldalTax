@@ -79,7 +79,6 @@ section{padding-block:104px}
 .photo{margin:24px 0 0}
 .photo img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:2px}
 .hero .photo{margin:0}
-.about-photo{max-width:400px;margin-top:28px}
 .photo figcaption{font-size:14px;color:var(--muted);margin-top:10px}
 .hero-grid:has(.photo){align-items:stretch}
 .hero .photo{position:relative;min-height:360px}
