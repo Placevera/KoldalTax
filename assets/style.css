@@ -266,8 +266,10 @@ footer .brand{display:inline-grid;align-self:start;justify-content:start}
 .quote blockquote{margin:0;font-size:17px;line-height:1.6;color:var(--ink);flex:1}
 .quote figcaption{font-size:14px;color:var(--muted);font-weight:600}
 .problems{padding:8px 0 48px;margin-bottom:48px;border-bottom:1px solid var(--line)}
-.problems .q{font:400 clamp(26px,3.4vw,36px)/1.2 var(--display);color:var(--ink);margin:0 0 10px}
-.problems .q+p:not(.q){margin-top:22px;font-size:18px;color:var(--muted)}
+.problems h1{max-width:820px}
+.problems .grid.sit{margin:28px 0 30px;grid-template-columns:repeat(3,1fr)}
+@media(max-width:760px){.problems .grid.sit{grid-template-columns:1fr}}
+.problems .sit .card{border-top:3px solid var(--pine)}
 .article .byline{color:var(--muted);font-size:14px;margin:-6px 0 28px}
 .article h2{font-size:26px;margin:36px 0 12px}
 .article p,.article li{font-size:17px;line-height:1.7}

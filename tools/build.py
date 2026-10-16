@@ -378,11 +378,10 @@ service_page("irs-notice-help", "IRS Notice &amp; Letter Help in Coral Springs, 
   ("How it works", [f"Send me every page of the notice, and the tax return for that year if you have it, through my <a href=\"{PORTAL}\" rel=\"noopener\">secure upload portal</a>", "I prepare IRS Form 2848 (Power of Attorney) so I can speak to the IRS for you. You sign it, often electronically, and I file it", "For a transcript review only, a Form 8821 (Tax Information Authorization) is enough", "I pull your transcripts, review the notice against them and tell you your options", "I respond to the IRS and follow it through to the end"])],
  "IRS notice help",
  [(f"/irs-notices/{n['id']}/", "IRS " + H.escape(n["name"]) + ": " + H.escape(n["title"])) for n in NOTICES[:6]] + [("/irs-notices/", "Look up any IRS notice")],
- lead="""<div class="problems"><h1 class="eyebrow">Tax problems &amp; IRS resolution</h1>
-<p class="q">Haven&#39;t filed in a while?</p><p class="q">Got a letter from the IRS?</p><p class="q">Owe more than you can pay?</p>
-<p>I help individuals and business owners catch up on missing returns, deal with the IRS for them, and find a realistic way to resolve what&#39;s owed.</p>
-<ul class="checks"><li>Unfiled and prior-year returns</li><li>IRS notices, back taxes and payment plans</li><li>Penalty relief and other IRS resolution matters</li></ul>
-<a class="btn" href="/contact/">Book a consultation</a></div>""")
+ lead="""<div class="problems"><p class="eyebrow">IRS representation</p><h1>Dealing with the IRS? You don&#39;t have to do it alone.</h1>
+<p class="lede">As an Enrolled Agent, I&#39;m licensed by the IRS to represent you. Once you sign a power of attorney, the IRS can deal with me directly, and we decide the next step together.</p>
+<div class="grid sit"><div class="card"><h3>A notice arrived</h3><p>I read it against your IRS transcripts, tell you whether it&#39;s right, and answer it before the deadline.</p></div><div class="card"><h3>Returns are missing</h3><p>We file the unfiled years, or amend the ones that were wrong, and get you back in good standing.</p></div><div class="card"><h3>The balance is too big</h3><p>We look at payment plans and penalty relief and pick the option you can actually keep up with.</p></div></div>
+<a class="btn" href="/contact/">Talk to me about your IRS issue</a></div>""")
 service_page("quickbooks-cleanup", "QuickBooks Cleanup &amp; Catch-Up in Coral Springs, FL | Koldal Tax &amp; Advisory",
  "Months or years behind in QuickBooks Online? Cleanup and catch-up bookkeeping from an Enrolled Agent in Coral Springs, FL, quoted up front.",
  "QuickBooks cleanup &amp; catch-up",
