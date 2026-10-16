@@ -259,7 +259,7 @@ pages = {
  "Book a free consultation with Alek Koldal, EA about bookkeeping, tax preparation, tax planning or IRS help.",
  f"""<section><div class="wrap split"><div><h1>Book a free consultation</h1>
 <p>Tell me a little about what you need and I&#39;ll get back to you to set up a time to talk. The consultation is free and there&#39;s no obligation.</p>
-<p>For bookkeeping, we&#39;ll also ask for view access to your QuickBooks Online file so we can see where things stand.</p>
+<p>For bookkeeping, we&#39;ll also ask you to invite us as your accountant in QuickBooks Online (Settings, then Manage users, then Accounting firms) so we can review your file. It&#39;s free and you can remove us anytime.</p>
 <p>Prefer email? <a href="mailto:alek@koldaltax.com?subject=Consultation">alek@koldaltax.com</a></p>
 <p>Need to send tax documents or an IRS notice? Use my <a href="{PORTAL}" rel="noopener">secure upload portal</a> instead of email.</p></div>
 {CONTACT_FORM}</div></section>"""),
