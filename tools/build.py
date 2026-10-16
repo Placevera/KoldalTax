@@ -148,6 +148,9 @@ STEPS = """<ol class="steps">
 <li><h3>One-time onboarding</h3><p>We clean up prior months, set up bank rules and tie your books to your last tax return. Quoted up front, usually $800 to $2,500.</p></li>
 <li><h3>Monthly bookkeeping</h3><p>Every month your accounts are reconciled and your reports land in your inbox. At tax time, your books are ready for your return.</p></li></ol>"""
 
+def photo(name, alt, w=1100, h=733):
+    return f'<figure class="photo"><img src="/assets/photos/{name}.jpg" alt="{alt}" width="{w}" height="{h}" loading="lazy"></figure>'
+
 EA_SECTION = """<section class="band-dark"><div class="wrap split"><div><p class="eyebrow">Enrolled Agent</p><h2>Your books, backed by a federally licensed tax professional</h2>
 <p>Enrolled Agents are licensed by the U.S. Department of the Treasury and have unlimited rights to represent taxpayers before the IRS, for any tax matter, in all 50 states. It&#39;s the highest credential the IRS awards.</p>
 <p>That means your books are kept with your tax return in mind, and if the IRS ever sends a letter, the person who knows your numbers is the one who can answer it.</p>
@@ -216,21 +219,21 @@ pages = {
 {CTA}"""),
 "bookkeeping/index.html": page("/bookkeeping/", "QuickBooks Online Bookkeeping in Coral Springs, FL | Koldal Tax &amp; Advisory",
  "Monthly QuickBooks Online bookkeeping, cleanup and catch-up, and payroll with Gusto for small businesses in Coral Springs and South Florida. From $300 a month.",
- f"""<div class="hero"><div class="wrap"><p class="eyebrow">Bookkeeping</p><h1>Monthly QuickBooks Online bookkeeping</h1>
+ f"""<div class="hero"><div class="wrap hero-grid"><div><p class="eyebrow">Bookkeeping</p><h1>Monthly QuickBooks Online bookkeeping</h1>
 <p>Accounts reconciled every month, reports you can trust, and books that are ready for your tax return. From $300 a month.</p>
-<div class="actions"><a class="btn" href="/contact/">Book a consultation</a><a class="btn ghost" href="/pricing/">See plans &amp; pricing</a></div></div></div>
+<div class="actions"><a class="btn" href="/contact/">Book a consultation</a><a class="btn ghost" href="/pricing/">See plans &amp; pricing</a></div></div>{photo("bookkeeping-laptop","Reviewing monthly reports in QuickBooks Online on a laptop")}</div></div>
 <section><div class="wrap"><h2>How it works</h2>{STEPS}</div></section>
 <section style="background:var(--soft)"><div class="wrap"><h2>Plans</h2><p class="lede">Your monthly price is set after we look at your books, plus a one-time onboarding to get them right. No surprise bills.</p>{plan_cards(full=False)}
 <p style="margin-top:18px"><a href="/pricing/">Compare plans and add-ons &rarr;</a></p></div></section>
 <section><div class="wrap split"><div><h2>For any small business</h2>
-<p>Whatever your business does, if it runs on QuickBooks Online we can keep its books: contractors and trades, real estate agents, salons, cleaning and landscaping companies, restaurants, online sellers, professional services and more.</p></div>
+<p>Whatever your business does, if it runs on QuickBooks Online we can keep its books: contractors and trades, real estate agents, salons, cleaning and landscaping companies, restaurants, online sellers, professional services and more.</p>{photo("small-business","A salon owner checking in a client on a tablet")}</div>
 <div class="linklist"><a href="/services/quickbooks-cleanup/"><strong>Onboarding &amp; cleanup</strong><span>Prior months cleaned up and your books tied to your tax return, once</span></a><a href="/services/payroll-with-gusto/"><strong>Payroll with Gusto</strong><span>Setup, QuickBooks connection and a review of every payroll</span></a><a href="/quickbooks-help/1099-contractors/"><strong>1099 filing</strong><span>Contractor payments tracked in QuickBooks, 1099s prepared for your review and filed each January</span></a></div></div></section>
 {CTA}"""),
 "tax/index.html": page("/tax/", "Tax Preparation by an Enrolled Agent in Coral Springs, FL | Koldal Tax &amp; Advisory",
  "Individual and business tax return preparation from Alek Koldal, EA, an IRS Enrolled Agent in Coral Springs, FL. Individual returns from $650.",
- f"""<div class="hero"><div class="wrap"><p class="eyebrow">{EA_BADGE} Tax preparation</p><h1>Tax returns prepared by an Enrolled Agent</h1>
+ f"""<div class="hero"><div class="wrap hero-grid"><div><p class="eyebrow">{EA_BADGE} Tax preparation</p><h1>Tax returns prepared by an Enrolled Agent</h1>
 <p>Individual and business returns prepared by a federally licensed tax professional. For bookkeeping clients, your return comes straight from books we already keep.</p>
-<div class="actions"><a class="btn" href="/contact/">Book a consultation</a><a class="btn ghost" href="/pricing/#tax-pricing">See tax pricing</a></div></div></div>
+<div class="actions"><a class="btn" href="/contact/">Book a consultation</a><a class="btn ghost" href="/pricing/#tax-pricing">See tax pricing</a></div></div>{photo("tax-forms","Tax forms, a calculator and coffee on a desk", 1100, 748)}</div></div>
 <section><div class="wrap"><div class="grid two">
 <div class="card"><h3>Individual returns (1040)</h3><p>Federal and state returns for individuals, families and business owners, including self-employment (Schedule C), rental income (Schedule E) and investment income.</p><p class="small" style="margin-top:10px"><strong>From $650</strong></p></div>
 <div class="card"><h3>Business returns</h3><p>Partnerships (1065), S corporations (1120-S) and C corporations (1120).</p><p class="small" style="margin-top:10px"><strong>Quoted</strong></p></div>
@@ -240,9 +243,9 @@ pages = {
 {CTA}"""),
 "advisory/index.html": page("/advisory/", "Tax Planning &amp; Advisory in Coral Springs, FL | Koldal Tax &amp; Advisory",
  "Tax planning, quarterly estimates, year-end planning and business advisory from Alek Koldal, EA, an IRS Enrolled Agent in Coral Springs, FL.",
- f"""<div class="hero"><div class="wrap"><p class="eyebrow">Tax planning &amp; advisory</p><h1>Plan your taxes before the year ends, not after</h1>
+ f"""<div class="hero"><div class="wrap hero-grid"><div><p class="eyebrow">Tax planning &amp; advisory</p><h1>Plan your taxes before the year ends, not after</h1>
 <p>Most tax savings happen during the year. I use your actual numbers to plan ahead, so April brings no surprises and your business decisions come with the tax answer built in.</p>
-<div class="actions"><a class="btn" href="/contact/">Book a consultation</a></div></div></div>
+<div class="actions"><a class="btn" href="/contact/">Book a consultation</a></div></div>{photo("tax-planning","IRS estimated tax forms with a calculator and coffee", 1100, 773)}</div></div>
 <section><div class="wrap"><div class="grid">
 <div class="card"><h3>Year-end tax planning</h3><p>A review before December 31 of what you&#39;ll owe and the moves that can still lower it.</p></div>
 <div class="card"><h3>Quarterly estimated taxes</h3><p>Estimated payments calculated from your real income, so you pay the right amount on time.</p></div>
@@ -291,7 +294,7 @@ pages = {
 <p>Whether you need reliable bookkeeping, tax preparation, tax planning or help with an IRS issue, our goal is simple: confidence in your numbers and clarity about your taxes.</p>
 <p><strong>Alek Koldal, EA</strong><br><a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a></p>
 <p><a class="btn" href="/contact/">Book a consultation</a></p></div>
-<div><img class="headshot" src="/assets/headshot.jpg" alt="Alek Koldal, EA" width="380" height="475" onerror="this.remove()"></div></div></section>"""),
+<div><img class="headshot" src="/assets/headshot.jpg" alt="Alek Koldal, EA" width="380" height="475" onerror="this.remove()"><figure class="photo about-photo"><img src="/assets/photos/coffee-meeting.jpg" alt="Coffee and notes on a café table" width="1100" height="733" loading="lazy"><figcaption>Happy to meet over coffee anywhere in South Florida.</figcaption></figure></div></div></section>"""),
 "resources/index.html": page("/resources/", "Free QuickBooks &amp; IRS Help | Koldal Tax &amp; Advisory", "Free guides from an Enrolled Agent: look up your IRS notice or fix common QuickBooks Online problems.", f"""<section><div class="wrap"><h1>Resources</h1><p class="lede">Plain-English articles and guides from Koldal Tax &amp; Advisory on taxes, IRS notices and QuickBooks Online.</p><div class="grid" style="margin-top:20px"><a class="card notice" href="/irs-notices/"><h3>IRS notice lookup &rarr;</h3><p>Find your notice number (CP2000, CP14, CP504, 5071C and more) and see what it means, what to do and your deadline.</p></a><a class="card notice" href="/articles/"><h3>Articles &rarr;</h3><p>Short monthly pieces on the tax questions clients ask most, like what a filing extension does and doesn&#39;t cover.</p></a><a class="card notice" href="/quickbooks-help/"><h3>QuickBooks Online help &rarr;</h3><p>Step-by-step fixes for bank feeds, reconciliations, uncategorized transactions, 1099s and more.</p></a></div></div></section>{CTA}"""),
 "404.html": page("/404.html", "Page not found | Koldal Tax &amp; Advisory", "Page not found.",
  """<section><div class="wrap"><h1>Page not found</h1><p>That page doesn't exist. <a href="/">Go to the homepage</a> or <a href="/contact/">get in touch</a>.</p></div></section>"""),
