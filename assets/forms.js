@@ -26,6 +26,7 @@
         form.reset();
         msg.textContent = form.dataset.kind === "newsletter" ? "Thanks, you're on the list." : "Thanks! Your message was sent. I'll get back to you soon.";
         msg.className = "msg ok";
+        if (window.gtag) gtag("event", form.dataset.kind === "newsletter" ? "sign_up" : "generate_lead", { form: form.dataset.kind || "contact" });
       } catch (err) {
         msg.textContent = "Sorry, something went wrong. Please email alek@koldaltax.com directly.";
         msg.className = "msg err";
