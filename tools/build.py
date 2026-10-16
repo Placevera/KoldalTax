@@ -202,7 +202,6 @@ pages = {
 <p>Bookkeeping, tax preparation, planning and IRS help for small businesses and individuals, led by an Enrolled Agent.</p>
 <div class="actions"><a class="btn" href="/contact/">Book a consultation</a><a class="textlink" href="#services">Our services</a></div></div>
 {PORTRAIT}</div></div>
-<div class="trust"><div class="wrap"><ul><li>IRS Enrolled Agent</li><li>5.0 on Google</li><li>QuickBooks Online</li><li>Fully insured</li></ul></div></div>
 <section id="services"><div class="wrap"><p class="eyebrow">Services</p><h2>Everything in one place</h2>
 <div class="pillars">{"".join(f'<a class="pillar" href="{u}"><span class="pillar-k">{k}</span><h3>{t}</h3><p>{d}</p><span class="pillar-f">{f}</span></a>' for k, t, d, f, u in PILLARS)}</div></div></section>
 <section class="band-dark"><div class="wrap split"><div><p class="eyebrow">Why an Enrolled Agent</p>
@@ -211,10 +210,6 @@ pages = {
 <li><strong>One firm</strong><span>Books, returns and IRS letters handled under one roof, with an Enrolled Agent on every tax question.</span></li>
 <li><strong>Local</strong><span>Based in Coral Springs. We work remotely and are happy to meet over coffee anywhere in South Florida.</span></li></ul></div></section>
 {REVIEWS}
-<section><div class="wrap"><p class="eyebrow">How it works</p><h2>Simple from the first call</h2>
-<ol class="steps"><li><h3>Consultation</h3><p>Tell me what you need. It&#39;s free.</p></li>
-<li><h3>Clear quote</h3><p>A plan and a price before any work starts.</p></li>
-<li><h3>Ongoing support</h3><p>Books, returns and planning handled all year.</p></li></ol></div></section>
 {CTA}"""),
 "bookkeeping/index.html": page("/bookkeeping/", "QuickBooks Online Bookkeeping in Coral Springs, FL | Koldal Tax &amp; Advisory",
  "Monthly QuickBooks Online bookkeeping, cleanup and catch-up, and payroll with Gusto for small businesses in Coral Springs and South Florida. From $300 a month.",
