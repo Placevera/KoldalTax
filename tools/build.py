@@ -44,7 +44,7 @@ def page(path, title, desc, body):
 <footer><div class="wrap">
 <div><a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="56" height="42"><b>Koldal</b><small>Tax &amp; Advisory</small></a><p class="small">Alek Koldal, EA<br>Coral Springs, Florida<br>{f'<a href="{TEL}">{PHONE}</a><br>' if PHONE else ""}<a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a></p></div>
 <div><strong>Services</strong><a href="/bookkeeping/">Bookkeeping</a><a href="/tax/">Tax preparation</a><a href="/advisory/">Tax planning</a><a href="/services/irs-notice-help/">IRS help</a><a href="/pricing/">Pricing</a></div>
-<div><strong>Resources</strong><a href="/irs-notices/">IRS notice lookup</a><a href="/quickbooks-help/">QuickBooks help</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
+<div><strong>Resources</strong><a href="/articles/">Articles</a><a href="/irs-notices/">IRS notice lookup</a><a href="/quickbooks-help/">QuickBooks help</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
 <div><strong>Connect</strong><a href="{PORTAL}" rel="noopener">Send documents securely</a><a href="https://g.page/r/CTKng70qwgj_EBM/review" rel="noopener">Google reviews</a><a href="https://www.linkedin.com/in/aleksander-koldal" rel="noopener">LinkedIn</a><a href="https://members.csccrchamber.com/list/member/koldal-tax-advisory-margate-7305" rel="noopener">Chamber of Commerce</a><a class="badge-link" href="https://members.csccrchamber.com/list/member/koldal-tax-advisory-margate-7305" rel="noopener"><img src="/assets/chamber-member.png" alt="Proud member, Coral Springs Coconut Creek Regional Chamber" width="125" height="83" loading="lazy"></a></div>
 <p class="legal">&copy; 2026 Koldal Tax &amp; Advisory. All rights reserved. · Serving {", ".join(CITIES[:-1])} and {CITIES[-1]}</p>
 </div></footer>
@@ -84,10 +84,11 @@ ADDONS = [
 ]
 
 TAX_SERVICES = [
- ("Individual tax returns (1040)", "Federal and state returns for individuals, families and business owners.", "From $650"),
- ("Business tax returns", "Schedule C, partnerships (1065) and S corporations (1120-S), prepared from your books.", "Quoted"),
+ ("Individual tax returns (1040)", "Federal and state returns for individuals, families and business owners, including Schedule C self-employment and Schedule E rental income.", "From $650"),
+ ("Business tax returns", "Partnerships (1065), S corporations (1120-S) and C corporations (1120), prepared from your books.", "Quoted"),
+ ("Trust &amp; estate returns (1041)", "Fiduciary income tax returns for trusts and estates.", "Quoted"),
  ("Tax planning &amp; projections", "Year-end planning and quarterly estimated payments, so April has no surprises.", "Quoted"),
- ("Unfiled &amp; prior-year returns", "Behind on filing? I&#39;ll get missing years filed and you back in good standing.", "Quoted"),
+ ("Prior-year returns", "Behind on filing? Need to amend a return? I&#39;ll get you back in good standing.", "Quoted"),
  ("IRS notices &amp; representation", "CP2000s, balance-due notices, payment plans and audits by mail, answered for you.", "Quoted"),
  ("IRS transcript review", "Your wage &amp; income and account transcripts pulled and explained: what the IRS has on file, what you owe and what&#39;s missing.", "Quoted"),
  ("Penalty relief", "Reasonable-cause requests, older-year penalties and penalties the IRS doesn&#39;t remove on its own. Free penalty review.", "Small upfront fee plus a percentage of penalties I get removed"),
@@ -148,7 +149,7 @@ EA_SECTION = """<section class="band-dark"><div class="wrap split"><div><p class
 <p>Enrolled Agents are licensed by the U.S. Department of the Treasury and have unlimited rights to represent taxpayers before the IRS, for any tax matter, in all 50 states. It&#39;s the highest credential the IRS awards.</p>
 <p>That means your books are kept with your tax return in mind, and if the IRS ever sends a letter, the person who knows your numbers is the one who can answer it.</p>
 <p><a class="btn light" href="/tax/">Tax &amp; IRS services</a></p></div>
-<ul class="ea-list"><li><strong>Business tax returns</strong><span>Schedule C, partnerships and S corporations, prepared from books we keep.</span></li>
+<ul class="ea-list"><li><strong>Business tax returns</strong><span>Partnerships, S corporations and C corporations, prepared from books we keep.</span></li>
 <li><strong>Individual returns</strong><span>Federal and state returns for owners and families.</span></li>
 <li><strong>Tax planning</strong><span>Quarterly estimates and year-end planning, so April has no surprises.</span></li>
 <li><strong>IRS representation</strong><span>Notices, payment plans and penalty relief, handled for you.</span></li></ul></div></section>"""
@@ -166,7 +167,7 @@ REVIEW_FORM = """<form data-kind="contact" class="card"><input type="hidden" nam
 
 PILLARS = [
  ("Bookkeeping", "Monthly QuickBooks Online bookkeeping", "Reconciled accounts and clear monthly reports, plus cleanup, catch-up and Gusto payroll.", "From $300/month", "/bookkeeping/"),
- ("Tax preparation", "Individual &amp; business returns", "Returns for individuals, sole proprietors, partnerships and S corporations, including prior years.", "1040s from $650", "/tax/"),
+ ("Tax preparation", "Individual &amp; business returns", "Returns for individuals, partnerships, S and C corporations, trusts and estates, including prior years.", "1040s from $650", "/tax/"),
  ("Tax planning", "Planning &amp; advisory", "Year-end planning, quarterly estimates and advice on business structure, like S corporation elections.", "Quoted for your situation", "/advisory/"),
  ("IRS help", "Notices &amp; representation", "IRS letters, payment plans, audits by mail and penalty relief, handled by your Enrolled Agent.", "Free notice review", "/services/irs-notice-help/"),
 ]
@@ -177,7 +178,7 @@ CONTACT_FORM = REVIEW_FORM.replace('''<div class="row"><label>Are your books up 
 ''', '').replace('value="Free QuickBooks review"', 'value="Consultation request"').replace('<option>Monthly bookkeeping</option><option>Cleanup &amp; catch-up</option><option>Payroll with Gusto</option><option>Tax return</option><option>IRS notice or penalty</option><option>Something else</option>', '<option>Bookkeeping</option><option>Tax return</option><option>Tax planning &amp; advisory</option><option>IRS notice or penalty</option><option>Payroll with Gusto</option><option>Something else</option>').replace('Request my free review', 'Request a consultation').replace('<label>Business name<input id="f-biz" name="x_business" autocomplete="organization"></label><label>Type of business<input id="f-type" name="x_type" placeholder="e.g. contractor, salon"></label>', '<label>Business name (if any)<input id="f-biz" name="x_business" autocomplete="organization"></label><label>Type of business<input id="f-type" name="x_type" placeholder="e.g. contractor, salon"></label>')
 SERVICES = [
  ("Individual Tax Returns", "Federal and state tax preparation and filing for individuals and families.", []),
- ("Business Tax Returns", "Tax preparation for sole proprietors, partnerships, and S corporations.", []),
+ ("Business Tax Returns", "Tax preparation for partnerships, S corporations and C corporations, plus trust and estate returns.", []),
  ("Tax Planning & Projections", "Proactive planning to help reduce surprises and make informed financial decisions.", []),
  ("Monthly Bookkeeping", "Reliable, organized bookkeeping to help you understand your business, stay tax-ready, and make better decisions throughout the year.",
   ["Bank and credit card reconciliations", "Income and expense categorization", "Monthly profit and loss reports", "QuickBooks Online support", "Loan account reconciliations", "Help with business questions throughout the year", "Coordination with your tax preparation"]),
@@ -201,7 +202,6 @@ pages = {
 <p>Bookkeeping, tax preparation, planning and IRS help for small businesses and individuals, led by an Enrolled Agent.</p>
 <div class="actions"><a class="btn" href="/contact/">Book a consultation</a><a class="textlink" href="#services">Our services</a></div></div>
 {PORTRAIT}</div></div>
-<div class="trust"><div class="wrap"><ul><li>IRS Enrolled Agent</li><li>5.0 on Google</li><li>QuickBooks Online</li><li>Fully insured</li></ul></div></div>
 <section id="services"><div class="wrap"><p class="eyebrow">Services</p><h2>Everything in one place</h2>
 <div class="pillars">{"".join(f'<a class="pillar" href="{u}"><span class="pillar-k">{k}</span><h3>{t}</h3><p>{d}</p><span class="pillar-f">{f}</span></a>' for k, t, d, f, u in PILLARS)}</div></div></section>
 <section class="band-dark"><div class="wrap split"><div><p class="eyebrow">Why an Enrolled Agent</p>
@@ -210,10 +210,6 @@ pages = {
 <li><strong>One firm</strong><span>Books, returns and IRS letters handled under one roof, with an Enrolled Agent on every tax question.</span></li>
 <li><strong>Local</strong><span>Based in Coral Springs. We work remotely and are happy to meet over coffee anywhere in South Florida.</span></li></ul></div></section>
 {REVIEWS}
-<section><div class="wrap"><p class="eyebrow">How it works</p><h2>Simple from the first call</h2>
-<ol class="steps"><li><h3>Consultation</h3><p>Tell me what you need. It&#39;s free.</p></li>
-<li><h3>Clear quote</h3><p>A plan and a price before any work starts.</p></li>
-<li><h3>Ongoing support</h3><p>Books, returns and planning handled all year.</p></li></ol></div></section>
 {CTA}"""),
 "bookkeeping/index.html": page("/bookkeeping/", "QuickBooks Online Bookkeeping in Coral Springs, FL | Koldal Tax &amp; Advisory",
  "Monthly QuickBooks Online bookkeeping, cleanup and catch-up, and payroll with Gusto for small businesses in Coral Springs and South Florida. From $300 a month.",
@@ -232,10 +228,11 @@ pages = {
  f"""<div class="hero"><div class="wrap"><p class="eyebrow">{EA_BADGE} Tax preparation</p><h1>Tax returns prepared by an Enrolled Agent</h1>
 <p>Individual and business returns prepared by a federally licensed tax professional. For bookkeeping clients, your return comes straight from books we already keep.</p>
 <div class="actions"><a class="btn" href="/contact/">Book a consultation</a><a class="btn ghost" href="/pricing/#tax-pricing">See tax pricing</a></div></div></div>
-<section><div class="wrap"><div class="grid">
-<div class="card"><h3>Individual returns (1040)</h3><p>Federal and state returns for individuals, families and business owners, including self-employment, rental and investment income.</p><p class="small" style="margin-top:10px"><strong>From $650</strong></p></div>
-<div class="card"><h3>Business returns</h3><p>Sole proprietors (Schedule C), partnerships (1065) and S corporations (1120-S).</p><p class="small" style="margin-top:10px"><strong>Quoted</strong></p></div>
-<div class="card"><h3>Unfiled &amp; prior-year returns</h3><p>Behind on filing? I&#39;ll get missing years filed and you back in good standing with the IRS.</p><p class="small" style="margin-top:10px"><strong>Quoted</strong></p></div></div>
+<section><div class="wrap"><div class="grid two">
+<div class="card"><h3>Individual returns (1040)</h3><p>Federal and state returns for individuals, families and business owners, including self-employment (Schedule C), rental income (Schedule E) and investment income.</p><p class="small" style="margin-top:10px"><strong>From $650</strong></p></div>
+<div class="card"><h3>Business returns</h3><p>Partnerships (1065), S corporations (1120-S) and C corporations (1120).</p><p class="small" style="margin-top:10px"><strong>Quoted</strong></p></div>
+<div class="card"><h3>Trust &amp; estate returns (1041)</h3><p>Fiduciary income tax returns for trusts and estates, prepared for trustees and executors.</p><p class="small" style="margin-top:10px"><strong>Quoted</strong></p></div>
+<div class="card"><h3>Prior-year returns</h3><p>Behind on filing? Need to amend a return? I&#39;ll file the missing years or correct past returns and get you back in good standing with the IRS.</p><p class="small" style="margin-top:10px"><strong>Quoted</strong></p></div></div>
 <p class="small" style="margin-top:22px">Planning ahead for next year? See <a href="/advisory/">tax planning &amp; advisory</a>. Got a letter from the IRS? See <a href="/services/irs-notice-help/">IRS help</a>.</p></div></section>
 {CTA}"""),
 "advisory/index.html": page("/advisory/", "Tax Planning &amp; Advisory in Coral Springs, FL | Koldal Tax &amp; Advisory",
@@ -292,7 +289,7 @@ pages = {
 <p><strong>Alek Koldal, EA</strong><br><a href="mailto:alek@koldaltax.com">alek@koldaltax.com</a></p>
 <p><a class="btn" href="/contact/">Book a consultation</a></p></div>
 <div><img class="headshot" src="/assets/headshot.jpg" alt="Alek Koldal, EA" width="380" height="475" onerror="this.remove()"></div></div></section>"""),
-"resources/index.html": page("/resources/", "Free QuickBooks &amp; IRS Help | Koldal Tax &amp; Advisory", "Free guides from an Enrolled Agent: look up your IRS notice or fix common QuickBooks Online problems.", f"""<section><div class="wrap"><h1>Free help</h1><p class="lede">Plain-English guides from Koldal Tax &amp; Advisory on IRS notices and QuickBooks Online.</p><div class="grid" style="margin-top:20px"><a class="card notice" href="/irs-notices/"><h3>IRS notice lookup &rarr;</h3><p>Find your notice number (CP2000, CP14, CP504, 5071C and more) and see what it means, what to do and your deadline.</p></a><a class="card notice" href="/quickbooks-help/"><h3>QuickBooks Online help &rarr;</h3><p>Step-by-step fixes for bank feeds, reconciliations, uncategorized transactions, 1099s and more.</p></a></div></div></section>{CTA}"""),
+"resources/index.html": page("/resources/", "Free QuickBooks &amp; IRS Help | Koldal Tax &amp; Advisory", "Free guides from an Enrolled Agent: look up your IRS notice or fix common QuickBooks Online problems.", f"""<section><div class="wrap"><h1>Free help</h1><p class="lede">Plain-English guides from Koldal Tax &amp; Advisory on IRS notices and QuickBooks Online.</p><div class="grid" style="margin-top:20px"><a class="card notice" href="/irs-notices/"><h3>IRS notice lookup &rarr;</h3><p>Find your notice number (CP2000, CP14, CP504, 5071C and more) and see what it means, what to do and your deadline.</p></a><a class="card notice" href="/articles/"><h3>Articles &rarr;</h3><p>Short monthly pieces on the tax questions clients ask most, like what a filing extension does and doesn&#39;t cover.</p></a><a class="card notice" href="/quickbooks-help/"><h3>QuickBooks Online help &rarr;</h3><p>Step-by-step fixes for bank feeds, reconciliations, uncategorized transactions, 1099s and more.</p></a></div></div></section>{CTA}"""),
 "404.html": page("/404.html", "Page not found | Koldal Tax &amp; Advisory", "Page not found.",
  """<section><div class="wrap"><h1>Page not found</h1><p>That page doesn't exist. <a href="/">Go to the homepage</a> or <a href="/contact/">get in touch</a>.</p></div></section>"""),
 }
@@ -351,11 +348,23 @@ pages["quickbooks-help/index.html"] = page("/quickbooks-help/", "QuickBooks Onli
 <div class="grid" id="nl">{qrows}</div><p id="none" style="display:none">No match. <a href="/contact/">Ask me directly</a>.</p></div></section>
 <script>const q=document.getElementById('nq'),cs=[...document.querySelectorAll('#nl .notice')];q.addEventListener('input',()=>{{const v=q.value.toLowerCase();let n=0;cs.forEach(c=>{{const m=c.dataset.q.includes(v);c.style.display=m?'':'none';n+=m}});document.getElementById('none').style.display=n?'none':''}});</script>""")
 
-def service_page(slug, title, desc, h1, intro, sections, topic, links):
+ARTICLES = sorted(json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "articles.json"))), key=lambda x: x["date"], reverse=True)
+for a in ARTICLES:
+    ld = json.dumps({"@context": "https://schema.org", "@type": "Article", "headline": a["title"], "datePublished": a["date"], "author": {"@type": "Person", "name": "Alek Koldal, EA"}, "publisher": {"@type": "Organization", "name": "Koldal Tax & Advisory"}})
+    pages[f"articles/{a['slug']}/index.html"] = page(f"/articles/{a['slug']}/", f"{a['title']} | Koldal Tax &amp; Advisory", e(a["summary"]),
+     f"""<section><div class="wrap article" style="max-width:720px"><p class="small"><a href="/articles/">Articles</a></p><h1>{a['title']}</h1>
+<p class="byline">By Alek Koldal, EA · <time datetime="{a['date']}">{a['date_label']}</time></p>{a['html']}</div></section>
+<script type="application/ld+json">{ld}</script>{CTA}""")
+arows = "".join(f'<a class="card notice" href="/articles/{a["slug"]}/"><p class="small">{a["date_label"]}</p><h3>{a["title"]}</h3><p>{e(a["summary"])}</p></a>' for a in ARTICLES)
+pages["articles/index.html"] = page("/articles/", "Tax Articles | Koldal Tax &amp; Advisory",
+ "Short, plain-English tax articles from Alek Koldal, EA, an IRS Enrolled Agent in Coral Springs, FL.",
+ f"""<section><div class="wrap"><h1>Articles</h1><p class="lede">Short, plain-English pieces on the tax questions clients ask most. A new one each month.</p><div class="grid" style="margin-top:20px">{arows}</div></div></section>{CTA}""")
+
+def service_page(slug, title, desc, h1, intro, sections, topic, links, lead=""):
     secs = "".join(f"<h2 id=\"{h.split()[0].lower().strip(',')}\">{h}</h2>" + ("<ul>" + "".join(f"<li>{x}</li>" for x in body) + "</ul>" if isinstance(body, list) else f"<p>{body}</p>") for h, body in sections)
     lk = "".join(f'<li><a href="{u}">{t}</a></li>' for u, t in links)
     pages[f"services/{slug}/index.html"] = page(f"/services/{slug}/", title, desc,
-     f"""<section><div class="wrap" style="max-width:780px"><p class="small"><a href="/services/">Services</a></p><h1>{h1}</h1><p style="font-size:19px;color:var(--muted)">{intro}</p>{secs}
+     f"""<section><div class="wrap" style="max-width:780px"><p class="small"><a href="/services/">Services</a></p>{lead}{"<h2>" + h1 + "</h2>" if lead else "<h1>" + h1 + "</h1>"}<p style="font-size:19px;color:var(--muted)">{intro}</p>{secs}
 <h2>Helpful guides</h2><ul>{lk}</ul>{quick_form(topic, "Get started", "Tell me a bit about your situation and I&#39;ll get back to you.")}</div></section>""")
 
 AREA = f"Based in Coral Springs and working with clients in {', '.join(CITIES[1:-1])} and {CITIES[-1]}, as well as remotely across Florida."
@@ -368,7 +377,12 @@ service_page("irs-notice-help", "IRS Notice &amp; Letter Help in Coral Springs, 
   ("IRS transcripts", "Not sure what the IRS has on file? With a signed Form 8821 or 2848, I pull your wage &amp; income and account transcripts and walk you through them: the W-2s and 1099s reported under your name, payments, balances and any missing returns. It&#39;s the fastest way to see where you stand before filing or answering a notice."),
   ("How it works", [f"Send me every page of the notice, and the tax return for that year if you have it, through my <a href=\"{PORTAL}\" rel=\"noopener\">secure upload portal</a>", "I prepare IRS Form 2848 (Power of Attorney) so I can speak to the IRS for you. You sign it, often electronically, and I file it", "For a transcript review only, a Form 8821 (Tax Information Authorization) is enough", "I pull your transcripts, review the notice against them and tell you your options", "I respond to the IRS and follow it through to the end"])],
  "IRS notice help",
- [(f"/irs-notices/{n['id']}/", "IRS " + H.escape(n["name"]) + ": " + H.escape(n["title"])) for n in NOTICES[:6]] + [("/irs-notices/", "Look up any IRS notice")])
+ [(f"/irs-notices/{n['id']}/", "IRS " + H.escape(n["name"]) + ": " + H.escape(n["title"])) for n in NOTICES[:6]] + [("/irs-notices/", "Look up any IRS notice")],
+ lead="""<div class="problems"><h1 class="eyebrow">Tax problems &amp; IRS resolution</h1>
+<p class="q">Haven&#39;t filed in a while?</p><p class="q">Got a letter from the IRS?</p><p class="q">Owe more than you can pay?</p>
+<p>I help individuals and business owners catch up on missing returns, deal with the IRS for them, and find a realistic way to resolve what&#39;s owed.</p>
+<ul class="checks"><li>Unfiled and prior-year returns</li><li>IRS notices, back taxes and payment plans</li><li>Penalty relief and other IRS resolution matters</li></ul>
+<a class="btn" href="/contact/">Book a consultation</a></div>""")
 service_page("quickbooks-cleanup", "QuickBooks Cleanup &amp; Catch-Up in Coral Springs, FL | Koldal Tax &amp; Advisory",
  "Months or years behind in QuickBooks Online? Cleanup and catch-up bookkeeping from an Enrolled Agent in Coral Springs, FL, quoted up front.",
  "QuickBooks cleanup &amp; catch-up",
