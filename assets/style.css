@@ -111,6 +111,7 @@ section{padding-block:104px}
 
 /* generic cards: quiet tiles on mist, no borders */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.grid.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))}
 .card{background:var(--paper);padding:32px;display:block}
 .card p{color:var(--muted);margin:0}
 .card ul{margin:12px 0 0;padding-left:20px;color:var(--muted)}

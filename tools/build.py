@@ -84,8 +84,9 @@ ADDONS = [
 ]
 
 TAX_SERVICES = [
- ("Individual tax returns (1040)", "Federal and state returns for individuals, families and business owners.", "From $650"),
- ("Business tax returns", "Schedule C, partnerships (1065) and S corporations (1120-S), prepared from your books.", "Quoted"),
+ ("Individual tax returns (1040)", "Federal and state returns for individuals, families and business owners, including Schedule C self-employment and Schedule E rental income.", "From $650"),
+ ("Business tax returns", "Partnerships (1065), S corporations (1120-S) and C corporations (1120), prepared from your books.", "Quoted"),
+ ("Trust &amp; estate returns (1041)", "Fiduciary income tax returns for trusts and estates.", "Quoted"),
  ("Tax planning &amp; projections", "Year-end planning and quarterly estimated payments, so April has no surprises.", "Quoted"),
  ("Unfiled &amp; prior-year returns", "Behind on filing? I&#39;ll get missing years filed and you back in good standing.", "Quoted"),
  ("IRS notices &amp; representation", "CP2000s, balance-due notices, payment plans and audits by mail, answered for you.", "Quoted"),
@@ -148,7 +149,7 @@ EA_SECTION = """<section class="band-dark"><div class="wrap split"><div><p class
 <p>Enrolled Agents are licensed by the U.S. Department of the Treasury and have unlimited rights to represent taxpayers before the IRS, for any tax matter, in all 50 states. It&#39;s the highest credential the IRS awards.</p>
 <p>That means your books are kept with your tax return in mind, and if the IRS ever sends a letter, the person who knows your numbers is the one who can answer it.</p>
 <p><a class="btn light" href="/tax/">Tax &amp; IRS services</a></p></div>
-<ul class="ea-list"><li><strong>Business tax returns</strong><span>Schedule C, partnerships and S corporations, prepared from books we keep.</span></li>
+<ul class="ea-list"><li><strong>Business tax returns</strong><span>Partnerships, S corporations and C corporations, prepared from books we keep.</span></li>
 <li><strong>Individual returns</strong><span>Federal and state returns for owners and families.</span></li>
 <li><strong>Tax planning</strong><span>Quarterly estimates and year-end planning, so April has no surprises.</span></li>
 <li><strong>IRS representation</strong><span>Notices, payment plans and penalty relief, handled for you.</span></li></ul></div></section>"""
@@ -166,7 +167,7 @@ REVIEW_FORM = """<form data-kind="contact" class="card"><input type="hidden" nam
 
 PILLARS = [
  ("Bookkeeping", "Monthly QuickBooks Online bookkeeping", "Reconciled accounts and clear monthly reports, plus cleanup, catch-up and Gusto payroll.", "From $300/month", "/bookkeeping/"),
- ("Tax preparation", "Individual &amp; business returns", "Returns for individuals, sole proprietors, partnerships and S corporations, including prior years.", "1040s from $650", "/tax/"),
+ ("Tax preparation", "Individual &amp; business returns", "Returns for individuals, partnerships, S and C corporations, trusts and estates, including prior years.", "1040s from $650", "/tax/"),
  ("Tax planning", "Planning &amp; advisory", "Year-end planning, quarterly estimates and advice on business structure, like S corporation elections.", "Quoted for your situation", "/advisory/"),
  ("IRS help", "Notices &amp; representation", "IRS letters, payment plans, audits by mail and penalty relief, handled by your Enrolled Agent.", "Free notice review", "/services/irs-notice-help/"),
 ]
@@ -177,7 +178,7 @@ CONTACT_FORM = REVIEW_FORM.replace('''<div class="row"><label>Are your books up 
 ''', '').replace('value="Free QuickBooks review"', 'value="Consultation request"').replace('<option>Monthly bookkeeping</option><option>Cleanup &amp; catch-up</option><option>Payroll with Gusto</option><option>Tax return</option><option>IRS notice or penalty</option><option>Something else</option>', '<option>Bookkeeping</option><option>Tax return</option><option>Tax planning &amp; advisory</option><option>IRS notice or penalty</option><option>Payroll with Gusto</option><option>Something else</option>').replace('Request my free review', 'Request a consultation').replace('<label>Business name<input id="f-biz" name="x_business" autocomplete="organization"></label><label>Type of business<input id="f-type" name="x_type" placeholder="e.g. contractor, salon"></label>', '<label>Business name (if any)<input id="f-biz" name="x_business" autocomplete="organization"></label><label>Type of business<input id="f-type" name="x_type" placeholder="e.g. contractor, salon"></label>')
 SERVICES = [
  ("Individual Tax Returns", "Federal and state tax preparation and filing for individuals and families.", []),
- ("Business Tax Returns", "Tax preparation for sole proprietors, partnerships, and S corporations.", []),
+ ("Business Tax Returns", "Tax preparation for partnerships, S corporations and C corporations, plus trust and estate returns.", []),
  ("Tax Planning & Projections", "Proactive planning to help reduce surprises and make informed financial decisions.", []),
  ("Monthly Bookkeeping", "Reliable, organized bookkeeping to help you understand your business, stay tax-ready, and make better decisions throughout the year.",
   ["Bank and credit card reconciliations", "Income and expense categorization", "Monthly profit and loss reports", "QuickBooks Online support", "Loan account reconciliations", "Help with business questions throughout the year", "Coordination with your tax preparation"]),
@@ -232,9 +233,10 @@ pages = {
  f"""<div class="hero"><div class="wrap"><p class="eyebrow">{EA_BADGE} Tax preparation</p><h1>Tax returns prepared by an Enrolled Agent</h1>
 <p>Individual and business returns prepared by a federally licensed tax professional. For bookkeeping clients, your return comes straight from books we already keep.</p>
 <div class="actions"><a class="btn" href="/contact/">Book a consultation</a><a class="btn ghost" href="/pricing/#tax-pricing">See tax pricing</a></div></div></div>
-<section><div class="wrap"><div class="grid">
-<div class="card"><h3>Individual returns (1040)</h3><p>Federal and state returns for individuals, families and business owners, including self-employment, rental and investment income.</p><p class="small" style="margin-top:10px"><strong>From $650</strong></p></div>
-<div class="card"><h3>Business returns</h3><p>Sole proprietors (Schedule C), partnerships (1065) and S corporations (1120-S).</p><p class="small" style="margin-top:10px"><strong>Quoted</strong></p></div>
+<section><div class="wrap"><div class="grid two">
+<div class="card"><h3>Individual returns (1040)</h3><p>Federal and state returns for individuals, families and business owners, including self-employment (Schedule C), rental income (Schedule E) and investment income.</p><p class="small" style="margin-top:10px"><strong>From $650</strong></p></div>
+<div class="card"><h3>Business returns</h3><p>Partnerships (1065), S corporations (1120-S) and C corporations (1120).</p><p class="small" style="margin-top:10px"><strong>Quoted</strong></p></div>
+<div class="card"><h3>Trust &amp; estate returns (1041)</h3><p>Fiduciary income tax returns for trusts and estates, prepared for trustees and executors.</p><p class="small" style="margin-top:10px"><strong>Quoted</strong></p></div>
 <div class="card"><h3>Unfiled &amp; prior-year returns</h3><p>Behind on filing? I&#39;ll get missing years filed and you back in good standing with the IRS.</p><p class="small" style="margin-top:10px"><strong>Quoted</strong></p></div></div>
 <p class="small" style="margin-top:22px">Planning ahead for next year? See <a href="/advisory/">tax planning &amp; advisory</a>. Got a letter from the IRS? See <a href="/services/irs-notice-help/">IRS help</a>.</p></div></section>
 {CTA}"""),
