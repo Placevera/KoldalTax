@@ -410,9 +410,9 @@ for name, html in pages.items():
     p = os.path.join(out, name); os.makedirs(os.path.dirname(p), exist_ok=True); open(p, "w").write(html)
 open(os.path.join(out, "CNAME"), "w").write("www.koldaltax.com\n")
 # Search engines and AI answer/search bots may crawl; AI training crawlers may not.
-TRAINING_BOTS = ["GPTBot", "ClaudeBot", "anthropic-ai", "Google-Extended", "Applebot-Extended", "CCBot",
-                 "Bytespider", "meta-externalagent", "FacebookBot", "Amazonbot", "cohere-ai", "Diffbot", "omgili", "ImagesiftBot"]
-robots = "".join(f"User-agent: {b}\nDisallow: /\n\n" for b in TRAINING_BOTS)
+# AI assistants (ChatGPT, Claude, Gemini, Perplexity...) may read the site; only bulk scrapers are blocked.
+SCRAPER_BOTS = ["Bytespider", "Diffbot", "omgili", "ImagesiftBot"]
+robots = "".join(f"User-agent: {b}\nDisallow: /\n\n" for b in SCRAPER_BOTS)
 robots += f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n"
 open(os.path.join(out, "robots.txt"), "w").write(robots)
 open(os.path.join(out, "llms.txt"), "w").write(f"""# Koldal Tax &amp; Advisory
